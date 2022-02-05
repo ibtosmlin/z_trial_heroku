@@ -1,4 +1,6 @@
 # Web アプリの練習
+https://trial-heroku-ibtosm.herokuapp.com/
+
 ## 目的
 - git連携
 - flaskによるweb作成

@@ -17,7 +17,21 @@
             <th>{{ hi }}</th>
             {% endfor %}
         </tr>
+        {% for content in tabledata %}
+            <tr>
+                {% for i in range(5) %}
+                    <td>{{ content[i] }}</td>
+                {% endfor %}
+                <td>
+                    <a href="{{ content[5] }}">
+                        {{ content[4]}}
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+
     </table>
+    <a href="https://www.fixes.pub/program/347437.html">xxx</a>
     <p>更新日時:{{ update_time }}</p>
 </body>
 

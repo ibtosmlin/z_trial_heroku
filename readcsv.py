@@ -23,18 +23,11 @@ def get_update_time():
 
 
 def select_table(head, contents, fm, to, comp, kwd):
-    retstr = ['<table>']
-    retstr.append('<tr>')
-    for hi in head:
-        retstr.append(f'<th>{hi}</th>')
-    retstr.append('</tr>')
-    for ci in contents:
-        retstr.append('<tr>')
-        for hi in ci:
-            retstr.append(f'<td>{hi}</td>')
-        retstr.append('</tr>')
-    retstr.append('</table>')
-    return '\n'.join(retstr)
+    ret = []
+    for con in contents:
+        if comp == con[0]:
+            ret.append(con)
+    return ret
 
 
 

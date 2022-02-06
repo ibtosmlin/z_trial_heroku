@@ -1,13 +1,16 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import os
 import readcsv
+import datetime
 
 app = Flask(__name__)
 
 # 更新日時
 update_time =  readcsv.get_update_time()
 header, contents = readcsv.get_table()
+d_today = datetime.date.today()
 
+print(str(d_today))
 @app.route("/", methods=['GET', 'POST'])
 def script():
 
@@ -22,7 +25,10 @@ def script():
         tabledata = readcsv.select_table(header, contents, datefrom, dateto, company, kwrds)
         return render_template('./index.html',
                 update_time=update_time, header=header,
+                d_today = str(d_today),
                 tabledata=tabledata)
+
+#def links(url)
 
 
 if __name__ == "__main__":

@@ -6,32 +6,28 @@
 
 <body>
     <form action="/" method="post">
-        <input type="text" name="datefrom" value="19960420">
-        <input type="text" name="dateto" value="20250420">
+        <input type="date" name="datefrom" value={{ d_today }}>
+        <input type="date" name="dateto" value="2022-02-14">
         <input type="text" name="company" value="フコクしんらい生命保険株式会社">
         <input type="submit" value="送信">
     </form>
     <table>
         <tr>
-            {% for hi in header %}
-            <th>{{ hi }}</th>
+            {% for i in range(4) %}
+            <th>{{ header[i] }}</th>
             {% endfor %}
         </tr>
         {% for content in tabledata %}
             <tr>
-                {% for i in range(5) %}
+                {% for i in range(3) %}
                     <td>{{ content[i] }}</td>
                 {% endfor %}
-                <td>
-                    <a href="{{ content[5] }}">
-                        {{ content[4]}}
-                    </a>
-                </td>
+                    <td>
+                        <a href={{ content[4] }}>{{ content[3] }}</a>
+                    </td>
             </tr>
         {% endfor %}
-
     </table>
-    <a href="https://www.fixes.pub/program/347437.html">xxx</a>
     <p>更新日時:{{ update_time }}</p>
 </body>
 

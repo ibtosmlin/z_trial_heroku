@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
+    <title>生保会社NR検索</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='./style.css') }}">
 </head>
 
 <body>
-    <form action="/" method="post">
-        <input type="date" name="datefrom" value={{ d_today }}>
-        <input type="date" name="dateto" value="2022-02-14">
+    <div class="titlebar">
+        <p class="left">◆生保会社NR検索</p>
+        <p class="right">更新日時:{{ update_time }}</p>
+    </div>
+    <form action="/" method="post" class="form">
+        <input type="date" name="datefrom" value={{datefrom}}>
+        <input type="date" name="dateto" value={{dateto}}>
         <input type="text" name="company" value="フコクしんらい生命保険株式会社">
         <input type="submit" value="送信">
     </form>
     <table>
         <tr>
             {% for i in range(4) %}
-            <th>{{ header[i] }}</th>
+            <th class="fixed01">{{ header[i] }}</th>
             {% endfor %}
         </tr>
         {% for content in tabledata %}
@@ -28,7 +33,6 @@
             </tr>
         {% endfor %}
     </table>
-    <p>更新日時:{{ update_time }}</p>
 </body>
 
 </html>

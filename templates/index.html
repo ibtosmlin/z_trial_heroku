@@ -5,19 +5,21 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='./style.css') }}">
 </head>
 
-<body>
-    <div class="tbar">
+
+<header>
+<div class="tbar">
         <div class="tbar_inline">◆生保会社NR検索</div>
         <div class="tbar_inline">更新日時:{{ update_time }}</div>
     </div>
     <form action="/" method="post">
-        <input type="date" name="datefrom" value={{datefrom}} class="forms">
-        <input type="date" name="dateto" value={{dateto}} class="forms">
-        <input type="search" name="company" placeholder="フコクしんらい生命保険株式会社" class="forms wide">
-        <input type="search" name="keywords" placeholder="キーワードを入力" value="" class="forms wide">
+        from<input type="date" name="datefrom" value={{datefrom}} class="forms">
+        to<input type="date" name="dateto" value={{dateto}} class="forms">
+        <input type="search" name="company" placeholder="〇〇生命保険株式会社" class="forms wide_comp">
+        <input type="search" name="keywords" placeholder="キーワードを入力" value="" class="forms wide_kwds">
+        <input type="submit" value="検索">
     </form>
-
-    <br></br>
+</header>
+<body>
 
     <table>
         <tr>
@@ -27,12 +29,14 @@
         </tr>
         {% for content in tabledata %}
             <tr>
-                {% for i in range(3) %}
-                    <td>{{ content[i] }}</td>
-                {% endfor %}
-                    <td>
-                        <a href={{ content[4] }}>{{ content[3] }}</a>
-                    </td>
+                <td class="tbl_wide_comp">
+                    <a href={{ content[5] }}>{{ content[0] }}</a>
+                </td>
+                <td class="tbl_wide_type">{{ content[1] }}</td>
+                <td class="tbl_wide_date">{{ content[2] }}</td>
+                <td>
+                    <a href={{ content[4] }}>{{ content[3] }}</a>
+                </td>
             </tr>
         {% endfor %}
     </table>

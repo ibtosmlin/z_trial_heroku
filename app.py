@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for
 import os
-import readcsv
+from data import readcsv
 import datetime
 
 
@@ -40,4 +40,3 @@ def script():
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-

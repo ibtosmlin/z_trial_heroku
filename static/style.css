@@ -1,0 +1,68 @@
+@charset "utf-8-BOM";
+
+html {
+  font-size: 62.5%;
+}
+
+BODY {
+  FONT-FAMILY : sans-serif ;
+  font-size : 1.6rem;
+  COLOR : Black ;
+}
+
+.tbar {
+  width: 100%;
+/*  height: 2.5rem;*/
+  height: 3rem;
+  display: flex;
+  background-color: #00AB00; /* 背景を赤色に */
+  color:white;               /* 文字を白色に */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tbar_inline {
+  display:inline-block;
+  height: 3rem;
+  font-size:2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.forms {
+  font-family : inherit;
+  font-size   : 1.6rem;
+  height   : 3rem;
+}
+
+.wide {
+  width: 50%
+}
+
+
+table{
+  width: 100%;
+}
+
+th,td{
+  height: 2px;
+  vertical-align: middle;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+}
+
+.fixed01{
+  position: sticky;
+  top: 0;
+  color: #000000;
+  background: #99CC99;
+  &:before{
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+  }
+}

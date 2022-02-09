@@ -10,7 +10,7 @@ app = Flask(__name__)
 update_time =  readcsv.get_update_time()
 header, contents = readcsv.get_table()
 d_today = str(datetime.date.today())
-date_fm = "2000-04-01"
+date_fm = "2001-04-01"
 date_to = d_today
 
 @app.route("/", methods=['GET', 'POST'])

@@ -1,4 +1,5 @@
 import csv
+import datetime
 from operator import itemgetter
 import os
 import re
@@ -88,6 +89,17 @@ class ContentsTable:
         return content[self.header_dict['会社名']] in company
 
     def _check_day(self, content, days, d_today):
+        datestr = content[self.header_dict['日付']]
+        if datestr == '---': return True
+        for dayid in days:
+            if dayid[0] == 'Y':
+                return int(dayid[1:]) == int(datestr[:4])
+            elif dayid[0] == 'B':
+                return int(dayid[1:]) >= int(datestr[:4])
+            else:   # dayid=='M3'
+                return True
+
+
 
         return True
 

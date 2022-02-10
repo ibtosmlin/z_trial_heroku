@@ -37,8 +37,8 @@ def index():
                 )
 
     elif request.method == 'POST':
-        comps = request.form.get('select-company')
-        days = request.form.get('select-days')
+        days = request.form.getlist('select-days')
+        comps = request.form.getlist('select-company')
         kwrds = request.form.get('keywords')
         kwrds = search_string_to_list(kwrds)
         return render_template('./index.html',

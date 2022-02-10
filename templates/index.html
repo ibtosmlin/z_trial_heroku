@@ -22,7 +22,7 @@
 <div class="searchbox">
 <form method="POST">
 <!--ここから日付の検索-->
-<select name="select-date" placeholder="期間選択" multiple>
+<select name="select-days" placeholder="期間選択" multiple>
     {% for u, v in days_list %}
     {%if u in days_selected %}
         <option value={{ u }} selected>{{ v }}</option>
@@ -44,7 +44,7 @@
 
 </select>
 <!--ここからキーワード-->
-<input type="search" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value={{ kwrds }}>
+<input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
 <input type="submit" value="検索">
 
 </form></div>

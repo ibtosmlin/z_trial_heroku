@@ -90,18 +90,18 @@ class ContentsTable:
 
     def _check_day(self, content, days, d_today):
         datestr = content[self.header_dict['日付']]
-        if datestr == '---': return True
         for dayid in days:
             if dayid[0] == 'Y':
                 return int(dayid[1:]) == int(datestr[:4])
             elif dayid[0] == 'B':
                 return int(dayid[1:]) >= int(datestr[:4])
-            else:   # dayid=='M3'
-                return True
-
-
-
-        return True
+            else:
+                if datestr[:4] == '----':   # dayid=='M3' and '----'
+                    return True
+                else:
+                    dt = d_today - datetime.datetime.strptime(datestr, '%Y-%m-%d')
+                    return dt.days <= 90
+        return False
 
     def _check_kwd(self, content, regex):
         if regex.findall(content[self.header_dict['件名']]):

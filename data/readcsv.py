@@ -6,10 +6,10 @@ import re
 
 
 libpath = os.path.dirname(__file__)
-filename = os.path.join(libpath, 'test.csv')
-header_def = os.path.join(libpath, 'test_header.csv')
-update_date = os.path.join(libpath, 'update_date.csv')
-comp_url = os.path.join(libpath, 'list_li_utf8.csv')
+filename = os.path.join(libpath, 'data_informations.csv')
+header_def = os.path.join(libpath, 'def_header.csv')
+update_date = os.path.join(libpath, 'data_update_date.csv')
+comp_url = os.path.join(libpath, 'data_companies.csv')
 
 
 class ContentsTable:
@@ -91,17 +91,16 @@ class ContentsTable:
     def _check_day(self, content, days, d_today):
         datestr = content[self.header_dict['日付']]
         for dayid in days:
+            if datestr == '---': return dayid == 'M90'
             if dayid[0] == 'Y':
-                return int(dayid[1:]) == int(datestr[:4])
+                if int(dayid[1:]) == int(datestr[:4]): return True
             elif dayid[0] == 'B':
-                return int(dayid[1:]) >= int(datestr[:4])
+                if int(dayid[1:]) >= int(datestr[:4]): return True
             else:
-                if datestr[:4] == '----':   # dayid=='M3' and '----'
-                    return True
-                else:
-                    dt = d_today - datetime.datetime.strptime(datestr, '%Y-%m-%d')
-                    return dt.days <= 90
+                dt = d_today - datetime.datetime.strptime(datestr, '%Y-%m-%d').date()
+                if dt.days <= 90: return True
         return False
+
 
     def _check_kwd(self, content, regex):
         if regex.findall(content[self.header_dict['件名']]):
@@ -111,4 +110,4 @@ class ContentsTable:
 
 if __name__ == '__main__':
     CT = ContentsTable()
-    print(CT.select_table(['フコクしんらい生命保険株式会社'], 1, ['保険金', '金庫']))
+    print(CT.select_table(['日本生命'], 1, ['保険金', '金庫']))

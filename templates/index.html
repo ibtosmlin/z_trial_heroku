@@ -23,7 +23,7 @@
 <form method="POST">
 <!--ここから日付の検索-->
 <select name="select-days" placeholder="期間選択" multiple>
-    {% for u, v in days_list %}
+    {% for u, v in days %}
     {%if u in days_selected %}
         <option value={{ u }} selected>{{ v }}</option>
     {% else %}

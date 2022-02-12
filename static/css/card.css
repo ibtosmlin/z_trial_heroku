@@ -1,0 +1,23 @@
+.card{
+    border: #808000 solid 1px;
+    box-shadow: 0 3px 4px 0 #c0c0c0;
+    margin: 10px;
+    background-color: #000000;
+    width :400px;
+}
+
+.card a{
+    text-decoration: none;
+}
+
+.card .company{
+    color : yellow;
+    background-color: blue;
+    padding: 20px;
+}
+
+.card .article{
+    color : black;
+    background-color: cornflowerblue;
+    padding: 20px;
+}

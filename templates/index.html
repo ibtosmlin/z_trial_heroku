@@ -2,15 +2,19 @@
 <html lang="ja">
 <head>
 <title>生保会社ＮＲ検索</title>
+<meta name="viewport" content="width=device-width">
+
+<!--JQuery-->
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
-<script type="text/javascript" src= "{{ url_for('static',filename='./js/multiselect.js') }}"></script>
+<!--multipleselect-->
 <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+<script type="text/javascript" src= "{{ url_for('static',filename='./js/multiselect.js') }}"></script>
 <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
-
+<!--mystyle-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/box.css') }}">
-
+<!--cardbox-->
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
+<!--followingbox-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
 
@@ -84,17 +88,15 @@
 
 
 {% for content in tabledata %}
-<article class="info-card">
-    {% for hi in header %}
-        {% if hi == "会社名" %}
-            <p><a href={{ content[header_dict["company_url"]] }} target="_blank" rel="noopener norefeprrer">{{ content[header_dict[hi]] }}</a></p>
-        {% elif hi == "件名" %}
-        <p><a href={{ content[header_dict["url"]] }} target="_blank" rel="noopener noreferrer">{{ content[header_dict[hi]] }}</a></p>
-        {% else %}
-        <p>{{ content[header_dict[hi]] }}</p>
-        {% endif %}
-    {% endfor %}
-</article>
+<section class="card">
+    <a href={{ content[header_dict["company_url"]] }} target="_blank" rel="noopener norefeprrer">
+    <div class="company">{{ content[header_dict["会社名"]] }}</div></a>
+    <a href={{ content[header_dict["url"]] }} target="_blank" rel="noopener noreferrer">
+    <div class="article">
+        <p class="sub">{{ content[header_dict["日付"]] }}  {{ content[header_dict["分類"]] }}</p>
+        <p class="issue">{{ content[header_dict["件名"]] }}</p>
+    </div></a>
+</section>
 {% endfor %}
 
 </div>

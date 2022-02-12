@@ -1,0 +1,36 @@
+/*トップへ戻るボタン*/
+.topBtn {
+  position:fixed; /*固定*/
+  bottom:20px; /*場所を右下に移動*/
+  right:20px; /*場所を右下に移動*/
+  display:block; /*aタグをblock要素に変更*/
+  background-color:rgba(0,0,0,0.5); /*以下、デザインはご自由に！！*/
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:11px;
+  width:60px;
+  height:60px;
+  text-align:center;
+  line-height:22px;
+  border-radius:30px;
+  padding-top:30px;
+  box-sizing:border-box;
+}
+.topBtn:before {
+  content:'\25B2';
+  position:absolute;
+  top:10px;
+  left:0;
+  width:100%;
+  text-align:center;
+  font-size:20px;
+}
+.topBtn:hover {
+  opacity:0.7;
+}
+
+/*layout*/
+.wrapper {
+  position:relative;
+}

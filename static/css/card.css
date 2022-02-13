@@ -1,6 +1,4 @@
 .card{
-    display:flex; 
-    flex-wrap: wrap;
     box-shadow: 5px 5px 4px gray;
     margin: 15px;
     background-color: var(--ligtcolor);

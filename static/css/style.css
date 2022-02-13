@@ -2,14 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
 :root{
-  --heavycolor: #222668;
-  --midcolor: #5c61b1;
-  --lightcolor: #FEDD74;
-  --headerheight: 18rem;
+  --maincolor: #ff701e;
+  --basecolor: white;
+  --lightcolor: #FF8A4C;
+  --headerheight: 4rem;
 }
 
 html {
   font-size: 20px;
   font-family: 'Kosugi Maru', sans-serif;
   background-color: whitesmoke;
+
+}
+
+header {
+  top : 0;
+  left: 0;
+  position: fixed;
+  height: var(--headerheight);
+  width : 100%;
+  background-color: var(--maincolor);
+  color: var(--basecolor);
+  font-size: 1.5rem;
+}
+
+body{
+  margin-top: var(--headerheight);
+  padding:5px;
+
 }

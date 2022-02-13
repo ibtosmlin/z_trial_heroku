@@ -1,8 +1,7 @@
 .card{
-    border: #808000 solid 1px;
-    box-shadow: 0 3px 4px 0 #c0c0c0;
-    margin: 10px;
-    background-color: #000000;
+    box-shadow: 5px 5px 4px gray;
+    margin: 15px;
+    background-color: var(--ligtcolor);
     width :400px;
 }
 
@@ -10,14 +9,22 @@
     text-decoration: none;
 }
 
+
 .card .company{
-    color : yellow;
-    background-color: blue;
-    padding: 20px;
+    border: var(--lightcolor) solid 1px;
+    background-color: var(--lightcolor);
+    color : var(--basecolor);
+    padding: 5px;
 }
 
 .card .article{
-    color : black;
-    background-color: cornflowerblue;
-    padding: 20px;
+    border: var(--lightcolor) solid 1px;
+    background-color: var(--basecolor);
+    color : var(--lightcolor);
+    padding: 5px;
 }
+
+.article:hover, .company:hover{
+    background-color: var(--maincolor);
+    color : var(--basecolor);
+  }

@@ -25,9 +25,7 @@
     ●生保会社ＮＲ検索／更新日時:{{ update_time }}
 
 </div>
-</header>
 
-<body>
 <!--検索ボックス-->
 <div class="searchbox">
 <form method="POST">
@@ -53,39 +51,18 @@
 
 
 </select>
+
 <!--ここからキーワード-->
 <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
 <input type="submit" value="検索">
 
 </form></div>
 
+</header>
+<body>
+
 <!--返値ボックス-->
 <div class="resultbox">
-<!--
-<table>
-    <tr>
-        {% for hi in header %}
-        <th>{{ hi }}</th>
-        {% endfor %}
-    </tr>
-    {% for content in tabledata %}
-        <tr>
-            {% for hi in header %}
-            <td>
-                {% if hi == "会社名" %}
-                <a href={{ content[header_dict["company_url"]] }} target="_blank" rel="noopener noreferrer">{{ content[header_dict[hi]] }}</a>
-                {% elif hi == "件名" %}
-                <a href={{ content[header_dict["url"]] }} target="_blank" rel="noopener noreferrer">{{ content[header_dict[hi]] }}</a>
-                {% else %}
-                {{ content[header_dict[hi]] }}
-                {% endif %}
-            </td>
-            {% endfor %}
-        </tr>
-    {% endfor %}
-</table>
--->
-
 
 {% for content in tabledata %}
 <section class="card">

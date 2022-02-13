@@ -25,6 +25,7 @@
     background-color: var(--basecolor);
     color : var(--lightcolor);
     padding: 5px;
+    width: 100%;
 }
 
 .article:hover, .company:hover{

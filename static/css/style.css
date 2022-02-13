@@ -35,3 +35,8 @@ body{
 .inlineblock{
   display: inline-block;
 }
+
+.resultbox{
+    display:flex; 
+    flex-wrap: wrap;
+}

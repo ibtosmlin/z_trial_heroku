@@ -2,7 +2,7 @@
     box-shadow: 5px 5px 4px gray;
     margin: 15px;
     background-color: var(--ligtcolor);
-    width :400px;
+    width :100%;
 }
 
 .card a{

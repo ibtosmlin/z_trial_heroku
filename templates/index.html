@@ -22,8 +22,8 @@
 
 <header id="top">
 <div  class="headertitle">
-    ●生保会社ＮＲ検索／更新日時:{{ update_time }}
-
+    <span class="inlineblock">●生保会社ＮＲ検索</span>
+    <span class="inlineblock">／更新日時:{{ update_time }}</span>
 </div>
 
 <!--検索ボックス-->
@@ -65,7 +65,7 @@
 <div class="resultbox">
 
 {% for content in tabledata %}
-<section class="card">
+<section class="card" class="inlineblock">
     <a href={{ content[header_dict["company_url"]] }} target="_blank" rel="noopener norefeprrer">
     <div class="company">{{ content[header_dict["会社名"]] }}</div></a>
     <a href={{ content[header_dict["url"]] }} target="_blank" rel="noopener noreferrer">

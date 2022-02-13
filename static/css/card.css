@@ -2,7 +2,8 @@
     box-shadow: 5px 5px 4px gray;
     margin: 15px;
     background-color: var(--ligtcolor);
-    width :100%;
+    width :80%;
+    max-width : 380px;
 }
 
 .card a{

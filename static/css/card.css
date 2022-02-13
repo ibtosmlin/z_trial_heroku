@@ -17,6 +17,7 @@
     background-color: var(--lightcolor);
     color : var(--basecolor);
     padding: 5px;
+    width: 100%;
 }
 
 .card .article{

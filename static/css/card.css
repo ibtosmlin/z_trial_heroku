@@ -21,7 +21,7 @@
     font-family: 'Sawarabi Gothic', sans-serif;
     font-weight: bold;
     padding: 2px;
-    width: 95%;
+    width: 100%;
 }
 
 .card .article{
@@ -29,7 +29,7 @@
     color : var(--textcolor);
     font-family: 'Sawarabi Mincho', serif;
     padding: 2px;
-    width: 95%;
+    width: 100%;
 }
 
 .article:hover, .company:hover{

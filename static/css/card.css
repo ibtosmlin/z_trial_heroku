@@ -36,9 +36,11 @@
   }
 
 .sub{
+    padding: 0;
     font-size: 0.8rem;
 }
 
 .issue{
+    padding: 0;
     font-weight: bold;
 }

@@ -1,5 +1,6 @@
 @charset "utf-8-BOM";
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
 
 :root{
   --maincolor: #4C6CB3; /*群青*/
@@ -12,7 +13,7 @@
 
 html {
   font-size: 20px;
-  font-family: 'Kosugi Maru', sans-serif;
+  font-family: 'Kiwi Maru', sans-serif;
   background-color: whitesmoke;
 
 }

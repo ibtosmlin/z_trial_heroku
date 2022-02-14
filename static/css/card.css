@@ -18,7 +18,7 @@
     color : var(--textcolor);
     font-family: 'Kiwi Maru', sans-serif;
     font-weight: bold;
-    width: 100%;
+    width: calc(100%-20px);
     padding:5px 10px;
 }
 

@@ -16,6 +16,7 @@
     border: var(--lightcolor) solid 1px;
     background-color: var(--lightcolor);
     color : var(--textcolor);
+    font-family: 'Sawarabi Gothic', sans-serif;
     padding: 5px;
     width: 100%;
 }
@@ -24,6 +25,7 @@
     border: var(--lightcolor) solid 1px;
     background-color: var(--basecolor);
     color : var(--textcolor);
+    font-family: 'Sawarabi Mincho', serif;
     padding: 5px;
     width: 100%;
 }

@@ -1,5 +1,6 @@
 .card{
     display: flex;
+    flex-direction: column;  
     box-shadow: 5px 5px 4px var(--bkcolor);
     margin: 10px;
     background-color: var(--ligtcolor);

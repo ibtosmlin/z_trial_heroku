@@ -20,16 +20,16 @@
     color : var(--textcolor);
     font-family: 'Sawarabi Gothic', sans-serif;
     font-weight: bold;
-    padding: 2px 5px;
     width: calc(100% - 4px);
+    padding: 2px 5px;
 }
 
 .card .article{
     background-color: var(--basecolor);
     color : var(--textcolor);
     font-family: 'Sawarabi Mincho', serif;
-    padding: 2px 5px;
     width: calc(100% - 4px);
+    padding: 2px 5px;
 }
 
 .article:hover, .company:hover{

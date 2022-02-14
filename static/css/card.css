@@ -29,7 +29,7 @@
     color : var(--textcolor);
     font-family: 'Sawarabi Mincho', serif;
     padding: 2px;
-    width: 100%;
+    width: calc(100% - 5px);
 }
 
 .article:hover, .company:hover{

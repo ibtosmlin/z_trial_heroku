@@ -15,7 +15,7 @@
 .card .company{
     border: var(--lightcolor) solid 1px;
     background-color: var(--lightcolor);
-    color : var(--basecolor);
+    color : var(--textcolor);
     padding: 5px;
     width: 100%;
 }
@@ -23,7 +23,7 @@
 .card .article{
     border: var(--lightcolor) solid 1px;
     background-color: var(--basecolor);
-    color : var(--lightcolor);
+    color : var(--textcolor);
     padding: 5px;
     width: 100%;
 }

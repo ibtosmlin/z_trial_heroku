@@ -1,6 +1,6 @@
 .card{
-    display:flex
-    box-shadow: 5px 5px 4px gray;
+    display:flex;
+    box-shadow: 5px 5px 4px var(--bkcolor);
     margin: 15px;
     background-color: var(--ligtcolor);
     width :80%;
@@ -17,7 +17,7 @@
     background-color: var(--lightcolor);
     color : var(--textcolor);
     font-family: 'Sawarabi Gothic', sans-serif;
-    padding: 5px;
+    padding: 2px;
     width: 100%;
 }
 
@@ -26,7 +26,7 @@
     background-color: var(--basecolor);
     color : var(--textcolor);
     font-family: 'Sawarabi Mincho', serif;
-    padding: 5px;
+    padding: 2px;
     width: 100%;
 }
 

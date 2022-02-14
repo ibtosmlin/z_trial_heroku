@@ -1,6 +1,6 @@
 .card{
     box-shadow: 5px 5px 4px var(--bkcolor);
-    margin: 15px;
+    margin: 10px;
     background-color: var(--ligtcolor);
     width :80%;
     max-width : 380px;

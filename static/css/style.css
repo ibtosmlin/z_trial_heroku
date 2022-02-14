@@ -1,6 +1,6 @@
 @charset "utf-8-BOM";
-@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Sawarabi+Mincho&display=swap');
 
 :root{
   --maincolor: #4C6CB3; /*群青*/

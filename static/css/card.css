@@ -19,7 +19,6 @@
     color : var(--textcolor);
     font-family: 'Sawarabi Gothic', sans-serif;
     font-weight: bold;
-    width: 100%;
     width: calc(100%-5px);
 }
 
@@ -41,11 +40,11 @@
     margin-top: 3px;
     margin-left: 3px;
     margin-right: 3px;
-    font-size: 1.2rem;
+    font-size: 70%;
 }
 
 .issue{
     display: block;
-    margin: 3px;
+    margin: 10px;
     font-weight: bold;
 }

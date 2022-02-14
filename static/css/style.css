@@ -7,12 +7,14 @@
   --lightcolor: #A0D8EF;/*空色*/
   --basecolor: white;
   --textcolor: #474B42;/*仙斎茶*/
+  --bkcolor: #DEDEDE;
   --headerheight: 4rem;
+
 }
 
 
 html {
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'Kiwi Maru', sans-serif;
   background-color: whitesmoke;
 

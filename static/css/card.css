@@ -37,13 +37,15 @@
   }
 
 .sub{
+    display: block;
     margin-top: 3px;
     margin-left: 3px;
     margin-right: 3px;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
 }
 
 .issue{
+    display: block;
     margin: 3px;
     font-weight: bold;
 }

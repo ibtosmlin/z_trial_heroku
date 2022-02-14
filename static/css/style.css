@@ -2,11 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
 :root{
-  --maincolor: #ff701e;
+  --maincolor: #4C6CB3; /*群青*/
+  --lightcolor: #A0D8EF;/*空色*/
   --basecolor: white;
-  --lightcolor: #FF8A4C;
+  --textcolor: #474B42;/*仙斎茶*/
   --headerheight: 4rem;
 }
+
 
 html {
   font-size: 20px;

@@ -38,7 +38,9 @@
 
 .sub{
     display: block;
-    font-size: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 80%;
 }
 
 .issue{

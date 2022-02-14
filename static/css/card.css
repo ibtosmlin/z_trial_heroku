@@ -15,9 +15,10 @@
     display: block;
     background-color: var(--lightcolor);
     color : var(--textcolor);
-    font-family: 'Sawarabi Gothic', sans-serif;
+    font-family: 'Kiwi Maru', sans-serif;
     font-weight: bold;
     width: 100%;
+    padding:5px 10px;
 }
 
 .card .article{

@@ -4,9 +4,9 @@
   bottom:20px; /*場所を右下に移動*/
   right:20px; /*場所を右下に移動*/
   display:block; /*aタグをblock要素に変更*/
-  background-color: var(--maincolor); /*以下、デザインはご自由に！！*/
+  background-color: var(--textcolor); /*以下、デザインはご自由に！！*/
   border: 2px solid  var(--maincolor);
-  color: var(--basecolor);
+  color: var(--maincolor);
   text-decoration:none;
   font-weight:bold;
   font-size:11px;
@@ -26,10 +26,6 @@
   width:100%;
   text-align:center;
   font-size:20px;
-}
-.topBtn:hover {
-  background: var(--basecolor);
-  color: var(--maincolor);
 }
 
 /*layout*/

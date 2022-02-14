@@ -17,6 +17,7 @@
     background-color: var(--lightcolor);
     color : var(--textcolor);
     font-family: 'Sawarabi Gothic', sans-serif;
+    font-weight: bold;
     padding: 2px;
     width: 100%;
 }
@@ -34,3 +35,11 @@
     background-color: var(--maincolor);
     color : var(--basecolor);
   }
+
+.sub{
+    font-size: 0.8rem;
+}
+
+.issue{
+    font-weight: bold;
+}

@@ -10,6 +10,8 @@
 <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/multiselect.js') }}"></script>
 <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+<!--iconfont-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
 <!--mystyle-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
 <!--cardbox-->
@@ -17,14 +19,21 @@
 <!--followingbox-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
+<!--searchmenu-->
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
+<script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
 
 </head>
 
+
 <header id="top">
 <div  class="headertitle">
-    <span class="inlineblock">●生保会社ＮＲ検索</span>
-    <span class="inlineblock">／{{ update_time }}更新</span>
+    <div class="inlineblock">
+    <span class="material-icons-outlined">business</span>生保会社ＮＲ検索</div>
+    <div class="inlineblock"><span class="material-icons-outlined">update</span>{{ update_time }}</div>
 </div>
+<div class="searchicon"><span class="material-icons md-36">search</span></div>
+
 
 <!--検索ボックス-->
 <div class="searchbox">
@@ -48,8 +57,6 @@
         <option value={{ ci }}>{{ ci }}</option>
     {% endif %}
     {% endfor %}
-
-
 </select>
 
 <!--ここからキーワード-->
@@ -59,7 +66,48 @@
 </form></div>
 
 </header>
+
 <body>
+
+    <div id="menu" class="dropdown">
+        <div class="menu_inner">
+          <h2>抽出条件</h2>
+          <ul>
+            <li>
+              <select id="select" style="width:300px;">
+                <option value="1">foo</option>
+                <option value="2">bar</option>
+                <option value="3">baz</option>
+                <option value="4">qux</option>
+              </select>
+            </li>
+            <li>  <select id="select" style="width:300px;">
+              <option value="1">foo</option>
+              <option value="2">bar</option>
+              <option value="3">baz</option>
+              <option value="4">qux</option>
+            </select></li>
+            <li>  <select id="select" style="width:300px;">
+              <option value="1">foo</option>
+              <option value="2">bar</option>
+              <option value="3">baz</option>
+              <option value="4">qux</option>
+            </select>
+          </li>
+          </ul>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <!--返値ボックス-->
 <div class="resultbox">
@@ -83,4 +131,5 @@
 
 </body>
 <footer class="footer"></footer>
+
 </html>

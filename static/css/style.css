@@ -4,12 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&display=swap');
 
 :root{
-  --maincolor: #4C6CB3; /*群青*/
-  --lightcolor: #A0D8EF;/*空色*/
+  --maincolor: rgb(22, 94, 131);    /*藍色*/
+  --lightcolor: rgb(137, 195 ,235); /*勿忘草色*/
   --basecolor: white;
-  --textcolor: #474B42;/*仙斎茶*/
-  --bkcolor: #DEDEDE;
+  --textcolor: rgb(69,87,101);      /*鉄御薄雲鼠*/
+  --bkcolor: rgb(212,220,218);      /*薄雲鼠*/
   --headerheight: 4rem;
+
+  --textcolortrans: rgb(69,87,101, 0.9);      /*鉄御薄雲鼠*/
 
 }
 
@@ -30,11 +32,19 @@ header {
   background-color: var(--maincolor);
   color: var(--basecolor);
   font-size: 1.5rem;
+  z-index: 10;
 }
-
+.headertitle{
+  position: absolute;
+  top: 50%;
+  height: 45%;
+  display:block;
+  font-size: 24px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
 body{
   margin-top: var(--headerheight);
-  padding:5px;
 
 }
 
@@ -43,7 +53,15 @@ body{
 }
 
 .resultbox{
-    display:flex; 
+    display:flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.material-icons.md-36 { font-size: 36px; }
+.material-icons-outlined.md-12 { font-size: 12px; }
+.searchicon{
+  position: absolute;
+  top: 0;
+  right:0;
 }

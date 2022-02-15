@@ -31,7 +31,7 @@ header {
   width : 100%;
   background-color: var(--maincolor);
   color: var(--basecolor);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   z-index: 10;
 }
 .headertitle{

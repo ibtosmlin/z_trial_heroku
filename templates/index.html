@@ -33,70 +33,48 @@
     <div class="inlineblock"><span class="material-icons-outlined">update</span>{{ update_time }}</div>
 </div>
 <div class="searchicon"><span class="material-icons md-36">search</span></div>
-
-
-<!--検索ボックス-->
-<div class="searchbox">
-<form method="POST">
-<!--ここから日付の検索-->
-<select name="select-days" placeholder="期間選択" multiple>
-    {% for u, v in days %}
-    {%if u in days_selected %}
-        <option value={{ u }} selected>{{ v }}</option>
-    {% else %}
-        <option value={{ u }}>{{ v }}</option>
-    {% endif %}
-    {% endfor %}
-</select>
-<!--ここから会社の選択-->
-<select name="select-company" placeholder="会社選択" multiple>
-    {% for ci in companies %}
-    {%if ci in companies_selected %}
-        <option value={{ ci }} selected>{{ ci }}</option>
-    {% else %}
-        <option value={{ ci }}>{{ ci }}</option>
-    {% endif %}
-    {% endfor %}
-</select>
-
-<!--ここからキーワード-->
-<input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
-<input type="submit" value="検索">
-
-</form></div>
-
 </header>
 
 <body>
-
     <div id="menu" class="dropdown">
         <div class="menu_inner">
-          <h2>抽出条件</h2>
-          <ul>
+          <!--<h2>抽出条件<input type="submit" value="search"></h2>-->
+          <input type="submit" class="material-icons" value="&#xe8b6;" />検索
+          <ul><form method="POST">
             <li>
-              <select id="select" style="width:300px;">
-                <option value="1">foo</option>
-                <option value="2">bar</option>
-                <option value="3">baz</option>
-                <option value="4">qux</option>
-              </select>
+                <!--ここから日付の検索-->
+                期間選択：
+                <select name="select-days"  multiple>
+                    {% for u, v in days %}
+                    {%if u in days_selected %}
+                        <option value={{ u }} selected>{{ v }}</option>
+                    {% else %}
+                        <option value={{ u }}>{{ v }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
             </li>
-            <li>  <select id="select" style="width:300px;">
-              <option value="1">foo</option>
-              <option value="2">bar</option>
-              <option value="3">baz</option>
-              <option value="4">qux</option>
-            </select></li>
-            <li>  <select id="select" style="width:300px;">
-              <option value="1">foo</option>
-              <option value="2">bar</option>
-              <option value="3">baz</option>
-              <option value="4">qux</option>
-            </select>
-          </li>
-          </ul>
+            <li>
+                <!--ここから会社の選択-->
+                会社選択：
+                <select name="select-company" multiple>
+                    {% for ci in companies %}
+                    {%if ci in companies_selected %}
+                        <option value={{ ci }} selected>{{ ci }}</option>
+                    {% else %}
+                        <option value={{ ci }}>{{ ci }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </li>
+            <li>
+                <!--ここからキーワード-->
+                <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
+            </li>
+
+        </form></ul>
         </div>
-        </div>
+    </div>
 
 
 

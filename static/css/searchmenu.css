@@ -19,9 +19,9 @@ header .searchicon {
   text-align: center;
   top:0 ;
   left:0 ;
-  margin-left: 25%;
-  margin-right: 25%;
-  width: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
   height: 80%;
   background: var(--textcolortrans);
   color: var(--basecolor);
@@ -51,7 +51,7 @@ header .searchicon {
   display: block;
   margin-top:20px;
   padding: 12px 0;
-  border-bottom: 1px solid #fff;
+  border-bottom: 2px solid var(--basecolor);
   }
   .menu_inner li:last-child {
     border-bottom: none;

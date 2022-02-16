@@ -43,15 +43,15 @@ header {
   position: absolute;
   width: 70%
   color: var(--basecolor);
+  display: flex;
+  justify-content:space-between
 }
 
 #maintitle{
-  position: absolute;
   font-size: 1.2rem;
 }
 
 #updatetitle{
-  position: absolute;
   font-size: 1rem;
 }
 

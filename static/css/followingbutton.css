@@ -4,16 +4,16 @@
   bottom:20px; /*場所を右下に移動*/
   right:20px; /*場所を右下に移動*/
   display:block; /*aタグをblock要素に変更*/
-  /*background-color: var(--textcolor); *//*以下、デザインはご自由に！！*/
-  border: 2px solid  var(--maincolor);
+  background-color: transparent;
   color: var(--maincolor);
+  border: 2px solid  var(--maincolor);
   text-decoration:none;
   font-weight:bold;
   font-size:11px;
   width:60px;
   height:60px;
   text-align:center;
-  line-height:22px;
+  line-height:2;
   border-radius:30px;
   padding-top:30px;
   box-sizing:border-box;
@@ -26,9 +26,4 @@
   width:100%;
   text-align:center;
   font-size:20px;
-}
-
-/*layout*/
-.wrapper {
-  position:relative;
 }

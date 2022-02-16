@@ -17,16 +17,11 @@
 .material-icons-outlined.md-12 { font-size: 12px; }
 
 html {
+  font-family: 'Kosugi Maru', sans-serif;
   font-size: 62.5%;
-  font-family: 'Kiwi Maru', sans-serif;
   background-color: var(--bkcolor);
 }
 
-@media screen and (min-width: 721px) {
-  html {
-    font-size: 75%;
-  }
-}
 
 header {
   top : 0;
@@ -37,24 +32,33 @@ header {
   background-color: var(--maincolor);
   z-index: 10;
   display: flex;
+  justify-content: space-between;
+  color: var(--basecolor);
 }
 
 #headertitle{
   position: absolute;
-  width: 70%
+  width: 70%;
   display: flex;
-  justify-content:space-between
+  justify-content:left;
+  align-items: center;
   color: inherit;
 }
 
 #maintitle{
   font-size: 1.6rem;
   color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #updatetitle{
   font-size: 1.4rem;
   color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #searchicon{
@@ -74,4 +78,3 @@ body{
   flex-wrap: wrap;
   justify-content: space-between;
 }
-

@@ -33,6 +33,7 @@ header {
   z-index: 10;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--basecolor);
 }
 
@@ -64,7 +65,7 @@ header {
 #searchicon{
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 10px;
   color: inherit;
 }
 

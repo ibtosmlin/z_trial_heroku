@@ -1,5 +1,5 @@
 $(function() {
-    $("header span").on("click", function() {
+    $("#searchicon").on("click", function() {
       if($(this).text() == "search") {
         $(this).text("close");
         $("#menu").removeClass("dropdown");

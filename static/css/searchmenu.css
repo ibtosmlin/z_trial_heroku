@@ -1,4 +1,14 @@
-header .searchicon {
+
+#searchicon{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: inherit;
+}
+
+
+
+header #searchicon {
   position: absolute;
   top: 50%;
   right: 20px;

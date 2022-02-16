@@ -1,6 +1,4 @@
 @charset "utf-8-BOM";
-@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Sawarabi+Mincho&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&display=swap');
 
 :root{
@@ -9,18 +7,25 @@
   --basecolor: white;
   --textcolor: rgb(69,87,101);      /*鉄御薄雲鼠*/
   --bkcolor: rgb(212,220,218);      /*薄雲鼠*/
+  --textcolortrans: rgb(69,87,101, 0.9);      /*鉄御薄雲鼠の少し透過*/
+
   --headerheight: 4rem;
-
-  --textcolortrans: rgb(69,87,101, 0.9);      /*鉄御薄雲鼠*/
-
 }
 
+/*icon size*/
+.material-icons.md-36 { font-size: 36px; }
+.material-icons-outlined.md-12 { font-size: 12px; }
 
 html {
-  font-size: 16px;
+  font-size: 62.5%;
   font-family: 'Kiwi Maru', sans-serif;
   background-color: var(--bkcolor);
-  max-width: 900px;
+}
+
+@media screen and (min-width: 721px) {
+  html {
+    font-size: 75%;
+  }
 }
 
 header {
@@ -30,38 +35,40 @@ header {
   height: var(--headerheight);
   width : 100%;
   background-color: var(--maincolor);
-  color: var(--basecolor);
-  font-size: 1.2rem;
   z-index: 10;
+  display: flex;
 }
-.headertitle{
+
+#headertitle{
   position: absolute;
-  top: 50%;
-  height: 45%;
-  display:block;
-  font-size: 24px;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
+  width: 70%
+  color: var(--basecolor);
 }
+
+#maintitle{
+  position: absolute;
+  font-size: 1.2rem;
+}
+
+#updatetitle{
+  position: absolute;
+  font-size: 1rem;
+}
+
+#searchicon{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 body{
   margin-top: var(--headerheight);
 
 }
 
-.inlineblock{
-  display: inline-block;
-}
-
 .resultbox{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.material-icons.md-36 { font-size: 36px; }
-.material-icons-outlined.md-12 { font-size: 12px; }
-.searchicon{
-  position: absolute;
-  top: 0;
-  right:0;
-}

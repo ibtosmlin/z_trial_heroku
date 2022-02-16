@@ -9,7 +9,7 @@
   --bkcolor: rgb(212,220,218);      /*薄雲鼠*/
   --textcolortrans: rgb(69,87,101, 0.9);      /*鉄御薄雲鼠の少し透過*/
 
-  --headerheight: 4rem;
+  --headerheight: 50px;
 }
 
 /*icon size*/

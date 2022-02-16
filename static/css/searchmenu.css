@@ -4,28 +4,14 @@
   top: 10px;
   right: 10px;
   color: inherit;
+  cursor: pointer;
 }
 
 
-/*
-header #searchicon {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  height: 45%;
-  display:block;
-  font-size: 24px;
-  line-height: 1;
-  font-weight: 800;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  cursor: pointer;
-  }
-*/
 #menu {
 position: fixed;
 display: inline-block;
-z-index: 9;
+z-index: 9; /*header より後ろ*/
 text-align: center;
 top:0 ;
 left:0 ;
@@ -39,7 +25,7 @@ transition: .6s ease-in-out;
 -webkit-transition: .6s ease-in-out;
 }
 
-.menu_inner {
+#menu_inner {
   position: absolute;
   top:50%;
   left: 50%;
@@ -50,17 +36,20 @@ transition: .6s ease-in-out;
   padding-top: 60px;
   text-align: center;
 }
-.menu_inner ul {
+
+#menu_inner ul {
   padding:0;
 }
-.menu_inner li {
+
+#menu_inner li {
   width: 50%;
   display: block;
   margin-top:10px;
   padding: 12px 0;
   border-bottom: 2px solid var(--basecolor);
 }
-.menu_inner li:last-child {
+
+#menu_inner li:last-child {
   border-bottom: none;
 }
 .dropdown {
@@ -68,6 +57,7 @@ transform: translateY(-100%);
 -webkit-transform: translateY(-100%);
 }
 
+/*
 .option {
   text-align: left;
-}
+}*/

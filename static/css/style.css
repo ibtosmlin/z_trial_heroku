@@ -42,23 +42,25 @@ header {
 #headertitle{
   position: absolute;
   width: 70%
-  color: var(--basecolor);
   display: flex;
   justify-content:space-between
 }
 
 #maintitle{
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  color: var(--basecolor);
 }
 
 #updatetitle{
-  font-size: 1rem;
+  font-size: 1.4rem;
+  color: var(--basecolor);
 }
 
 #searchicon{
   position: absolute;
   top: 20px;
   right: 20px;
+  color: var(--basecolor);
 }
 
 body{

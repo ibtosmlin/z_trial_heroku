@@ -7,7 +7,7 @@
 }
 
 
-
+/*
 header #searchicon {
   position: absolute;
   top: 50%;
@@ -21,7 +21,7 @@ header #searchicon {
   -webkit-transform: translateY(-50%);
   cursor: pointer;
   }
-
+*/
 #menu {
 position: fixed;
 display: inline-block;

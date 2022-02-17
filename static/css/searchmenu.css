@@ -11,13 +11,15 @@ position: fixed;
 display: inline-block;
 z-index: 9; /*header より後ろ*/
 text-align: center;
-top:0 ;
+top:var(--headerheight);
 left:0 ;
 margin-left: 5%;
 margin-right: 5%;
 width: 90%;
-height: 90%;
+max-width: 600px;
+height: 95%;
 background: var(--textcolortrans);
+text-align: center;
 color: var(--basecolor);
 transition: .6s ease-in-out;
 -webkit-transition: .6s ease-in-out;
@@ -30,7 +32,6 @@ transition: .6s ease-in-out;
   transform:translate(-50%, -50%);
   -webkit-transform:translate(-50%, -50%);
   display:block;
-  width: 400px;
   padding-top: 60px;
   text-align: center;
 }

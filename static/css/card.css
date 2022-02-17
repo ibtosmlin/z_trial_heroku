@@ -11,13 +11,13 @@
     text-decoration: none;
 }
 
-
 .card .company{
     display: block;
     background-color: var(--lightcolor);
     color : var(--textcolor);
     font-family: 'Kosugi Maru', sans-serif;
     font-weight: bold;
+    font-size: 1.6rem;
     width: calc(100%-20px);
     padding:5px 10px;
 }
@@ -40,7 +40,8 @@
     display: block;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 80%;
+    font-size: 1.2rem;
+    
 }
 
 .issue{
@@ -49,4 +50,6 @@
     padding-right: 5px;
     padding-bottom: 5px;
     font-weight: bold;
+    font-size: 1.6rem;
+    
 }

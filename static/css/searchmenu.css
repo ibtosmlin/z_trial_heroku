@@ -24,19 +24,9 @@ transition: .6s ease-in-out;
 -webkit-transition: .6s ease-in-out;
 }
 
-#menu_inner {
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform:translate(-50%, -50%);
-  -webkit-transform:translate(-50%, -50%);
-  display:block;
-  padding-top: 60px;
-  text-align: center;
-}
 
 #menu ul {
-  padding:0;
+  padding:10%;
 }
 
 #menu li {
@@ -47,9 +37,12 @@ transition: .6s ease-in-out;
   border-bottom: 2px solid var(--basecolor);
 }
 
-#menu_inner li:last-child {
+#menu li:last-child {
   border-bottom: none;
 }
+
+
+
 .dropdown {
 transform: translateY(-100%);
 -webkit-transform: translateY(-100%);

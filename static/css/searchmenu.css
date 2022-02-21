@@ -55,6 +55,7 @@ transform: translateY(100%);
 }
 
 ul input {
+  width: 300px;
   background: white;
   height: 2.4rem;
   border: 0 px;

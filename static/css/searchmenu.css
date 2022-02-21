@@ -47,6 +47,7 @@ transform: translateY(100%);
   padding: 12px 0;
   border-bottom: 2px solid var(--basecolor);
   text-align: left;
+  font-size: 1.6rem
 }
 
 #menu li:last-child {

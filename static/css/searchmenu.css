@@ -55,7 +55,7 @@ transform: translateY(100%);
 }
 
 ul input {
-  background-color: white;
+  background: white;
   height: 2.4rem;
   border: 0 px;
   border-radius: 2pt;

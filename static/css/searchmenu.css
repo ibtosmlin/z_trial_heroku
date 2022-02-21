@@ -36,6 +36,7 @@ transform: translateY(100%);
 }
 
 #menu ul {
+  width: 300px;
   text-align: center;
 }
 

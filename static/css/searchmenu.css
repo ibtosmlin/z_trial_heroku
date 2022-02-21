@@ -20,7 +20,9 @@ text-align: center;
 color: var(--basecolor);
 transition: .6s ease-in-out;
 -webkit-transition: .6s ease-in-out;
-display: inline-block;
+display: flex;
+justify-content: center;
+
 }
 
 

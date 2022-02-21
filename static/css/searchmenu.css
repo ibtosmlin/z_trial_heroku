@@ -55,6 +55,8 @@ transform: translateY(100%);
 }
 
 ul input {
+  background-color: white;
+  height: 1.8rem;
   border: 0 px;
   border-radius: 2pt;
 } 

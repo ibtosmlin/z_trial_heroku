@@ -55,5 +55,6 @@ transform: translateY(100%);
 }
 
 ul input {
-  border-radius: 5pt;
+  border: 0 px;
+  border-radius: 2pt;
 } 

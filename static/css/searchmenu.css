@@ -22,7 +22,6 @@ transition: .6s ease-in-out;
 -webkit-transition: .6s ease-in-out;
 display: flex;
 justify-content: center;
-
 }
 
 
@@ -31,10 +30,13 @@ transform: translateY(-100%);
 -webkit-transform: translateY(-100%);
 }
 
+body .rollup {
+transform: translateY(100%);
+-webkit-transform: translateY(100%);
+}
 
 #menu ul {
   text-align: center;
-
 }
 
 #menu li {
@@ -49,6 +51,3 @@ transform: translateY(-100%);
 #menu li:last-child {
   border-bottom: none;
 }
-
-
-

@@ -53,3 +53,7 @@ transform: translateY(100%);
 #menu li:last-child {
   border-bottom: none;
 }
+
+ul input {
+  border-radius: 5pt;
+} 

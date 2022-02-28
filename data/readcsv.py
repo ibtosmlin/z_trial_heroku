@@ -1,113 +1,76 @@
 import csv
 import datetime
 from operator import itemgetter
+import numpy as np
 import os
 import re
+import pandas as pd
 
 
 libpath = os.path.dirname(__file__)
-filename = os.path.join(libpath, 'data_informations.csv')
-header_def = os.path.join(libpath, 'def_header.csv')
-update_date = os.path.join(libpath, 'data_update_date.csv')
-comp_url = os.path.join(libpath, 'data_companies.csv')
+csv_infos = os.path.join(libpath, 'data_infos.csv')
+csv_update_date = os.path.join(libpath, 'data_infos_update_date.csv')
+csv_companies = os.path.join(libpath, 'data_setup_companies.csv')
 
 
 class ContentsTable:
     def __init__(self) -> None:
-        self.header_dict = None
-        self.table = None
-        self.company_list = None
+        # データの更新日時
         self.update_time = None
-
-        with open(header_def, encoding='utf-8-sig', newline='') as f:
-            csvreader = csv.reader(f, delimiter=",", doublequote=True)
-            header_dict = {head:i for i, head in enumerate([row for row in csvreader][-1])}
-
-
-        # 会社名の辞書
-        # comp_dict = {"xxcomp": (company_no, company_url)}
-        company_dict = dict()
-        company_list = []
-        with open(comp_url, encoding='utf-8-sig', newline='') as f:
-            csvreader = csv.reader(f, delimiter=",", doublequote=True)
-            for i, row in enumerate(csvreader):
-                company_dict[row[0]] = [i, row[1]]
-                company_list.append(row[0])
-
-        self.company_list = company_list
-
-        with open(filename, encoding='utf-8-sig', newline='') as f:
-            csvreader = csv.reader(f, delimiter=",", doublequote=True)
-            table = [row for row in csvreader]
-
-        company_col = header_dict['会社名']
-        date_col = header_dict['日付']
-        for i, ti in enumerate(table):
-            company_no, company_url = company_dict[ti[company_col]]
-            table[i] = ti + [company_no, company_url]
-
-        pre_header_dict_len = len(header_dict)
-        header_dict['company_no'] = company_no_col = pre_header_dict_len
-        header_dict['company_url'] = pre_header_dict_len + 1
-
-        # 会社順
-        table.sort(key=itemgetter(date_col), reverse=True)
-        table.sort(key=itemgetter(company_no_col))
-        table = [ti + [i] for i, ti in enumerate(table)]
-        # 日付順
-        table.sort(key=itemgetter(date_col), reverse=True)
-        table = [ti + [i] for i, ti in enumerate(table)]
+        # 会社名のリスト
+        self.companies_ordered = None
+        # 記事のdataFrame
+        self.df_articles = None
 
 
-        self.table = table
+        self._get_update_date()
+        self._get_data()
 
-        pre_header_dict_len = len(header_dict)
-        header_dict['IdSortByCompany'] = pre_header_dict_len
-        header_dict['IdSortByDate'] = pre_header_dict_len + 1
-
-        self.header_dict = header_dict
-
-        with open(update_date, encoding='utf-8-sig', newline='') as f:
-            csvreader = csv.reader(f, delimiter=",", doublequote=True)
-            update_time = [row[0] for row in csvreader][0]
-
-        self.update_time = update_time
+        return
 
 
-    def select_table(self, comps, days, d_today, kwrds):
-        if kwrds: regex = re.compile('|'.join(kwrds))
-        ret = []
-        for content in self.table:
-            if not self._check_comp(content, comps): continue
-            if not self._check_day(content, days, d_today): continue
-            if kwrds:
-                if not self._check_kwd(content, regex): continue
-            ret.append(content)
-        return ret
-
-    def _check_comp(self, content, company):
-        return content[self.header_dict['会社名']] in company
-
-    def _check_day(self, content, days, d_today):
-        datestr = content[self.header_dict['日付']]
-        for dayid in days:
-            if datestr == '---': return dayid == 'M90'
-            if dayid[0] == 'Y':
-                if int(dayid[1:]) == int(datestr[:4]): return True
-            elif dayid[0] == 'B':
-                if int(dayid[1:]) >= int(datestr[:4]): return True
-            else:
-                dt = d_today - datetime.datetime.strptime(datestr, '%Y-%m-%d').date()
-                if dt.days <= 90: return True
-        return False
+    def _get_update_date(self)->None:
+        """:key
+        更新日時の取得
+        """
+        with open(csv_update_date, encoding='utf-8-sig', newline='') as f:
+            self.update_date = f.readline().replace('"', '')
+        # print(self.update_date)
 
 
-    def _check_kwd(self, content, regex):
-        if regex.findall(content[self.header_dict['件名']]):
-            return True
-        else: False
+    def _get_data(self):
+        """
+        会社名のリスト
+        """
+        df_companies = pd.read_csv(csv_companies,encoding='utf-8-sig',usecols=['company_id', 'company_name'])
+        self.companies_ordered = list(df_companies.company_name)
+        df_companies.reset_index(inplace=True)
+        df_companies.rename(columns={'index': 'company_order'}, inplace=True)
+        df_companies.drop(columns='company_name', inplace=True)
+
+        df_articles = pd.read_csv(csv_infos, encoding='utf-8-sig',
+                        usecols=['company_id', 'company_name', 'company_url',
+                                  'article_type', 'article_date', 'article_title', 'article_url'])
+        df_articles = pd.merge(df_articles, df_companies, on='company_id')
+        df_articles.sort_values(['company_order', 'article_date'], ascending=[True, False], inplace=True)
+        self.df_articles = df_articles
+        print(df_articles.article_date)
+
+
+    def select_table(self, comps, days, d_today, key_words):
+        cp_articles = self.df_articles.copy()
+        _f = lambda x: x in comps
+        fg_f = cp_articles.company_name.map(_f)
+
+
+        if key_words:
+            regex = re.compile('|'.join(key_words))
+            _h = lambda x: len(regex.findall(x)) > 0
+            fg_h = cp_articles.company_name.map(_h)
+        else:
+            fg_h = np.array([True] * len(cp_articles))
 
 
 if __name__ == '__main__':
     CT = ContentsTable()
-    print(CT.select_table(['日本生命'], 1, ['保険金', '金庫']))
+#    print(CT.select_table(['日本生命'], 1, ['保険金', '金庫']))

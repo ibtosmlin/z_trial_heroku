@@ -4,14 +4,8 @@
 <title>生保News-ＤＢ</title>
 <meta name="viewport" content="width=device-width">
 
-<!--JQuery-->
-<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<!--multipleselect-->
-<script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
-<script type="text/javascript" src= "{{ url_for('static',filename='./js/multiselect.js') }}"></script>
-<link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
 <!--iconfont-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 <!--mystyle-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
 <!--cardbox-->
@@ -19,22 +13,23 @@
 <!--followingbox-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
+
 <!--searchmenu-->
+<!--
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
-
+-->
 </head>
 
 
 <header>
     <div id="headertitle">
-        <div id="maintitle"><span class="material-icons-outlined">business</span>生保News-ＤＢ</div>
+        <div id="maintitle"><span class="material-icons-outlined">newspaper</span>生保News-ＤＢ</div>
         <div id="updatetitle"><span class="material-icons-outlined">update</span>{{ update_time }}</div>
     </div>
-    <div id="searchicon" class="material-icons md-36">search
-    </div>
+    <div id="searchicon"><span class="material-icons-outlined">search</span></div>
 </header>
-
+<!--
 <body>
     <div id="menu" class="dropdown">
       <form method="POST">
@@ -44,7 +39,9 @@
                 <input type="submit" class="material-icons" value="&#xe8b6;" />
             </li>
             <li>
+-->
                 <!--ここから日付の検索-->
+<!--
                 <div>期間選択</div>
                 <select name="select-days"  multiple>
                     {% for u, v in days %}
@@ -57,7 +54,9 @@
                 </select>
             </li>
             <li>
+-->
                 <!--ここから会社の選択-->
+<!--
                 <div>会社選択</div>
                 <select name="select-company" multiple>
                     {% for ci in companies %}
@@ -70,7 +69,9 @@
                 </select>
             </li>
             <li>
+-->
                 <!--ここからキーワード-->
+<!--
                 <div>キーワード</div>
                 <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
             </li>
@@ -78,26 +79,26 @@
         </ul>
       </form>
     </div>
-
+-->
 <!--返値ボックス-->
 <div id="resultbox">
-
-{% for content in tabledata %}
+{% for i in range(n) %}
 <section class="card">
-    <a href={{ content[header_dict["company_url"]] }} target="_blank" rel="noopener norefeprrer">
-    <div class="company">{{ content[header_dict["会社名"]] }}</div></a>
-    <a href={{ content[header_dict["url"]] }} target="_blank" rel="noopener noreferrer">
-    <div class="article">
-        <p class="sub">{{ content[header_dict["日付"]] }}  {{ content[header_dict["分類"]] }}</p>
-        <p class="issue">{{ content[header_dict["件名"]] }}</p>
-    </div></a>
+    <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
+        <div class="company">{{ tbl_company_name[i] }}</div>
+    </a>
+    <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
+        <div class="article">
+            <p class="sub">{{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
+            <p class="issue">{{ tbl_article_title[i] }}</p>
+        </div>
+    </a>
 </section>
 {% endfor %}
-
 </div>
 
 <!--固定ボタン-->
-<a href="#" id="topBtn">TOP</a><!--/固定ボタン-->
+<a href="#" id="topBtn">TOP</a>
 
 </body>
 

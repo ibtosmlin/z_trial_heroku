@@ -13,8 +13,9 @@
 }
 
 /*icon size*/
-.material-icons.md-36 { font-size: 36px; }
 .material-icons-outlined.md-12 { font-size: 12px; }
+.material-icons-outlined.md-36 { font-size: 36px; }
+
 
 html {
   font-family: 'Kosugi Maru', sans-serif;
@@ -60,6 +61,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#searchicon{
+  position: absolute;
+  right: 10px;
+  color: inherit;
+  cursor: pointer;
 }
 
 

@@ -1,55 +1,56 @@
 .card{
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     margin: 10px;
     width :80%;
     max-width : 380px;
-    background-color: None;
 }
 
 .card a{
     text-decoration: none;
 }
 
-.card .company{
+.card .company, .article{
     display: block;
-    background-color: var(--lightcolor);
     color : var(--textcolor);
+    width: calc(100%-20px);
+    padding:5px 10px;
+    box-shadow: 10px 10px 10px var(--textcolortrans);
+}
+
+.card .company{
+    background-color: var(--lightcolor);
     font-family: 'Kosugi Maru', sans-serif;
     font-weight: bold;
     font-size: 1.6rem;
-    width: calc(100%-20px);
-    padding:5px 10px;
 }
 
 .card .article{
-    display: block;
     background-color: var(--basecolor);
-    color : var(--textcolor);
     font-family: 'Sawarabi Mincho', serif;
-    width: calc(100%-20px);
-    padding:5px 10px;
 }
+
 
 .article:hover, .company:hover{
     background-color: var(--maincolor);
     color : var(--basecolor);
   }
 
-.sub{
+
+.sub, .issue{
     display: block;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 1.2rem;
-    
+
+}
+
+.sub{
+    font-size: 1.4rem;
 }
 
 .issue{
-    display: block;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    font-weight: bold;
     font-size: 1.6rem;
-    
+    font-weight: bold;
 }

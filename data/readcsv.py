@@ -29,10 +29,14 @@ class ContentsTable:
         self.companies_ordered = None
         # 記事のdataFrame
         self.df_articles = None
+        # method = "get"の場合のdataFrame
+        self.df_articles_init = None
+
 
         self._get_years_list()
         self._get_update_date()
         self._get_data()
+        self._get_initial_table()
 
         return
 
@@ -52,7 +56,7 @@ class ContentsTable:
         更新日時の取得
         """
         with open(csv_update_date, encoding='utf-8-sig', newline='') as f:
-            self.update_date = f.readline().replace('"', '')
+            self.update_date = f.readline().replace('"', '').replace('\n', '')
         # print(self.update_date)
 
 
@@ -74,8 +78,7 @@ class ContentsTable:
         self.df_articles = df_articles
 
 
-
-    def select_table(self, companies: list, years: list, key_words: list):
+    def df_articles_selected(self, companies: list, years: list, key_words: list):
         key_words_list = search_string_to_list(key_words)
         cp_articles = self.df_articles.copy()
         fg = np.array([True] * len(cp_articles))
@@ -108,8 +111,33 @@ class ContentsTable:
         return cp_articles[fg_companies&fg_years&fg_key_words]
 
 
+    def _get_initial_table(self):
+        """
+        10日以内のデータを出力する
+        "----"のデータは非表示
+        """
+        inner = 10
+        cp_articles = self.df_articles.copy()
+
+        # 現時点での日時
+        kijun = datetime.datetime.strptime(self.update_date + ':00', '%Y-%m-%d %H:%M:%S')
+
+        def _f(x):
+            if x == '----':
+                # x = kijun
+                return False
+            else:
+                x = datetime.datetime.strptime(x, '%Y-%m-%d')
+            return (kijun - x).days <= inner
+
+        fg = cp_articles.article_date.map(_f)
+        self.df_articles_init = cp_articles[fg]
+
+
+
 if __name__ == '__main__':
     CT = ContentsTable()
-    print(CT.select_table(['日本生命保険相互会社'], ['=2021', "=2019"], '人事異動'))
-    print(CT.select_table(['朝日生命保険相互会社'], ['=2022', "<2019"], '').article_date)
-    print(CT.select_table(['朝日生命保険相互会社'], ["<2019"], '').article_date)
+#    print(CT.select_table(['日本生命保険相互会社'], ['=2021', "=2019"], '人事異動'))
+#    print(CT.select_table(['朝日生命保険相互会社'], ['=2022', "<2019"], '').article_date)
+#    print(CT.select_table(['朝日生命保険相互会社'], ["<2019"], '').article_date)
+    print(CT.df_articles_init.article_date.info())

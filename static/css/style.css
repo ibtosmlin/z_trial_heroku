@@ -24,6 +24,11 @@ html {
 }
 
 
+#resultbox{
+  z-index: 5; /*menu より後ろ*/
+}
+
+
 header {
   top : 0;
   left: 0;
@@ -32,7 +37,9 @@ header {
   width : 100%;
   background-color: var(--maincolor);
   z-index: 10;
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   align-items: center;
   color: var(--basecolor);
@@ -41,26 +48,30 @@ header {
 #headertitle{
   position: absolute;
   width: 70%;
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: left;
   justify-content:left;
+  -webkit-align-items: center;
   align-items: center;
   color: inherit;
+}
+
+#maintitle, #updatetitle{
+  color: inherit;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+
 }
 
 #maintitle{
   font-size: 1.6rem;
-  color: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #updatetitle{
   font-size: 1.4rem;
-  color: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #searchicon{
@@ -73,12 +84,12 @@ header {
 
 body{
   margin-top: var(--headerheight);
-
 }
 
 #resultbox{
+  display: -webkit-flex;
   display:flex;
   flex-wrap: wrap;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
-  z-index: 5; /*menu より後ろ*/
 }

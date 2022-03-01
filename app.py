@@ -13,7 +13,7 @@ CT = readcsv.ContentsTable()
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        tbl = CT.select_table([], CT.years[0:2], '')
+        tbl = CT.df_articles_init
         return render_template('./index.html',
                 update_time=CT.update_date,
                 n = len(tbl),
@@ -26,6 +26,7 @@ def index():
                 )
 """
     elif request.method == 'POST':
+    tbl = CT.select_table([], CT.years[0:2], '')
         days = request.form.getlist('select-days')
         comps = request.form.getlist('select-company')
         kwrds = request.form.get('keywords')

@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <title>生保News-ＤＢ</title>
+
 <meta name="viewport" content="width=device-width">
 
 <!--iconfont-->
@@ -15,8 +16,8 @@
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
 
 <!--searchmenu-->
-<!--
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
+<!--
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
 -->
 </head>
@@ -24,14 +25,22 @@
 
 <header>
     <div id="headertitle">
-        <div id="maintitle"><span class="material-icons-outlined">newspaper</span>生保News-ＤＢ</div>
-        <div id="updatetitle"><span class="material-icons-outlined">update</span>{{ update_time }}</div>
+        <div id="maintitle"><span class="icons">newspaper</span>生保News-ＤＢ</div>
+        <div id="updatetitle"><span class="icons">update</span>{{ update_time }}</div>
     </div>
-    <div id="searchicon"><span class="material-icons-outlined">search</span></div>
 </header>
-<!--
+
+<aside>
+    <input type="checkbox" id="searchtoggle">
+    <label id="searchtrigger" for="searchtoggle"><span id="searchicon">search</span></label>
+    <div id="menu">
+        <label id="closetrigger" for="searchtoggle"><span id="searchicon">close</span></label>
+    </div>
+</aside>
+
 <body>
-    <div id="menu" class="dropdown">
+
+    <!--
       <form method="POST">
           <ul>
             <li>

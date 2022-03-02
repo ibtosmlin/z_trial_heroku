@@ -1,0 +1,24 @@
+<div>
+    <input type="checkbox" id="check_input">
+    <label id="check_btn" for="check_input">押してね</label>
+    <div id="check_content">動きをつけたい要素</div>
+    </div>
+
+
+    <style>
+    /*--------デザイン--------*/
+    #check_btn{
+    background-color:#FFBB4E;
+    padding:10px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, .2);
+    }
+    #check_content{
+    background-color:blue;/*チェック前の色は青*/
+    padding:10px;
+    color:#fff;
+    }
+    /*--------動きをつける--------*/
+    input[type=checkbox]:checked ~ #check_content{
+    background-color:red;/*チェック後の色は赤*/
+    }
+    </style>

@@ -13,9 +13,6 @@
 }
 
 /*icon size*/
-.material-icons-outlined.md-12 { font-size: 12px; }
-.material-icons-outlined.md-36 { font-size: 36px; }
-
 
 html {
   font-family: 'Kosugi Maru', sans-serif;
@@ -23,11 +20,16 @@ html {
   background-color: var(--bkcolor);
 }
 
-
+header{
+  z-index: 10;
+}
 #resultbox{
-  z-index: 5; /*menu より後ろ*/
+  z-index: 20;
 }
 
+aside{
+  z-index: 30;
+}
 
 header {
   top : 0;
@@ -63,8 +65,14 @@ header {
   display: flex;
   -webkit-align-items: center;
   align-items: center;
-
 }
+
+.icons{
+  font-family: 'Material Icons Outlined';
+  font-size: 24px;
+}
+
+
 
 #maintitle{
   font-size: 1.6rem;
@@ -74,12 +82,7 @@ header {
   font-size: 1.4rem;
 }
 
-#searchicon{
-  position: absolute;
-  right: 10px;
-  color: inherit;
-  cursor: pointer;
-}
+
 
 
 body{
@@ -92,4 +95,12 @@ body{
   flex-wrap: wrap;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+}
+
+aside{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

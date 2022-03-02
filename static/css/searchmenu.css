@@ -1,55 +1,84 @@
-body #menu {
-position: fixed;
-z-index: 9; /*header より後ろ*/
-top: var(--headerheight);
-left:0 ;
-margin-left: 5%;
-margin-right: 5%;
-width: 90%;
-height: 95%;
-background: var(--textcolortrans);
-text-align: center;
-color: var(--basecolor);
-transition: .6s ease-in-out;
--webkit-transition: .6s ease-in-out;
-display: flex;
-justify-content: center;
+@keyframes checked-anim {
+  0% {
+    width: 0%;
+    height: 0%;
+    border-bottom-left-radius: 100%;
+  }
+  75% {
+      width: 3000px;
+      height: 3000px;
+      border-bottom-left-radius: 100%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 0%;
+  }
+}
+
+@keyframes not-checked-anim {
+  0% {
+      width: 3000px;
+      height: 3000px;
+      border-bottom-left-radius: 100%;
+  }
+  100% {
+    width: 0%;
+    height: 0%;
+    border-bottom-left-radius: 100%;
+  }
 }
 
 
-body .dropdown {
-transform: translateY(-100%);
--webkit-transform: translateY(-100%);
+
+#searchicon{
+  font-family: 'Material Icons Outlined';
+  font-size: 36px;
+  position: absolute;
+  top: calc((var(--headerheight) - 36px)/2);
+  right: 10px;
+  color: var(--basecolor);
+  cursor: pointer;
 }
 
-body .rollup {
-transform: translateY(100%);
--webkit-transform: translateY(100%);
+
+#menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--textcolortrans);
 }
 
-#menu ul {
-  width: 300px;
-  text-align: center;
+
+
+#searchtoggle:not(checked) ~ #menu {
+  animation: not-checked-anim 0.1s both;
 }
 
-#menu li {
-  width: 300px;
-  display: block;
-  margin-top:10px;
-  padding: 12px 0;
-  border-bottom: 2px solid var(--basecolor);
-  text-align: left;
-  font-size: 1.6rem
+#searchtoggle:checked ~ #menu {
+  animation: checked-anim 1s both;
 }
 
-#menu li:last-child {
-  border-bottom: none;
+#searchtrigger {
+  opacity: 100%;
 }
 
-ul input {
-  width: 300px;
-  background: white;
-  height: 2.4rem;
-  border: 0 px;
-  border-radius: 2pt;
+#searchtoggle:checked ~ #searchtrigger {
+  opacity: 0%;
+}
+
+#closetrigger {
+  opacity: 0%;
+}
+
+#searchtoggle:checked ~ #menu #closetrigger {
+  opacity: 100%;
+}
+
+
+#searchtoggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
 }

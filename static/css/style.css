@@ -48,7 +48,7 @@ header {
 
 #headertitle{
   position: absolute;
-  width: 70%;
+  width: 50%;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: left;

@@ -1,3 +1,11 @@
+#resultbox{
+  display: -webkit-flex;
+  display:flex;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
 .card{
     display: -webkit-flex;
     display: flex;
@@ -32,12 +40,10 @@
     font-family: 'Sawarabi Mincho', serif;
 }
 
-
 .article:hover, .company:hover{
     background-color: var(--maincolor);
     color : var(--basecolor);
   }
-
 
 .sub, .issue{
     display: block;

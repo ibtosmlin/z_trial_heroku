@@ -12,13 +12,13 @@
   color: var(--basecolor);
   background-color: var(--textcolortrans);
   transition: all 1s;
-  display: flex;
   font-size: 1.6rem;
 }
 
 
 
 .shrink{
+  display none;
   margin-left:50vw;
   margin-right:50vw;
   height: 0vh;
@@ -28,6 +28,7 @@
 
 
 .dropdown{
+  display: flex;
   margin-top: calc(var(--headerheight) + 20px/2);
   margin-left:10vw;
   margin-right:10vw;

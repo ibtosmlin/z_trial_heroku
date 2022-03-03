@@ -16,19 +16,20 @@
   margin-top: calc(var(--headerheight) + 20px/2);
 }
 
-
-
-.shrink{
-/*  display: none;*/
+.menu_shrink{
   margin-left:0vw;
   margin-right:0vw;
+  left: 50%;
   height: 0vh;
   width: 0vw;
   opacity: 0;
 }
 
+.menu_childs_shrink{
+  display: none;
+}
 
-.dropdown{
+.menu_dropdown{
   display: flex;
   margin-left:10vw;
   margin-right:10vw;

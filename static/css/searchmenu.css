@@ -19,11 +19,11 @@
 
 .shrink{
   display none;
-  margin-left:50vw;
-  margin-right:50vw;
+/*
   height: 0vh;
   width: 0vw;
   opacity: 0;
+*/
 }
 
 
@@ -88,3 +88,4 @@ input[type="checkbox"]:checked + label:before {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+

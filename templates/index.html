@@ -7,6 +7,10 @@
 
 <!--iconfont-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+
 <!--mystyle-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
 <!--cardbox-->
@@ -14,12 +18,10 @@
 <!--followingbox-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
-
 <!--searchmenu-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
-<!--
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
--->
+
 </head>
 
 
@@ -28,68 +30,35 @@
         <div id="maintitle"><span class="icons">newspaper</span>生保News-ＤＢ</div>
         <div id="updatetitle"><span class="icons">update</span>{{ update_time }}</div>
     </div>
+    <div id = "searchicon">search</div>
 </header>
 
-<aside>
-    <input type="checkbox" id="searchtoggle">
-    <label id="searchtrigger" for="searchtoggle"><span id="searchicon">search</span></label>
-    <div id="menu">
-        <label id="closetrigger" for="searchtoggle"><span id="searchicon">close</span></label>
-    </div>
-</aside>
 
 <body>
-
-    <!--
-      <form method="POST">
-          <ul>
-            <li>
-            <div>検索</div>
-                <input type="submit" class="material-icons" value="&#xe8b6;" />
-            </li>
-            <li>
--->
-                <!--ここから日付の検索-->
-<!--
-                <div>期間選択</div>
-                <select name="select-days"  multiple>
-                    {% for u, v in days %}
-                    {%if u in days_selected %}
-                        <option value={{ u }} selected>{{ v }}</option>
-                    {% else %}
-                        <option value={{ u }}>{{ v }}</option>
-                    {% endif %}
+    <div class="shrink" id="menu">
+        <form method="POST">
+            <ul>
+                <dd>
+                <div>リリース年</div>
+                    {% for u in years %}
+                    <input type="checkbox" name="select-years" value={{u}}>{{ u }}
                     {% endfor %}
-                </select>
-            </li>
-            <li>
--->
-                <!--ここから会社の選択-->
-<!--
+                </dd>
+                <dd>
                 <div>会社選択</div>
-                <select name="select-company" multiple>
-                    {% for ci in companies %}
-                    {%if ci in companies_selected %}
-                        <option value={{ ci }} selected>{{ ci }}</option>
-                    {% else %}
-                        <option value={{ ci }}>{{ ci }}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-            </li>
-            <li>
--->
-                <!--ここからキーワード-->
-<!--
-                <div>キーワード</div>
-                <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
-            </li>
-
-        </ul>
-      </form>
+                        {% for ci in companies %}
+                        <input type="checkbox" name="select-companies" value={{ci[0]}}>{{ ci[1] }}
+                        {% endfor %}
+                    </dd>
+                <dd>
+                    <div>キーワード</div>
+                    <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
+                </dd>
+            </ul>
+        </form>
     </div>
--->
-<!--返値ボックス-->
+
+    <!--返値ボックス-->
 <div id="resultbox">
 {% for i in range(n) %}
 <section class="card">

@@ -1,8 +1,19 @@
-$(document).load(function(){
-    $('#topBtn').click(function () { // #topBtnをクリックすると
-        $('body,html').animate({ // いちばん上にanimateする
-        scrollTop: 0 // 戻る位置
-        }, 400); // 戻るスピード
-        return false;
-    });
+$(function () {
+  var topBtn = $('#topBtn');
+  topBtn.hide();
+  //スクロールが100に達したらボタン表示
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      topBtn.fadeIn();
+    } else {
+      topBtn.fadeOut();
+    }
+  });
+  //スルスルっとスクロールでトップへもどる
+  topBtn.click(function () {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 800);
+    return false;
+  });
 });

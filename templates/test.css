@@ -1,103 +1,32 @@
-
-@keyframes checked-anim {
-    50% {
-        width: 3000px;
-        height: 3000px;
-    }
-    100% {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
-}
-@keyframes not-checked-anim {
-    0% {
-        width: 3000px;
-        height: 3000px;
-    }
-}
-li, a {
-    margin: 75px 0 -55px 0;
-    color: black;
-    font-weight: 700;
-    line-height: 1.8;
-    text-decoration: none;
-    text-transform: none;
-    list-style: none;
-    outline: 0;
-    display: none;
-}
-
-html, body {
-    margin: 0;
+body {
     padding: 0;
-    background-color: #03A9F4;
-    overflow: hidden;
-}
+    margin: 0;
+    }
 
-#trigger, #burger, #burger:before, #burger:after {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    background: #03A9F4;
-    width: 30px;
-    height: 5px;
-    transition: 3.2s ease;  /*もとに戻るとき*/
-    cursor: pointer;
-    z-index: 1;
-}
-#trigger {
-    height: 25px;
-    background: none;
-}
-#burger:before {
-    content: "X";
-    top: 10px;
-    left: 0;
-}
-#burger:after {
-    content: "Y";
-    top: 20px;
-    left: 0;
-}
-#menu-toggle:checked + #trigger + #burger {
-    top: 35px;
-    transform: rotate(180deg);
-    transition: transform 8.2s ease;
-}
+    .container {
+    display: flex; /* 横並び用 */
+    }
 
-#menu-toggle:checked + #trigger + #burger:before {
-    width: 20px;
-    top: -2px;
-    left: 18px;
-    transform: rotate(45deg) translateX(-5px);
-    transition: transform .2s ease;
-}
-#menu-toggle:checked + #trigger + #burger:after {
-    width: 20px;
-    top: 2px;
-    left: 18px;
-    transform: rotate(-45deg) translateX(-5px);
-    transition: transform .2s ease;
-}
-#menu {
-    position: absolute;
-    margin: 0; padding: 0;
-    width: 200px;
-    height: 110px;
-    background-color: red;
-    border-bottom-right-radius: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
-    animation: not-checked-anim .2s both;
-    transition: .2s;
-}
+    .zoom-in {
+    margin: 40px;
+    width: 70px;
+    height: 70px;
+    background: #0091EA;
+    transition: 1s;
+    }
 
-#menu-toggle:checked + #trigger + #burger + #menu {
-    animation: checked-anim 5s ease both;   /*広がる*/
-}
-#menu-toggle:checked + #trigger ~ #menu > li, a {
-    display: block;
-}
-[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-    display: none;
-}
+    .zoom-in:hover {
+    transform: scale(2);
+    }
+
+    .zoom-out {
+    margin: 40px;
+    width: 70px;
+    height: 70px;
+    background: #00E676;
+    transition: 1s;
+    }
+
+    .zoom-out:hover {
+    transform: scale(0);
+    }

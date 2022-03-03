@@ -8,7 +8,10 @@ from data import readcsv
 app = Flask(__name__)
 
 CT = readcsv.ContentsTable()
-
+companies = []
+for c in CT.companies_ordered:
+    sc = c.replace('株式会社', '').replace('相互会社', '').replace('生命保険', '生命')
+    companies.append((c, sc))
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -17,6 +20,8 @@ def index():
         return render_template('./index.html',
                 update_time=CT.update_date,
                 n = len(tbl),
+                years = list(CT.years),
+                companies = companies,
                 tbl_company_name = list(tbl.company_name),
                 tbl_company_url = list(tbl.company_url),
                 tbl_article_date = list(tbl.article_date),

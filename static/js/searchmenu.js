@@ -1,11 +1,18 @@
-$(function() {
-    $("#searchicon").on("click", function() {
-      if($(this).text() == "search") {
-        $(this).text("close");
-        $("#menu").removeClass("dropdown");
-      } else {
-        $(this).text("search");
-        $("#menu").addClass("dropdown");
-      }
-    });
-  });
+$(function () {
+  var sIcon = $('#searchicon');
+  var Menu = $('#menu');
+  //ボタン表示
+  sIcon.click(function (){
+
+  if(sIcon.text() == "search") {
+    sIcon.text("close");
+    Menu.removeClass("shrink");
+    Menu.addClass("dropdown");
+  }
+  else {
+    sIcon.text("search");
+    Menu.removeClass("dropdown");
+    Menu.addClass("shrink");
+  }
+})
+});

@@ -39,22 +39,30 @@
     <div class="shrink" id="menu">
         <form method="POST">
             <ul>
-                <dd>
-                <div>リリース年</div>
+                <li><span for="sya">リリース年</span>
+                    <input type="checkbox" name="select-years-all" id="sya">
+                    <label for="sya">全て選択</label>
+                </li>
+                <li>
                     {% for u in years %}
-                    <input type="checkbox" name="select-years" value={{u}}>{{ u }}
+                    <input type="checkbox" name="select-years" id="{{u}}" value={{u}}>
+                    <label for="{{u}}">{{ u }}</label>
                     {% endfor %}
-                </dd>
-                <dd>
-                <div>会社選択</div>
+                </li>
+                <li><span for="sya">会社選択</span>
+                    <input type="checkbox" name="select-companies-all" id="sca">
+                    <label for="sca">全て選択</label>
+                </li>
+                <li>
                         {% for ci in companies %}
-                        <input type="checkbox" name="select-companies" value={{ci[0]}}>{{ ci[1] }}
+                        <input type="checkbox" name="select-companies" id="{{ci[0]}}" value={{ci[0]}}>
+                        <label for="{{ ci[0] }}">{{ ci[1] }}</label>
                         {% endfor %}
-                    </dd>
-                <dd>
+                </li>
+                <li>
                     <div>キーワード</div>
                     <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
-                </dd>
+                </li>
             </ul>
         </form>
     </div>

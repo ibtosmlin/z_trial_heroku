@@ -6,13 +6,13 @@ $(function () {
 
   if(sIcon.text() == "search") {
     sIcon.text("close");
-    Menu.removeClass("shrink");
-    Menu.addClass("dropdown");
+    Menu.removeClass("menu_shrink");
+    Menu.addClass("menu_dropdown");
   }
   else {
     sIcon.text("search");
-    Menu.removeClass("dropdown");
-    Menu.addClass("shrink");
+    Menu.removeClass("menu_dropdown");
+    Menu.addClass("menu_shrink");
   }
 })
 });

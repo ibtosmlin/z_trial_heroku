@@ -71,7 +71,6 @@ header {
   font-size: 24px;
 }
 
-
 #maintitle{
   font-size: 1.6rem;
 }
@@ -80,18 +79,20 @@ header {
   font-size: 1.4rem;
 }
 
+#searchicon{
+  font-family: 'Material Icons Outlined';
+  font-size: 36px;
+  position: absolute;
+  top: calc((var(--headerheight) - 36px)/2);
+  right: 10px;
+  color: var(--basecolor);
+  cursor: pointer;
+}
+
 
 body{
   margin-top: var(--headerheight);
   margin-left: 0;
   margin-right: 0;
   background-color: var(--bkcolor);
-}
-
-#resultbox{
-  display: -webkit-flex;
-  display:flex;
-  flex-wrap: wrap;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
 }

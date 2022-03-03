@@ -18,7 +18,7 @@
 
 
 .shrink{
-  display none;
+  display: none;
 /*
   height: 0vh;
   width: 0vw;

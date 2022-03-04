@@ -20,3 +20,17 @@ heroku update
 ```
 1. heroku 空アプリ作成
 1. DeployタブでGithub連携
+
+
+# レスポンシブ対応
+最小幅は320px
+
+スマートフォン：設定なし（実質599px以下）
+タブレット：600px [min-width : 600px]
+PC：1,025px [min-width : 1025px]
+
+@media screen and (min-width: 600px) {
+}
+
+@media screen and (min-width: 1100px) {
+}

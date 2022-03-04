@@ -10,6 +10,7 @@
   --textcolortrans: rgb(69,87,101, 0.9);      /*鉄御薄雲鼠の少し透過*/
 
   --headerheight: 50px;
+
 }
 
 /*icon size*/
@@ -49,14 +50,24 @@ header {
 #headertitle{
   position: absolute;
   width: 70%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: left;
-  justify-content:left;
-  -webkit-align-items: center;
-  align-items: center;
   color: inherit;
 }
+
+
+@media screen and (min-width: 600px) {
+  #headertitle{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: left;
+    justify-content:left;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+}
+
+/*@media screen and (min-width: 1000px) {
+}*/
+
 
 #maintitle, #updatetitle{
   color: inherit;
@@ -77,6 +88,12 @@ header {
 
 #updatetitle{
   font-size: 1.4rem;
+}
+
+@media screen and (min-width: 600px) {
+  #updatetitle{
+    font-size: 1.6rem;
+  }
 }
 
 #searchicon{

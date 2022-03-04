@@ -20,6 +20,7 @@
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
 <!--searchmenu-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkboxes.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
 
 </head>
@@ -45,8 +46,8 @@
                 </li>
                 <li>
                     {% for u in years %}
-                    <input type="checkbox" name="select-years" id="{{u}}" value={{u}}>
-                    <label for="{{u}}">{{ u }}</label>
+                    <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}>
+                    <label for="{{ u[0] }}">{{ u[1] }}</label>
                     {% endfor %}
                 </li>
                 <li><span for="sya">会社選択</span>

@@ -13,6 +13,18 @@ for c in CT.companies_ordered:
     sc = c.replace('株式会社', '').replace('相互会社', '').replace('生命保険', '生命')
     companies.append((c, sc))
 
+years = []
+for y in list(CT.years):
+    yf = y[0]
+    yy = int(y[1:])
+    if yf == '<':
+        yy -= 1
+        yy = f'{yy}年度以前'
+    else:
+        yy = f'{yy}年度'
+    years.append((y, yy))
+
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
@@ -20,7 +32,7 @@ def index():
         return render_template('./index.html',
                 update_time=CT.update_date,
                 n = len(tbl),
-                years = list(CT.years),
+                years = years,
                 companies = companies,
                 tbl_company_name = list(tbl.company_name),
                 tbl_company_url = list(tbl.company_url),

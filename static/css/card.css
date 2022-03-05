@@ -1,9 +1,15 @@
 #resultbox{
   display: -webkit-flex;
   display:flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   -webkit-justify-content: space-around;
   justify-content: space-around;
+}
+
+
+.card, .blankcard{
+    width :300px;
+    margin: 15px;
 }
 
 .card{
@@ -11,9 +17,11 @@
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
-    width :80%;
-    max-width : 300px;
-    margin: 15px;
+}
+
+
+.blankcard{
+    height: 0;
 }
 
 .card a{

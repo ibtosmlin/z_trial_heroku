@@ -8,6 +8,11 @@
   cursor: pointer;
 }
 
+.close{
+  display: none;
+}
+
+
 #menu {
   color: var(--basecolor);
   background-color: var(--textcolortrans);

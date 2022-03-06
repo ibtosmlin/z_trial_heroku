@@ -7,6 +7,11 @@
 }
 
 
+.rbox_shrink{
+    display: none;
+  }
+
+
 .card, .blankcard{
     width :300px;
     margin: 15px;

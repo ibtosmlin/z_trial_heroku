@@ -5,11 +5,27 @@
   top: calc((var(--headerheight) - 36px)/2);
   right: 10px;
   color: var(--basecolor);
-  cursor: pointer;
+  transition: 1s;
 }
 
-.close{
+#sicheckbox{
   display: none;
+}
+
+#sicheckbox:checked + .six{
+  cursor: pointer;
+  display: inline;
+}
+#sicheckbox:not(checked) + .six{
+  display: none;
+}
+
+#sicheckbox:checked + .six + .sio{
+  display: none;
+}
+#sicheckbox:not(checked) + .six + .sio{
+  cursor: pointer;
+  display: inline;
 }
 
 

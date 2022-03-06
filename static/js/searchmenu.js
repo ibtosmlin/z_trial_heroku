@@ -1,23 +1,24 @@
 $(function () {
   var $sibox = $('#sicheckbox');
-  var $Menu = $('#Menu');
-  var $Menu_c = $('#Menu_child');
+  var $Menu = $('#menu');
+  var $Menu_c = $('#menu_child');
   var $rbox = $("#resultbox");
 
   $sibox.change(function(){
   if($sibox.prop("checked") == true) {
-    // 表示
+    // Menu 表示; rbox 非表示
+    $rbox.removeClass("rbox_visible");
     $rbox.addClass("rbox_shrink");
-    $Menu_c.removeClass("Menu_child_shrink");
-    $Menu.removeClass("Menu_shrink");
-    $Menu.addClass("Menu_dropdown");
-
+    $Menu.removeClass("menu_shrink");
+    $Menu.addClass("menu_dropdown");
+    $Menu_c.removeClass("menu_child_shrink");
   }
   else {
-    // 非表示
-    $Menu_c.addClass("Menu_child_shrink");
-    $Menu.removeClass("Menu_dropdown");
-    $Menu.addClass("Menu_shrink");
+    // Menu 非表示; rbox 表示
+    $Menu_c.addClass("menu_child_shrink");
+    $Menu.removeClass("menu_dropdown");
+    $Menu.addClass("menu_shrink");
     $rbox.removeClass("rbox_shrink");
+    $rbox.addClass("rbox_visible");
   }})
 });

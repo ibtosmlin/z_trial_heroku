@@ -38,9 +38,7 @@
 }
 
 .menu_shrink{
-  margin-left:0vw;
-  margin-right:0vw;
-  left: 50%;
+  left: 0vw;
   height: 0vh;
   width: 0vw;
   opacity: 0;
@@ -54,9 +52,10 @@
   display: flex;
   margin-left:10vw;
   margin-right:10vw;
-  height: auto;
+  height: 80vw;
   width: 80vw;
   opacity: 1;
+  transition: all 0.4s
 }
 
 ul{

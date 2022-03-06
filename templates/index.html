@@ -44,8 +44,8 @@
 
 <body>
 <!--menu-->
-    <div class="menu_shrink" id="menu">
-        <form method="POST" class="menu_child_shrink" id="menu_child">
+    <div id="menu" class="menu_shrink" >
+        <form method="POST" id="menu_child" class="menu_child_shrink">
             <ul>
                 <li><span>リリース年</span>
                     <input type="checkbox" name="select-years-all" id="sya">
@@ -75,22 +75,22 @@
         </form>
     </div>
 
-<!--返値ボックス-->
-<div id="resultbox">
-{% for i in range(n) %}
-<section class="card">
-    <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
-        <div class="company">{{ tbl_company_name[i] }}</div>
-    </a>
-    <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
-        <div class="article">
-            <p class="sub">{{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
-            <p class="issue">{{ tbl_article_title[i] }}</p>
-        </div>
-    </a>
-</section>
-{% endfor %}
-</div>
+    <!--返値ボックス-->
+    <div id="resultbox" class="rbox_visible">
+        {% for i in range(n) %}
+        <section class="card">
+            <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
+                <div class="company">{{ tbl_company_name[i] }}</div>
+            </a>
+            <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
+                <div class="article">
+                    <p class="sub">{{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
+                    <p class="issue">{{ tbl_article_title[i] }}</p>
+                </div>
+            </a>
+        </section>
+        {% endfor %}
+    </div>
 
 <!--固定ボタン-->
 <a href="#" id="topBtn">TOP</a>

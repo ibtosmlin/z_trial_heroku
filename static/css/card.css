@@ -1,11 +1,13 @@
 #resultbox{
-  display: -webkit-flex;
-  display:flex;
   flex-flow: row wrap;
   -webkit-justify-content: space-around;
   justify-content: space-around;
 }
 
+.rbox_visible{
+    display: -webkit-flex;
+    display:flex;
+}
 
 .rbox_shrink{
     display: none;

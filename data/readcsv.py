@@ -128,7 +128,8 @@ class ContentsTable:
                 return False
             else:
                 x = datetime.datetime.strptime(x, '%Y-%m-%d')
-            return (kijun - x).days <= inner
+#            return (kijun - x).days <= inner
+            return True
 
         fg = cp_articles.article_date.map(_f)
         self.df_articles_init = cp_articles[fg]

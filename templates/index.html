@@ -73,10 +73,9 @@
             </ul>
         </form>
     </div>
-
-    {{ pagination.links }}
-
     <!--返値ボックス-->
+    <div id="body_wrapper">
+    {{ pagination.links }}
     <div id="resultbox" class="rbox_visible">
         {% for i in range(n) %}
         <section class="card">
@@ -96,7 +95,7 @@
 
 <!--固定ボタン-->
 <a href="#" id="topBtn">TOP</a>
-
+    </div>
 </body>
 
 <footer class="footer"></footer>

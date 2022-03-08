@@ -1,3 +1,7 @@
+#body_wrapper{
+  display: block;
+}
+
 #resultbox{
   flex-flow: row wrap;
   -webkit-justify-content: space-around;
@@ -80,29 +84,47 @@
 /*pagination*/
 
 .pagination {
-    text-align: center;
+  display: flex;
+  text-align: center;
+  font-family: initial;
+  font-size: 1.4rem;
+  right: 10px;
   }
-  .pagination a,
-  .pagination span {
-    display: inline-block;
-    margin: 8px 4px;
-    text-decoration: none;
-    border-radius: 6px;
-    background: #fff;
-    width: 50px;
-    height: 50px;
-    padding: 18px 0;
-    box-sizing: border-box;
-    color: #899a96;
-    line-height: 1;
+.pagination a {
+  display: inline-block;
+  margin: 8px 4px;
+  text-decoration: none;
+  border: solid;
+  border-radius: 10%;
+  border-color: var(--basecolor);
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  color: var(--maincolor);
+  line-height: 30px;
+  opacity: 0.3;
+}
+
+.pagination a:hover {
+  font-weight: bold;
+  opacity: 1;
+}
+
+.pagination .current a {
+  font-weight: bold;
+  border: solid;
+  border-radius: 10%;
+  border-color: var(--maincolor);
+  opacity: 1;
+}
+
+  .pagination .unavailable a{
+    border: 0;
+    opacity: 1;
   }
-  .pagination a:hover {
-    opacity: 0.7;
-  }
-  .pagination .current {
-    background: transparent;
-    font-weight: bold;
-  }
+
+
 
   @media screen and (max-width: 767px) {
     .pagination a,
@@ -112,11 +134,4 @@
       height: 46px;
       padding: 16px 0;
     }
-  }
-
-  /* 装飾 */
-
-  body {
-    margin: 80px 0;
-    background-color: #edf1fa;
   }

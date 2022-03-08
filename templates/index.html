@@ -25,7 +25,6 @@
 <!--
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkboxes.css') }}">
 -->
-
 </head>
 
 
@@ -75,6 +74,8 @@
         </form>
     </div>
 
+    {{ pagination.links }}
+
     <!--返値ボックス-->
     <div id="resultbox" class="rbox_visible">
         {% for i in range(n) %}
@@ -91,6 +92,7 @@
         </section>
         {% endfor %}
     </div>
+    {{ pagination.links }}
 
 <!--固定ボタン-->
 <a href="#" id="topBtn">TOP</a>

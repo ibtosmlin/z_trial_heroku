@@ -45,6 +45,8 @@
 }
 
 .pagination li .unavailable:hover {
+  border: solid 1px;
+  border-color: var(--maincolor);
   font-weight: normal;
 }
 
@@ -60,10 +62,10 @@
 
 
 @media screen and (max-width: 600px) {
-  .pagination li:not([class]) {
+  .pagination li .unavailable {
   display: none;
   }
-  .pagination li .unavailable {
+  .pagination li:not([class]) {
   display: none;
   }
 }

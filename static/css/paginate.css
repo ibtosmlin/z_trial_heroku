@@ -58,12 +58,12 @@
   font-weight: bold;
 }
 
-.pagination li .unavailable a:hover {
+.pagination .unavailable a:hover {
   font-weight: normal;
 }
 
 @media screen and (max-width: 600px) {
-  .pagination li .unavailable {
+  .pagination .unavailable {
   display: none;
   }
   .pagination li:not([class]) {

@@ -1,12 +1,10 @@
 #searchicon{
   font-family: 'Material Icons Outlined';
   font-size: 36px;
-  position: absolute;
-  top: calc((var(--headerheight) - 36px)/2);
-  right: 10px;
   color: var(--basecolor);
-  transition: 1s;
+  cursor: pointer;
 }
+
 
 #sicheckbox{
   display: none;
@@ -56,8 +54,4 @@
   width: 80vw;
   opacity: 1;
   transition: all 0.4s
-}
-
-ul{
-  list-style-type: none;
 }

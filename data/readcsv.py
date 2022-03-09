@@ -132,6 +132,7 @@ class ContentsTable:
             return True
 
         fg = cp_articles.article_date.map(_f)
+        cp_articles.sort_values(["article_date", "company_order"], ascending=[False, True], inplace=True)
         self.df_articles_init = cp_articles[fg]
 
 
@@ -141,4 +142,4 @@ if __name__ == '__main__':
 #    print(CT.select_table(['日本生命保険相互会社'], ['=2021', "=2019"], '人事異動'))
 #    print(CT.select_table(['朝日生命保険相互会社'], ['=2022', "<2019"], '').article_date)
 #    print(CT.select_table(['朝日生命保険相互会社'], ["<2019"], '').article_date)
-    print(CT.df_articles_init.article_date.info())
+    print(CT.df_articles_init.info())

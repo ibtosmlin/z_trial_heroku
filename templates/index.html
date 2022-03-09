@@ -27,6 +27,7 @@
 -->
 </head>
 
+<body>
 
 <header>
     <div id="headertitle">
@@ -38,11 +39,14 @@
         <label for="sicheckbox" class="six">close</label>
         <label for="sicheckbox" class="sio">search</label>
     </div>
+
 </header>
-
-
-<body>
+<main>
 <!--menu-->
+    <div id="pagination">
+        {{ pagination.links }}
+    </div>
+
     <div id="menu" class="menu_shrink" >
         <form method="POST" id="menu_child" class="menu_child_shrink">
             <ul>
@@ -74,8 +78,6 @@
         </form>
     </div>
     <!--返値ボックス-->
-    <div id="body_wrapper">
-    {{ pagination.links }}
     <div id="resultbox" class="rbox_visible">
         {% for i in range(n) %}
         <section class="card">
@@ -91,12 +93,10 @@
         </section>
         {% endfor %}
     </div>
-    {{ pagination.links }}
 
 <!--固定ボタン-->
-<a href="#" id="topBtn">TOP</a>
-    </div>
-</body>
-
+<article><a href="#" id="topBtn">TOP</a></article>
+</main>
 <footer class="footer"></footer>
+</body>
 </html>

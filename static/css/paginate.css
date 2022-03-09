@@ -35,6 +35,7 @@
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+
 .pagination li:last-child {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
@@ -42,13 +43,10 @@
 
 .pagination li:hover {
   font-weight: bold;
-}
-
-.pagination li .unavailable:hover {
   border: solid 1px;
   border-color: var(--maincolor);
-  font-weight: normal;
 }
+
 
 .pagination .current {
   border: solid 1px;
@@ -60,6 +58,9 @@
   font-weight: bold;
 }
 
+.pagination li .unavailable a:hover {
+  font-weight: normal;
+}
 
 @media screen and (max-width: 600px) {
   .pagination li .unavailable {

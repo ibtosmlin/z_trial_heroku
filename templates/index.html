@@ -43,7 +43,7 @@
 
 </header>
 
-<div id="menu" class="menu_shrink" >
+<article id="menu" class="menu_shrink" >
     <!--
         <form method="POST" id="menu_child" class="menu_child_shrink">
             <ul>
@@ -74,15 +74,15 @@
             </ul>
         </form>
         -->
-    </div>
+</article>
 
 
 <main>
     <article id="pgn_wrapper">{{ pagination.links }}</article>
 <!--        <div id="resultbox" class="rbox_visible">-->
-    <div id="resultbox" class="rbox_visble">
+    <article id="resultbox" class="rbox_visble">
         {% for i in range(n) %}
-        <section class="card">
+        <article class="card">
             <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
                 <div class="company">{{ tbl_company_name[i] }}</div>
             </a>
@@ -92,9 +92,9 @@
                     <p class="issue">{{ tbl_article_title[i] }}</p>
                 </div>
             </a>
-        </section>
+        </article>
         {% endfor %}
-    </div>
+    </article>
     <article><a href="#" id="topBtn">TOP</a></article>
 </main>
 <footer></footer>

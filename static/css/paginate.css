@@ -60,7 +60,7 @@
 
 
 @media screen and (max-width: 600px) {
-  .pagination li:not([class]){
+  .pagination li:not([class]), .pagination li .unavailable {
   display: none;
   }
 

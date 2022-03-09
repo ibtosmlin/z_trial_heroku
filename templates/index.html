@@ -15,6 +15,7 @@
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
 <!--resultbox, card-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/paginate.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/resultbox.js') }}"></script>
 <!--followingbox-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
@@ -41,13 +42,9 @@
     </div>
 
 </header>
-<main>
-<!--menu-->
-    <div id="pagination">
-        {{ pagination.links }}
-    </div>
 
-    <div id="menu" class="menu_shrink" >
+<div id="menu" class="menu_shrink" >
+    <!--
         <form method="POST" id="menu_child" class="menu_child_shrink">
             <ul>
                 <li><span>リリース年</span>
@@ -76,9 +73,14 @@
                 </li>
             </ul>
         </form>
+        -->
     </div>
-    <!--返値ボックス-->
-    <div id="resultbox" class="rbox_visible">
+
+
+<main>
+    <article id="pgn_wrapper">{{ pagination.links }}</article>
+<!--        <div id="resultbox" class="rbox_visible">-->
+    <div id="resultbox" class="rbox_visble">
         {% for i in range(n) %}
         <section class="card">
             <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
@@ -93,10 +95,8 @@
         </section>
         {% endfor %}
     </div>
-
-<!--固定ボタン-->
-<article><a href="#" id="topBtn">TOP</a></article>
+    <article><a href="#" id="topBtn">TOP</a></article>
 </main>
-<footer class="footer"></footer>
+<footer></footer>
 </body>
 </html>

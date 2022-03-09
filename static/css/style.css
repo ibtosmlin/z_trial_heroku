@@ -108,9 +108,10 @@ header {
 
 
 main{
-
+  padding: 0;
+  margin: 0;
+  width: 100vw;
   margin-top: var(--headerheight);
-
 }
 
 ul{

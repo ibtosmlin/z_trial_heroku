@@ -1,4 +1,6 @@
 #resultbox{
+  margin-top: 100px;
+  display: flex;
   flex-flow: row wrap;
   -webkit-justify-content: space-around;
   justify-content: space-around;
@@ -74,65 +76,4 @@
 .issue{
     font-size: 1.6rem;
     font-weight: bold;
-}
-
-
-
-/*pagination*/
-
-#pagination{
-  box-sizing: border-box;
-  position: relative;
-  padding: 5px;
-}
-
-.pagination {
-  display: flex;
-  font-family: initial;
-  font-size: 15px;
-  }
-
-.pagination li{
-  box-sizing: border-box;
-  width: 35px;
-  height: 35px;
-  background: var(--basecolor);
-  border: solid 1px;
-  border-radius: 0%;
-  border-color: var(--bkcolor);
-  text-align:  center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.pagination li a {
-  text-decoration: none;
-  color: var(--textcolor);
-}
-
-.pagination li:first-child{
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
-}
-.pagination li:last-child {
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-}
-
-.pagination li:hover {
-  font-weight: bold;
-}
-
-.pagination li .unavailable:hover {
-  font-weight: normal;
-}
-
-
-.pagination .current {
-  background: var(--bkcolor);
-  border-color: var(--maincolor);
-}
-
-.pagination .current a {
-  font-weight: bold;
 }

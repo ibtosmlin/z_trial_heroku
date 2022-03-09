@@ -1,0 +1,65 @@
+#pgn_wrapper{
+  display: block;
+  position: fixed;
+  top: var(--headerheight);
+  right: 5px;
+  margin-top: 5px;
+}
+
+.pagination {
+  box-sizing: border-box;
+  display: flex;
+  font-family: initial;
+  font-size: 15px;
+  }
+
+.pagination li{
+  box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  background: var(--basecolor);
+  border: solid 2px;
+  border-radius: 0%;
+  border-color: var(--bkcolor);
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: var(--textcolor);
+}
+
+.pagination li:first-child{
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.pagination li:last-child {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.pagination li:hover {
+  font-weight: bold;
+}
+
+.pagination li .unavailable:hover {
+  font-weight: normal;
+}
+
+.pagination .current {
+  border: solid 1px;
+  background: var(--bkcolor);
+  border-color: var(--maincolor);
+}
+
+.pagination .current a {
+  font-weight: bold;
+}
+
+
+@media screen and (max-width: 600px) {
+  .pagination li
+
+}

@@ -32,7 +32,6 @@
   background-color: var(--textcolortrans);
   transition: all 1s;
   font-size: 1.6rem;
-  margin-top: calc(var(--headerheight) + 20px/2);
 }
 
 .menu_shrink{

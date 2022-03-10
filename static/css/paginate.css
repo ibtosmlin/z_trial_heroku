@@ -49,12 +49,12 @@
 
 .pagination .current {
   border: solid 1px;
-  background: var(--mainbkcolor);
+  background: var(--maincolor);
 }
 
 .pagination .current a {
   font-weight: bold;
-  color: var(--basecoloer)
+  color: var(--basecolor)
 }
 
 .pagination .unavailable a:hover {

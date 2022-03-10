@@ -60,9 +60,20 @@
   color: var(--basecolor)
 }
 
+.pagination .cunavailable {
+  border: none;
+}
+
+.pagination .current a {
+  font-weight: normal;
+  color: var(--basecolor)
+}
+
 .pagination .unavailable a:hover {
   font-weight: normal;
 }
+
+
 
 @media screen and (max-width: 600px) {
   .pagination .unavailable {

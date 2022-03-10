@@ -17,7 +17,7 @@
   box-sizing: border-box;
   width: 35px;
   height: 35px;
-  background: var(--bkcolortrans);
+  background: var(--basecolor);
   border: solid 2px;
   border-radius: 0%;
   border-color: var(--bkcolortrans);

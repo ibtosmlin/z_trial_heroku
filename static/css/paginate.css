@@ -17,7 +17,7 @@
   box-sizing: border-box;
   width: 35px;
   height: 35px;
-  background: var(--basecolor);
+  background: var(--basecolortrans);
   border: solid 2px;
   border-radius: 0%;
   border-color: var(--bkcolortrans);
@@ -28,7 +28,7 @@
 
 .pagination li a {
   text-decoration: none;
-  color: var(--bkcolortrans);
+  color: var(--maincolor);
 }
 
 .pagination li:first-child{

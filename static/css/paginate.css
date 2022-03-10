@@ -44,33 +44,30 @@
   border-bottom-right-radius: 50%;
 }
 
-.pagination li:hover {
+.pagination li:not([class]):hover, .pagination .arrow:hover {
   font-weight: bold;
-  border-color: var(--maincolor);
   transform: scale(1.1, 1.1);
 }
 
-.pagination .current {
+.pagination .current{
   border: solid 1.5px;
+  border-color: var(--maincolor);
   background: var(--maincolor);
 }
 
-.pagination .current a {
+.pagination .current a{
   font-weight: bold;
   color: var(--basecolor)
 }
 
 .pagination .unavailable {
   border: none;
+  opacity: 0.7;
 }
 
 .pagination .unavailable a {
   font-weight: normal;
-  color: var(--basecolor)
-}
-
-.pagination .unavailable a:hover {
-  font-weight: normal;
+  color: var(--textcolor)
 }
 
 

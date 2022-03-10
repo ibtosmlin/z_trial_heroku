@@ -60,11 +60,11 @@
   color: var(--basecolor)
 }
 
-.pagination .cunavailable {
+.pagination .unavailable {
   border: none;
 }
 
-.pagination .current a {
+.pagination .unavailable a {
   font-weight: normal;
   color: var(--basecolor)
 }

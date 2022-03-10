@@ -20,7 +20,7 @@
   background: var(--basecolortrans);
   border: solid 2px;
   border-radius: 0%;
-  border-color: var(--bkcolortrans);
+  border-color: var(--maincolor);
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -47,15 +47,14 @@
   border-color: var(--maincolor);
 }
 
-
 .pagination .current {
   border: solid 1px;
-  background: var(--bkcolor);
-  border-color: var(--maincolor);
+  background: var(--mainbkcolor);
 }
 
 .pagination .current a {
   font-weight: bold;
+  color: var(--basecoloer)
 }
 
 .pagination .unavailable a:hover {

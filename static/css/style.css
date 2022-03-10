@@ -5,6 +5,7 @@
   --maincolor: rgb(22, 94, 131);    /*藍色*/
   --lightcolor: rgb(137, 195 ,235); /*勿忘草色*/
   --basecolor: white;
+  --basecolortrans: rgba(225,225,225, 0.5);
   --textcolor: rgb(69,87,101);      /*鉄御薄雲鼠*/
   --bkcolor: rgb(212,220,218);      /*薄雲鼠*/
   --textcolortrans: rgba(69,87,101, 0.9);      /*鉄御薄雲鼠の少し透過*/

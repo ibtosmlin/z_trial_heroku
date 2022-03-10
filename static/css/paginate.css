@@ -18,12 +18,13 @@
   width: 35px;
   height: 35px;
   background: var(--basecolortrans);
-  border: solid 2px;
+  border: solid 1px;
   border-radius: 0%;
   border-color: var(--maincolor);
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
+  transition: all 0.6s ease 0s;
 }
 
 .pagination li a {
@@ -43,8 +44,8 @@
 
 .pagination li:hover {
   font-weight: bold;
-  border: solid 1px;
   border-color: var(--maincolor);
+ 	transform: scale(1.1, 1.1);
 }
 
 .pagination .current {

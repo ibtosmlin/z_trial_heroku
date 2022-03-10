@@ -17,10 +17,10 @@
   box-sizing: border-box;
   width: 35px;
   height: 35px;
-  background: var(--basecolor);
+  background: var(--bkcolortrans);
   border: solid 2px;
   border-radius: 0%;
-  border-color: var(--bkcolor);
+  border-color: var(--bkcolortrans);
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -28,7 +28,7 @@
 
 .pagination li a {
   text-decoration: none;
-  color: var(--textcolor);
+  color: var(--bkcolortrans);
 }
 
 .pagination li:first-child{

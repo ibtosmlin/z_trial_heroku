@@ -12,6 +12,8 @@ $(function () {
     $Menu.removeClass("menu_shrink");
     $Menu.addClass("menu_dropdown");
     $Menu_c.removeClass("menu_child_shrink");
+    $("#menu").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+    $(".circle-bg").toggleClass('circleactive');//丸背景にcircleactiveクラスを付与
   }
   else {
     // Menu 非表示; rbox 表示

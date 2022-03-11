@@ -44,7 +44,9 @@
 </header>
 
 <article id="menu" class="menu_shrink" >
-    <!--
+    <div id="menu-sp">
+    </div>
+    <div id="menu-pc">
         <form method="POST" id="menu_child" class="menu_child_shrink">
             <ul>
                 <li><span>リリース年</span>
@@ -73,13 +75,12 @@
                 </li>
             </ul>
         </form>
-        -->
+    </div>
 </article>
 
 
 <main>
-    <article id="pgn_wrapper">{{ pagination.links }}</article>
-<!--        <div id="resultbox" class="rbox_visible">-->
+    <article id="pgn_wrapper"><article>{{ pagination.info }}</article><article>{{ pagination.links }}</article></article>
     <article id="resultbox" class="rbox_visble">
         {% for i in range(n) %}
         <article class="card">

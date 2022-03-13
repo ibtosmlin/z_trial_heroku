@@ -2,8 +2,9 @@ $(function () {
 
    var $rbox = $("#resultbox");
    var $card = $(".card");
+// cardの配列が端数を持つ場合に左詰めにする
 
-   let emptyCells = [];//空の配列を作っておく
+  let emptyCells = [];//空の配列を作っておく
    let parentWidth = $rbox.width();//rbox(sectionの親要素)の幅を取得
    let childWidth = $card.outerWidth(true);//list-itemnの幅を取得
    let column = parentWidth / childWidth;//親要素の幅を子要素の幅を割ったものがカラム数になる

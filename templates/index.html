@@ -35,53 +35,47 @@
         <div id="maintitle"><span class="icons">newspaper</span>生保News-ＤＢ</div>
         <div id="updatetitle"><span class="icons">update</span>{{ update_time }}</div>
     </div>
-    <div id = "searchicon">
-        <input type="checkbox" id="sicheckbox">
-        <label for="sicheckbox" class="six">close</label>
-        <label for="sicheckbox" class="sio">search</label>
-    </div>
-
+    <div id="searchicon">search</div>
 </header>
-<div class="circle-bg"></div>
-<article id="menu" class="menu_shrink" >
-    <div id="menu-sp">
-    </div>
-    <div id="menu-pc">
-        <form method="POST" id="menu_child" class="menu_child_shrink">
-            <ul>
-                <li><span>リリース年</span>
-                    <input type="checkbox" name="select-years-all" id="sya">
-                    <label for="sya">全て選択</label>
-                </li>
-                <li>
-                    {% for u in years %}
-                    <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}>
-                    <label for="{{ u[0] }}">{{ u[1] }}</label>
-                    {% endfor %}
-                </li>
-                <li><span>会社選択</span>
-                    <input type="checkbox" name="select-companies-all" id="sca">
-                    <label for="sca">全て選択</label>
-                </li>
-                <li>
-                        {% for ci in companies %}
-                        <input type="checkbox" name="select-companies" id="{{ci[0]}}" value={{ci[0]}}>
-                        <label for="{{ ci[0] }}">{{ ci[1] }}</label>
-                        {% endfor %}
-                </li>
-                <li>
-                    <span>キーワード</span>
-                    <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
-                </li>
-            </ul>
-        </form>
-    </div>
-</article>
-
-
 <main>
+    <div id="circle-bg"></div>
+    <article id="menu">
+        <div id="menu-sp">
+        </div>
+        <div id="menu-pc">
+            <form method="POST" id="menu_child">
+                <ul>
+                    <li><span>リリース年</span>
+                        <input type="checkbox" name="select-years-all" id="sya">
+                        <label for="sya">全て選択</label>
+                    </li>
+                    <li>
+                        {% for u in years %}
+                        <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}>
+                        <label for="{{ u[0] }}">{{ u[1] }}</label>
+                        {% endfor %}
+                    </li>
+                    <li><span>会社選択</span>
+                        <input type="checkbox" name="select-companies-all" id="sca">
+                        <label for="sca">全て選択</label>
+                    </li>
+                    <li>
+                            {% for ci in companies %}
+                            <input type="checkbox" name="select-companies" id="{{ci[0]}}" value={{ci[0]}}>
+                            <label for="{{ ci[0] }}">{{ ci[1] }}</label>
+                            {% endfor %}
+                    </li>
+                    <li>
+                        <span>キーワード</span>
+                        <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </article>
+
     <article id="pgn_wrapper"><article>{{ pagination.info }}</article><article>{{ pagination.links }}</article></article>
-    <article id="resultbox" class="rbox_visble">
+    <article id="resultbox">
         {% for i in range(n) %}
         <article class="card">
             <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">

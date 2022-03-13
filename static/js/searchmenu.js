@@ -1,26 +1,21 @@
 $(function () {
-  var $sibox = $('#sicheckbox');
+  var $Si = $('#searchicon');
   var $Menu = $('#menu');
-  var $Menu_c = $('#menu_child');
-  var $rbox = $("#resultbox");
+  var $Circle = $("#circle-bg");
+//  var $Menu_c = $('#menu_child');
 
-  $sibox.change(function(){
-  if($sibox.prop("checked") == true) {
-    // Menu 表示; rbox 非表示
-    $rbox.removeClass("rbox_visible");
-    $rbox.addClass("rbox_shrink");
-    $Menu.removeClass("menu_shrink");
-    $Menu.addClass("menu_dropdown");
-    $Menu_c.removeClass("menu_child_shrink");
-    $("#menu").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
-    $(".circle-bg").toggleClass('circleactive');//丸背景にcircleactiveクラスを付与
-  }
-  else {
-    // Menu 非表示; rbox 表示
-    $Menu_c.addClass("menu_child_shrink");
-    $Menu.removeClass("menu_dropdown");
-    $Menu.addClass("menu_shrink");
-    $rbox.removeClass("rbox_shrink");
-    $rbox.addClass("rbox_visible");
-  }})
+  $Si.click(function(){
+    if($Si.text() == 'search') {
+    // si: close Menu: 表示; rbox: 非表示
+      $Si.text('close')
+      $Menu.toggleClass('siactive');//ナビゲーションにpanelactiveクラスを付与
+      $Circle.toggleClass('siactive');//丸背景にcircleactiveクラスを付与
+    }
+    else {
+    // si: serch Menu: 非表示; rbox: 表示
+      $Si.text('search')
+      $Menu.removeClass('siactive');//ナビゲーションのpanelactiveクラスを除去
+      $Circle.removeClass('siactive');//丸背景のcircleactiveクラスを除去
+    }
+  })
 });

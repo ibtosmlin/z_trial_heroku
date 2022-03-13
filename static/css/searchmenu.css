@@ -6,28 +6,6 @@
 }
 
 
-#sicheckbox{
-  display: none;
-}
-
-#sicheckbox:checked + .six{
-  cursor: pointer;
-  display: inline;
-}
-#sicheckbox:not(checked) + .six{
-  display: none;
-}
-
-#sicheckbox:checked + .six + .sio{
-  display: none;
-}
-#sicheckbox:not(checked) + .six + .sio{
-  cursor: pointer;
-  display: inline;
-}
-
-
-
 @media screen and (max-width: 599px) {
   #menu-pc{
     display: none;
@@ -40,37 +18,32 @@
   }
 }
 
-
-
-#menu {
-  position:fixed;
-  z-index: 999;
-  color: var(--basecolor);
-  background-color: var(--textcolortrans);
-/*  transition: all 1s;*/
-  font-size: 1.6rem;
-  top: 0;
-  width:100%;
-  height: 100vh;
-}
-
-/*
-.menu_shrink{
-  left: 0vw;
-  height: 0vh;
-  width: 0vw;
+#menu{
+  display: none;
   opacity: 0;
 }
-*/
 
-.circle-bg{
+#menu.siactive{
+  display: block;
+  position:fixed;
+  color: var(--basecolor);
+  font-size: 1.6rem;
+  top: var(--headerheight);
+  width:100%;
+  height: calc(100vh-var(--headerheight));
+  opacity: 1;
+  transition-delay: opacity .4s;
+  transition: opacity .2s;/*0.6秒かけてアニメーション*/
+}
+
+
+#circle-bg{
   position: fixed;
-  z-index:3;
   /*丸の形*/
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #999;
+  background: var(--textcolortrans);
   /*丸のスタート位置と形状*/
   transform: scale(0);/*scaleをはじめは0に*/
   right:-50px;
@@ -78,22 +51,6 @@
   transition: all .6s;/*0.6秒かけてアニメーション*/
 }
 
-.circle-bg.circleactive{
+#circle-bg.siactive{
 transform: scale(50);/*クラスが付与されたらscaleを拡大*/
-}
-
-
-
-.menu_child_shrink{
-  display: none;
-}
-
-.menu_dropdown{
-  display: flex;
-  margin-left:10vw;
-  margin-right:10vw;
-  height: 80vw;
-  width: 80vw;
-  opacity: 1;
-  transition: all 0.4s
 }

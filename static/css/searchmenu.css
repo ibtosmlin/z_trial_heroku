@@ -51,5 +51,6 @@
   right:-50px;
   top:-50px;
   transform: scale(0);/*scaleをはじめは0に*/
+  transition-delay: all 0.3s;/*0.6秒かけてアニメーション*/
   transition: all 0.6s;/*0.6秒かけてアニメーション*/
 }

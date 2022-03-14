@@ -32,10 +32,10 @@ body{
 }
 
 header{z-index: 999;}
-#menu.siactive{z-index: 100;}
-#circle-bg{z-index:25;}
+#circle-bg{z-index:10;}
+#pgn_wrapper{z-index: 20;}
 #resultbox{z-index: 20;}
-#menu{z-index: 10;}
+#menu{z-index: 10;}/*50*/
 
 
 header {

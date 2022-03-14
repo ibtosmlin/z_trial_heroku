@@ -5,6 +5,16 @@
   cursor: pointer;
 }
 
+#search{
+  display: block;
+  opacity: 1;
+}
+#close{
+  display: none;
+  opacity: 0;
+}
+
+
 @media screen and (max-width: 599px) {
   #menu-pc{
     display: none;
@@ -17,6 +27,7 @@
   }
 }
 
+
 #menu{
   display: block;
   position:fixed;
@@ -26,13 +37,6 @@
   width:100%;
   height: calc(100vh-var(--headerheight));
   opacity: 0;
-  transition-delay: opacity 1.4s;
-  transition: opacity .6s;/*0.6秒かけてアニメーション*/
-}
-
-#menu.siactive{
-  opacity: 1;
-  transition: opacity .6s;/*0.6秒かけてアニメーション*/
 }
 
 
@@ -47,9 +51,5 @@
   right:-50px;
   top:-50px;
   transform: scale(0);/*scaleをはじめは0に*/
-  transition: all 0.8s;/*0.6秒かけてアニメーション*/
-}
-
-#circle-bg.siactive{
-  transform: scale(50);/*クラスが付与されたらscaleを拡大*/
+  transition: all 0.6s;/*0.6秒かけてアニメーション*/
 }

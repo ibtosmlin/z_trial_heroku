@@ -89,3 +89,7 @@
     background: var(--basecolor); /* 線の色を変えたいときはここを変える */
     margin:0 .4em; /* 文字と線の余白用 なくても良い */
 }
+
+.li-wrapper{
+  display: flex;
+}

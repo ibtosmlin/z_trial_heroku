@@ -79,7 +79,7 @@
   align-items: center;  width: 60%;
 }
 
-#menu-pc li #sihead:before, #menu-pc li #sihead:after {
+#menu-pc li#sihead:before, #menu-pc li#sihead:after {
     content: "";
     flex-grow: 1;
     height: 1px; /* 線の太さを変えたいときはここを変える */

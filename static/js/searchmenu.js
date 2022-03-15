@@ -30,8 +30,8 @@ $(function () {
       $Sisearch.animate({opacity: 1}, 1000);
 
       $Menu.animate({opacity:0}, 100);
-      $Menu.css('z-index', 10);
       $Circle.css( { transform: "scale(0)" } );
+      $Menu.css('z-index', 10);
       $Circle.css('z-index', 10);
 
       $Sistatus = true;

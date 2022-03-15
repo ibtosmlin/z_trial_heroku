@@ -45,7 +45,8 @@
         <div id="menu-pc">
             <form method="POST" id="menu_child">
                 <ul>
-                    <li><span>リリース年</span><br>
+                    <li><span>リリース年</span></li>
+                    <li>
                         <input type="checkbox" name="select-years-all" id="sya">
                         <label for="sya">全て選択</label>
                     </li>
@@ -55,7 +56,8 @@
                         <label for="{{ u[0] }}">{{ u[1] }}</label>
                         {% endfor %}
                     </li>
-                    <li><span>会社選択</span><br>
+                    <li><span>会社選択</span></li>
+                    <li>
                         <input type="checkbox" name="select-companies-all" id="sca">
                         <label for="sca">全て選択</label>
                     </li>
@@ -65,8 +67,8 @@
                             <label for="{{ ci[0] }}">{{ ci[1] }}</label>
                             {% endfor %}
                     </li>
+                    <li><span>キーワード</span></li>
                     <li>
-                        <span>キーワード</span><br>
                         <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
                     </li>
                 </ul>

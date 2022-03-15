@@ -62,10 +62,10 @@
                         <label for="sca">全て選択</label>
                     </li>
                     <li>
-                            {% for ci in companies %}
-                            <input type="checkbox" name="select-companies" id="{{ci[0]}}" value={{ci[0]}}>
-                            <label for="{{ ci[0] }}">{{ ci[1] }}</label>
-                            {% endfor %}
+                        {% for ci in companies %}
+                        <input type="checkbox" name="select-companies" id="{{ ci[0] }}" value={{ ci[0] }}>
+                        <label for="{{ ci[0] }}">{{ ci[1] }}</label>
+                        {% endfor %}
                     </li>
                     <li class="sihead">キーワード</li>
                     <li>

@@ -19,11 +19,18 @@
   #menu-pc{
     display: none;
   }
+  #menu-sp{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 600px) {
   #menu-sp{
     display: none;
+  }
+  #menu-pc{
+    display: block;
+    width: 80%;
   }
 }
 

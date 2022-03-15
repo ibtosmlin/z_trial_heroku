@@ -68,8 +68,8 @@
   margin-right: 10%;
 }
 
-#menu-pc li{
-  margin-top: 5px;
-  margin-bottom: 5px;
+#menu-pc li, #menu-pc span{
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 

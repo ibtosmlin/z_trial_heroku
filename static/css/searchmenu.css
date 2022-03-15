@@ -70,6 +70,8 @@
 #menu-pc li{
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-grow: 1;
 }
 
 .sihead{

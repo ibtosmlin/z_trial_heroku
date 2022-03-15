@@ -72,14 +72,14 @@
   margin-bottom: 10px;
 }
 
-#sihead{
+.sihead{
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;  width: 60%;
 }
 
-#sihead:before, #sihead:after {
+.sihead:before, .sihead:after {
     content: "";
     flex-grow: 1;
     height: 1px; /* 線の太さを変えたいときはここを変える */

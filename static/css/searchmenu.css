@@ -16,10 +16,10 @@
 
 
 @media screen and (max-width: 599px) {
-  #menu-pc{
-    display: none;
-  }
   #menu-sp{
+    display: block;
+  }
+  #menu-pc{
     display: none;
   }
 }
@@ -30,9 +30,6 @@
   }
   #menu-pc{
     display: block;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
   }
 }
 
@@ -63,3 +60,16 @@
   transition-delay: all 0.3s;/*0.6秒かけてアニメーション*/
   transition: all 0.6s;/*0.6秒かけてアニメーション*/
 }
+
+
+#menu-pc{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#menu-pc li{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+

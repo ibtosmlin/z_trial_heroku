@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>生保News-ＤＢ</title>
+
+<meta name="viewport" content="width=device-width, initial-scale = 1.0">
+
+<!--iconfont-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+
+<!--mystyle-->
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
+<!--resultbox, card-->
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/paginate.css') }}">
+<script type="text/javascript" src= "{{ url_for('static',filename='./js/resultbox.js') }}"></script>
+<!--followingbox-->
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
+<script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
+<!--searchmenu-->
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
+<script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
+<!--
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkboxes.css') }}">
+-->
+</head>
+
+<body>
+
+<header>
+    <div id="headertitle">
+        <div id="maintitle"><span class="icons">newspaper</span>生保News-ＤＢ</div>
+        <div id="updatetitle"><span class="icons">update</span>{{ update_time }}</div>
+    </div>
+    <div id="searchicon"><span id="search">search</span><span id="close">close</span></div>
+</header>
+<main>
+    <div id="circle-bg"></div>
+    <article id="menu">
+        <div id="menu-sp">
+        </div>
+        <div id="menu-pc">
+            <form method="POST" id="menu_child">
+                <ul>
+                    <li class="sihead">リリース年</li>
+                    <li>
+                        <input type="checkbox" name="select-years-all" id="sya">
+                        <label for="sya">全て選択</label>
+                    </li>
+                    <li>
+                        {% for u in years %}
+                            <div class="check-wrapper">
+                            <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}>
+                            <label for="{{ u[0] }}">{{ u[1] }}</label>
+                            </div>
+                        {% endfor %}
+                    </li>
+                    <li class="sihead">会社選択</li>
+                    <li>
+                        <input type="checkbox" name="select-companies-all" id="sca">
+                        <label for="sca">全て選択</label>
+                    </li>
+                    <li>
+                        {% for ci in companies %}
+                            <div class="check-wrapper">
+                            <input type="checkbox" name="select-companies" id="{{ ci[0] }}" value={{ ci[0] }}>
+                            <label for="{{ ci[0] }}">{{ ci[1] }}</label>
+                            </div>
+                        {% endfor %}
+                    </li>
+                    <li class="sihead">キーワード</li>
+                    <li>
+                        <input type="text" name="keywords" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrds }}">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </article>
+
+    <article id="pgn_wrapper"><article>{{ pagination.info }}</article><article>{{ pagination.links }}</article></article>
+    <article id="resultbox">
+        {% for i in range(n) %}
+        <article class="card">
+            <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
+                <div class="company">{{ tbl_company_name[i] }}</div>
+            </a>
+            <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
+                <div class="article">
+                    <p class="sub">{{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
+                    <p class="issue">{{ tbl_article_title[i] }}</p>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </article>
+    <article><a href="#" id="topBtn">TOP</a></article>
+</main>
+<footer></footer>
+</body>
+</html>

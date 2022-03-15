@@ -38,29 +38,19 @@
   display: block;
   position:fixed;
   color: var(--basecolor);
-  font-size: 1.6rem;
-  top: var(--headerheight);
-  width:100%;
-  height: calc(100vh-var(--headerheight));
-  opacity: 0;
-}
-
-
-#circle-bg{
-  position: fixed;
-  /*丸の形*/
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
   background: var(--textcolortrans);
-  /*丸のスタート位置と形状*/
-  right:-50px;
-  top:-50px;
-  transform: scale(0);/*scaleをはじめは0に*/
-  transition-delay: all 0.3s;/*0.6秒かけてアニメーション*/
-  transition: all 0.6s;/*0.6秒かけてアニメーション*/
+  font-size: 1.6rem;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: calc(95vh - var(--headerheight));
+  top: calc(-100vh + var(--headerheight));
+  transition: all .6s ease;
 }
 
+#menu.sitrue{
+  top: calc(var(--headerheight));
+}
 
 #menu-pc{
   margin-left: 10%;
@@ -70,19 +60,19 @@
 #menu-pc li{
   margin-top: 10px;
   margin-bottom: 10px;
-  display: flex;
-  flex-grow: 1;
+/*  display: flex;
+  flex-grow: 1;*/
 }
 
 .sihead{
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
-  align-items: center;  width: 80%;
+  align-items: center;  width: 90%;
   justify-content: space-evenly;
 }
 
-.sihead:before, .sihead:after {
+.sihead:before {
     content: "";
     flex-grow: 1;
     height: 1px; /* 線の太さを変えたいときはここを変える */
@@ -90,6 +80,23 @@
     margin:0 .4em; /* 文字と線の余白用 なくても良い */
 }
 
-.li-wrapper{
+.sihead:after {
+  content: "";
+  flex-grow: 3;
+  height: 1px; /* 線の太さを変えたいときはここを変える */
+  background: var(--basecolor); /* 線の色を変えたいときはここを変える */
+  margin:0 .4em; /* 文字と線の余白用 なくても良い */
+}
+
+
+.checks-wrapper{
   display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.check-wrapper{
+  margin: 5px 20px;
 }

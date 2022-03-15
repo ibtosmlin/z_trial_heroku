@@ -38,7 +38,6 @@
     <div id="searchicon"><span id="search">search</span><span id="close">close</span></div>
 </header>
 <main>
-    <div id="circle-bg"></div>
     <article id="menu">
         <div id="menu-sp">
         </div>
@@ -50,10 +49,10 @@
                         <input type="checkbox" name="select-years-all" id="sya">
                         <label for="sya">全て選択</label>
                     </li>
-                    <li>
+                    <li class="checks-wrapper">
                         {% for u in years %}
                             <div class="check-wrapper">
-                            <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}>
+                            <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}/>
                             <label for="{{ u[0] }}">{{ u[1] }}</label>
                             </div>
                         {% endfor %}
@@ -63,10 +62,10 @@
                         <input type="checkbox" name="select-companies-all" id="sca">
                         <label for="sca">全て選択</label>
                     </li>
-                    <li>
+                    <li class="checks-wrapper">
                         {% for ci in companies %}
                             <div class="check-wrapper">
-                            <input type="checkbox" name="select-companies" id="{{ ci[0] }}" value={{ ci[0] }}>
+                            <input type="checkbox" name="select-companies" id="{{ ci[0] }}" value={{ ci[0] }}/>
                             <label for="{{ ci[0] }}">{{ ci[1] }}</label>
                             </div>
                         {% endfor %}

@@ -32,10 +32,11 @@ body{
 }
 
 header{z-index: 999;}
-#circle-bg{z-index:10;}
-#pgn_wrapper{z-index: 20;}
-#resultbox{z-index: 20;}
-#menu{z-index: 10;}/*50*/
+#menu{z-index: 400;}
+#pgn_wrapper{z-index: 300;}
+#topBtn{z-index: 300;}
+#resultbox{z-index: 200;}
+main{z-index: 100;}
 
 
 header {

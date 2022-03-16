@@ -1,8 +1,3 @@
-  <ul class="ks-cboxtags">
-    <li><input type="checkbox" id="checkboxSix" value="Twilight Sparkle" checked><label for="checkboxSix">Twilight
-                    Sparkle</label></li>
-</ul>
-
 ul.ks-cboxtags li label{
     display: inline-block;
     background-color: rgba(255, 255, 255, .9);

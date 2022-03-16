@@ -1,6 +1,6 @@
 ul.ks-cboxtags li label{
     display: inline-block;
-    border: 1px solid var(--basecolor);
+    border: 2px dotted var(--basecolor);
     color: var(--basebolor);
     border-radius: 25px;
     white-space: nowrap;
@@ -26,7 +26,6 @@ ul.ks-cboxtags li label::before {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     font-family: 'Material Icons Outlined';
-/*    font-weight: 900;*/
     font-size: 12px;
     padding: 2px 6px 2px 2px;
     content: "check_box_outline_blank";
@@ -40,10 +39,10 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-/*    border: 2px solid #1bdbf8;*/
-    background-color: var(--basecolortrans);
-    color: var(--maincolor);
-    transition: all .2s;
+  border: 2px solid var(--maincolor);
+  background-color: var(--basecolortrans);
+  color: var(--maincolor);
+  transition: all .2s;
 }
 
 ul.ks-cboxtags li input[type="checkbox"] {
@@ -53,6 +52,27 @@ ul.ks-cboxtags li input[type="checkbox"] {
   position: absolute;
   opacity: 0;
 }
-ul.ks-cboxtags li input[type="checkbox"]:focus + label {
-  border: 1px solid var(--basecolor);
+
+ul.ks-cboxtags li input[type="checkbox"]:hover + label {
+  border: 2px solid var(--lightcolor);
+}
+
+
+ul.ks-cboxtags li input[type="text"] {
+    display: inline-block;
+    border: 2px dotted var(--basecolor);
+    color: var(--basebolor);
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    font-size: 20px;
+  height: 30px;
+    width: 50%;
 }

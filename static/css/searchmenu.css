@@ -40,7 +40,6 @@
   position:fixed;
   color: var(--basecolor);
   background: var(--textcolortrans);
-  font-size: 1.2rem;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
@@ -71,6 +70,7 @@
   display: flex;
   align-items: center;  width: 90%;
   justify-content: space-evenly;
+  font-size: 1.6rem;
 }
 
 .sihead:before, .sihead:after{

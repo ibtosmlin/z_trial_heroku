@@ -15,27 +15,28 @@ ul.ks-cboxtags li label{
 }
 
 ul.ks-cboxtags li label {
-    padding: 8px 12px;
-    cursor: pointer;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  cursor: pointer;
 }
 
 ul.ks-cboxtags li label::before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Material Icons Outlined';
-    font-size: 12px;
-    padding: 2px 6px 2px 2px;
-    content: "check_box_outline_blank";
-    transition: transform .3s ease-in-out;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Material Icons Outlined';
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "check_box_outline_blank";
+  transition: transform .3s ease-in-out;
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-    content: "done_outline";
-    transform: rotate(-360deg);
-    transition: transform .3s ease-in-out;
+  content: "done_outline";
+  transform: rotate(-360deg);
+  transition: transform .3s ease-in-out;
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:checked + label {
@@ -59,20 +60,31 @@ ul.ks-cboxtags li input[type="checkbox"]:hover + label {
 
 
 ul.ks-cboxtags li input[type="text"] {
-    display: inline-block;
-    border: 2px solid var(--basecolor);
-    color: var(--maincolor);
-    border-radius: 2px;
-    white-space: nowrap;
-    margin: 3px 0px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: all .2s;
-    font-size: 20px;
-    height: 30px;
-    width: 50%;
+  display: inline-block;
+  border: 2px solid var(--basecolor);
+  color: var(--maincolor);
+  border-radius: 5px;
+  padding-left: 3px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s;
+  font-size: 20px;
+  height: 30px;
+  width: 30%;
+}
+
+ul.ks-cboxtags li input[type="text"]:focus {
+  border: 2px solid var(--lightcolor);
+  box-shadow: 0px 0px 8px 4px var(--lightcolor) inset;
+  outline: none;
+}
+
+span#inc, span#exc {
+  font-size: 1.6rem;
 }

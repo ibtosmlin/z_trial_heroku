@@ -15,6 +15,7 @@ for c in CT.companies_ordered:
     sc = c.replace('株式会社', '').replace('相互会社', '').replace('生命保険', '生命')
     companies.append((c, sc))
 
+# for si-pc
 years = []
 for y in list(CT.years):
     yf = y[0]
@@ -27,6 +28,11 @@ for y in list(CT.years):
     years.append((y, yy))
 
 
+
+# for si-pc
+
+
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
@@ -35,6 +41,8 @@ def index():
         tbl = tbl_all[(page-1)*per_page: page*per_page]
         total = len(tbl_all)
         pagination = Pagination(page=page, total=total, per_page=per_page, css_framework='foundation')
+
+
 
         return render_template('./index.html',
                 update_time=CT.update_date,
@@ -47,7 +55,12 @@ def index():
                 tbl_article_type = list(tbl.article_type),
                 tbl_article_title = list(tbl.article_title),
                 tbl_article_url = list(tbl.article_url),
-                pagination = pagination
+                pagination = pagination,
+                si_comp = list(tbl.company_name),
+                si_comp_all = True,
+                si_years = years,
+                si_years_all = True,
+                si_kwrds = (None, None)
                 )
 
 

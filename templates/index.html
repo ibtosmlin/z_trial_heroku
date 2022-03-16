@@ -57,7 +57,7 @@
                         {% endfor %}
                     </li>
                     <li class="sihead">会社選択　　
-                        <input type="checkbox" name="select-companies-all" id="sca">
+                        <input type="checkbox" name="select-companies-all" id="sca" >
                         <label for="sca">全て選択</label>
                     </li>
                     <li class="checks-wrapper">
@@ -70,10 +70,12 @@
                     </li>
                     <li class="sihead">キーワード</li>
                     <li>
-                        <input type="text" name="keywords-inc" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrdsinc }}">
-                        <span id="inc">含む</span>
-                        <input type="text" name="keywords-exc" placeholder="キーワードを入力(ex.コロナ)" value="{{ kwrdsexc }}">
-                        <span id="exc">含まない</span>
+                        <input type="text" name="keywords-inc" placeholder="キーワードを入力(ex.販売 提携)" value="{{ si_kwrds[0] }}">
+                        <span id="inc">を含む</span>
+                    </li>
+                    <li>
+                        <input type="text" name="keywords-exc" placeholder="キーワードを入力(ex.コロナ)" value="{{ si_kwrds[1] }}">
+                        <span id="exc">を含まない</span>
                     </li>
                 </ul>
             </form>

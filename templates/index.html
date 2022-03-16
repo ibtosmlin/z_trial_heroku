@@ -25,6 +25,7 @@
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
 
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkbox.css') }}">
+<script type="text/javascript" src= "{{ url_for('static',filename='./js/checkbox.js') }}"></script>
 
 </head>
 
@@ -45,36 +46,42 @@
             <form method="POST" id="menu_child">
                 <ul class="ks-cboxtags">
                     <li class="sihead">リリース年　
-                        <input type="checkbox" name="select-years-all" id="sya">
+                        <input type="checkbox" name="select-years-all" id="sya"
+                            {% if si_years_all %} checked = "checked" {% endif %}>
                         <label for="sya">全て選択</label>
                     </li>
-                    <li class="checks-wrapper">
+                    <li class="checks-wrapper" id="cbyear">
                         {% for u in years %}
                             <div class="check-wrapper">
-                            <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}/>
+                            <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}
+                            {% if u[0] in si_years %} checked = "checked" {% endif %}/>
                             <label for="{{ u[0] }}">{{ u[1] }}</label>
                             </div>
                         {% endfor %}
                     </li>
                     <li class="sihead">会社選択　　
-                        <input type="checkbox" name="select-companies-all" id="sca" >
+                        <input type="checkbox" name="select-companies-all" id="sca"
+                        {% if si_comp_all %} checked = "checked" {% endif %}>
                         <label for="sca">全て選択</label>
                     </li>
-                    <li class="checks-wrapper">
+                    <li class="checks-wrapper" id="cbcomp">
                         {% for ci in companies %}
                             <div class="check-wrapper">
-                            <input type="checkbox" name="select-companies" id="{{ ci[0] }}" value={{ ci[0] }}/>
+                            <input type="checkbox" name="select-companies" id="{{ ci[0] }}" value={{ ci[0] }}
+                            {% if ci[0] in si_comp %} checked = "checked" {% endif %}/>
                             <label for="{{ ci[0] }}">{{ ci[1] }}</label>
                             </div>
                         {% endfor %}
                     </li>
                     <li class="sihead">キーワード</li>
                     <li>
-                        <input type="text" name="keywords-inc" placeholder="キーワードを入力(ex.販売 提携)" value="{{ si_kwrds[0] }}">
+                        <input type="text" name="keywords-inc" placeholder="キーワードを入力(ex.販売 提携)"
+                        {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
                         <span id="inc">を含む</span>
                     </li>
                     <li>
-                        <input type="text" name="keywords-exc" placeholder="キーワードを入力(ex.コロナ)" value="{{ si_kwrds[1] }}">
+                        <input type="text" name="keywords-exc" placeholder="キーワードを入力(ex.コロナ)"
+                        {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
                         <span id="exc">を含まない</span>
                     </li>
                 </ul>

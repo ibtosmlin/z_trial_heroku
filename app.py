@@ -56,9 +56,9 @@ def index():
                 tbl_article_title = list(tbl.article_title),
                 tbl_article_url = list(tbl.article_url),
                 pagination = pagination,
-                si_comp = list(tbl.company_name),
+                si_comp = [c0 for c0, _c1 in companies],
                 si_comp_all = True,
-                si_years = years,
+                si_years = [y0 for y0, _y1 in years],
                 si_years_all = True,
                 si_kwrds = (None, None)
                 )

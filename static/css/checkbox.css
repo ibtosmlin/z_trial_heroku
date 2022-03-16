@@ -85,6 +85,11 @@ ul.ks-cboxtags li input[type="text"]:focus {
   outline: none;
 }
 
+ul.ks-cboxtags li input[type="text"]::placeholder {
+  color: var(--lightcolor);
+  opacity: 0.7;
+}
+
 span#inc, span#exc {
   font-size: 1.6rem;
 }

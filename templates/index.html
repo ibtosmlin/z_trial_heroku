@@ -71,9 +71,11 @@
                     <li class="sihead">キーワード</li>
                     <li>
                         <input type="text" name="keywords-inc" placeholder="キーワードを入力(ex.販売 提携)" value="{{ kwrdsinc }}">
-                        <label>を含む</label>
+                        <input type="checkbox" name="cbinc" id="inc">
+                        <label for="inc">含む</label>
                         <input type="text" name="keywords-exc" placeholder="キーワードを入力(ex.コロナ)" value="{{ kwrdsexc }}">
-                        <label>を含まない</label>
+                        <input type="checkbox" name="cbexc" id="exc">
+                        <label for="exc">含まない</label>
                     </li>
                 </ul>
             </form>

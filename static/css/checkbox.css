@@ -1,7 +1,7 @@
 ul.ks-cboxtags li label{
     display: inline-block;
     background-color: rgba(255, 255, 255, .9);
-    border: 2px solid rgba(139, 139, 139, .3);
+    border: 1px solid rgba(139, 139, 139, .3);
     color: #adadad;
     border-radius: 25px;
     white-space: nowrap;
@@ -26,16 +26,16 @@ ul.ks-cboxtags li label::before {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Material Icons Outlined';
     font-weight: 900;
     font-size: 12px;
     padding: 2px 6px 2px 2px;
-    content: "check_circle";
+    content: "check_box_outline_blank";
     transition: transform .3s ease-in-out;
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-    content: "\f00c";
+    content: "done_outline";
     transform: rotate(-360deg);
     transition: transform .3s ease-in-out;
 }

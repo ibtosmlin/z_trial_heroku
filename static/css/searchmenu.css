@@ -35,6 +35,7 @@
 
 
 #menu{
+  overflow: scroll;
   display: block;
   position:fixed;
   color: var(--basecolor);

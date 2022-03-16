@@ -23,9 +23,9 @@
 <!--searchmenu-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
-<!--
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkboxes.css') }}">
--->
+
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkbox.css') }}">
+
 </head>
 
 <body>
@@ -43,7 +43,7 @@
         </div>
         <div id="menu-pc">
             <form method="POST" id="menu_child">
-                <ul>
+                <ul class="ks-cboxtags">
                     <li class="sihead">リリース年　
                         <input type="checkbox" name="select-years-all" id="sya">
                         <label for="sya">全て選択</label>

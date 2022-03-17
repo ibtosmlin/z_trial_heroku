@@ -1,6 +1,6 @@
 ul.ks-cboxtags li label{
     display: inline-block;
-    border: 2px dotted var(--basecolor);
+    border: 3px dotted var(--basecolor);
     color: var(--basebolor);
     border-radius: 25px;
     white-space: nowrap;
@@ -40,7 +40,7 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-  border: 2px solid var(--maincolor);
+  border: 3px solid var(--maincolor);
   background-color: var(--basecolortrans);
   color: var(--maincolor);
   transition: all .2s;
@@ -55,14 +55,15 @@ ul.ks-cboxtags li input[type="checkbox"] {
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:hover + label {
-  border: 2px solid var(--lightcolor);
+  border: 3px solid var(--selectcolor);
+  box-shadow: 0px 0px 3px 1px var(--selectcolor) inset;
 }
 
 
 ul.ks-cboxtags li input[type="text"] {
   display: inline-block;
-  border: 2px solid var(--basecolor);
-  color: var(--maincolor);
+  border: 3px dotted var(--basecolor);
+  color: var(--basecolor);
   border-radius: 5px;
   padding-left: 3px;
   white-space: nowrap;
@@ -73,23 +74,57 @@ ul.ks-cboxtags li input[type="text"] {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: all .2s;
-  font-size: 20px;
+  font-size: 1.4rem;
   height: 30px;
-  width: 30%;
-}
-
-ul.ks-cboxtags li input[type="text"]:focus {
-  border: 2px solid var(--lightcolor);
-  box-shadow: 0px 0px 8px 4px var(--lightcolor) inset;
+  min-width: 15%;
+  background: transparent;
+  margin-left: 5px;
+  margin-right: 5px;
   outline: none;
 }
 
-ul.ks-cboxtags li input[type="text"]::placeholder {
-  color: var(--lightcolor);
-  opacity: 0.7;
+ul.ks-cboxtags li input[type="text"]:not(:placeholder-shown){
+  border: 3px solid var(--maincolor);
+  background-color: var(--basecolortrans);
+  color: var(--maincolor);
+  opacity: 1;
 }
 
-span#inc, span#exc {
-  font-size: 1.6rem;
+
+ul.ks-cboxtags li input[type="text"]:focus {
+  color: var(--maincolor);
+  background-color: var(--basecolortrans);
+  border: 3px solid var(--selectcolor);
+  box-shadow: 0px 0px 3px 1px var(--selectcolor) inset;
+  outline: none;
 }
+
+ul.ks-cboxtags li input[type="text"]:hover {
+  color: var(--maincolor);
+  background-color: var(--basecolortrans);
+  border: 3px solid var(--selectcolor);
+}
+
+ul.ks-cboxtags li input[type="text"]:hover:not(:placeholder-shown) {
+  color: var(--maincolor);
+}
+
+ul.ks-cboxtags li input[type="text"]::placeholder {
+  color: var(--basecolor);
+  opacity: 0.5;
+}
+ul.ks-cboxtags li input[type="text"]:not(:placeholder-shown)::placeholder {
+  color: var(--maincolor);
+  opacity: 1;
+  font-size: 1.4rem;
+}
+ul.ks-cboxtags li input[type="text"]:focus::placeholder {
+  color: var(--maincolor);
+  opacity: 0.5;
+}
+ul.ks-cboxtags li input[type="text"]:hover::placeholder {
+  color: var(--maincolor);
+  opacity: 0.5;
+}
+
+

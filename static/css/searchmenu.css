@@ -68,8 +68,9 @@
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
-  align-items: center;  width: 90%;
-  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
   font-size: 1.6rem;
 }
 
@@ -85,7 +86,7 @@
 }
 
 .sihead:after {
-  flex-grow: 10;
+  flex-grow: 15;
 }
 
 
@@ -99,5 +100,5 @@
 
 .check-wrapper{
   margin: 2px 2px;
-  width: 200px;
+  width: 250px;
 }

@@ -26,6 +26,7 @@
 
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkbox.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/checkbox.js') }}"></script>
+<script type="text/javascript" src= "{{ url_for('static',filename='./js/checkbox2.js') }}"></script>
 
 </head>
 
@@ -36,7 +37,7 @@
         <div id="maintitle"><span class="icons">newspaper</span>生保News-ＤＢ</div>
         <div id="updatetitle"><span class="icons">update</span>{{ update_time }}</div>
     </div>
-    <div id="searchicon"><span id="search">search</span><span id="close">close</span></div>
+    <div id="searchicon"><span id="search">search</span><span id="close">search_off</span></div>
 </header>
 <main>
     <article id="menu">
@@ -75,16 +76,17 @@
                     </li>
                     <li class="sihead">キーワード</li>
                     <li>
-                        <input type="text" name="keywords-inc" placeholder="キーワードを入力(ex.販売 提携)"
+                        <span class="icons">add_circle</span>
+                        <input type="text" name="keywords-inc" placeholder="含むキーワード[ex.提携 異動]"
                         {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
-                        <span id="inc">を含む</span>
                     </li>
                     <li>
-                        <input type="text" name="keywords-exc" placeholder="キーワードを入力(ex.コロナ)"
+                        <span class="icons">remove_circle</span>
+                        <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
                         {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
-                        <span id="exc">を含まない</span>
                     </li>
                 </ul>
+                <div button><span class="icons">youtube_searched_for</span></div>
             </form>
         </div>
     </article>

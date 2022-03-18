@@ -22,15 +22,10 @@ for y in list(CT.years):
     yy = int(y[1:])
     if yf == '<':
         yy -= 1
-        yy = f'{yy}年度以前'
+        yy = f'{yy}年以前'
     else:
-        yy = f'{yy}年度'
+        yy = f'{yy}年'
     years.append((y, yy))
-
-
-
-# for si-pc
-
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -56,8 +51,15 @@ def index():
             page = request.args.get(get_page_parameter(), type=int, default=1)
             tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
         else:
-            pass
-
+            si_years = request.form.getlist('select-years')
+            si_comp = request.form.getlist('select-companies')
+            kyrd_inc = request.form.get('keywords-inc')
+            kyrd_exc = request.form.get('keywords-exc')
+            si_kwrds = (kyrd_inc, kyrd_exc)
+            page = request.args.get(get_page_parameter(), type=int, default=1)
+            tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
+            si_years_all = None
+            si_comp_all = None
 
     total = len(tbl_all)
     tbl = tbl_all[(page-1)*per_page: page*per_page]

@@ -27,6 +27,8 @@ input[type="month"]::-webkit-calendar-picker-indicator {
   -moz-appearance: none;
   appearance: none;
   font-family: inherit;
+  margin: 0;
+  padding: 0;
   border-radius: 3px;
   border: 1px solid var(--textcolortrans);
   box-sizing: border-box;
@@ -34,7 +36,7 @@ input[type="month"]::-webkit-calendar-picker-indicator {
   color: var(--maincolor);
   margin-left:5px;
   background-color: var(--basecolor);
-  height: 25px;
+  height: 30px;
 }
 
 #menu-sp .btn-submit{
@@ -46,4 +48,18 @@ input[type="month"]::-webkit-calendar-picker-indicator {
   align-items: center;
   justify-content: center;
 
+}
+
+#menu-sp input:active,
+#menu-sp button:active,
+#menu-sp select:active {
+  border: var(--selectcolor);
+  box-shadow: 0px 0px 3px 1px var(--selectcolor) inset;
+
+}
+
+#menu-sp input::placeholder {
+  color: var(--textcolortrans);
+  opacity: 0.5;
+  font-size: 18px;
 }

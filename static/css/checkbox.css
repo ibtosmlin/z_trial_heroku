@@ -113,6 +113,7 @@ ul.ks-cboxtags li input[type="text"]::placeholder {
   color: var(--basecolor);
   opacity: 0.5;
 }
+
 ul.ks-cboxtags li input[type="text"]:not(:placeholder-shown)::placeholder {
   color: var(--maincolor);
   opacity: 1;

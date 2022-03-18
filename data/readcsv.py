@@ -12,9 +12,7 @@ csv_companies = os.path.join(libpath, 'data_setup_companies.csv')
 
 
 def search_string_to_list(tgt: str)-> list:
-    print(tgt)
     tgts = re.split('\s+', tgt)
-    print(len(tgt))
     tgts = [tgt for tgt in tgts if len(tgts)!=0]
     return tgts
 
@@ -59,7 +57,6 @@ class ContentsTable:
         """
         with open(csv_update_date, encoding='utf-8-sig', newline='') as f:
             self.update_date = f.readline().replace('"', '').replace('\n', '')
-        # print(self.update_date)
 
 
     def _get_data(self):
@@ -84,21 +81,29 @@ class ContentsTable:
         cp_articles = self.df_articles.copy()
         fg = np.array([True] * len(cp_articles))
 
-        if companies:
+        if companies and companies[0] != 'all':
             _f = lambda x: x in companies
             fg_companies = cp_articles.company_name.map(_f)
         else:
             fg_companies = fg.copy()
 
-        if years:   #  "=yyyy" or "<yyyy"
-            fg_years = np.array([False] * len(cp_articles))
-            _g = lambda x: self.today[:4] if x[:4] == '----' else x[:4]
-            article_year = cp_articles.article_date.map(_g)
-            for year in years:
-                if year[0] == '=':
-                    fg_years |= article_year == year[1:]
-                else:
-                    fg_years |= article_year < year[1:]
+        if years and len(years[0]) != 0:   #  "=yyyy" or "<yyyy"
+            if len(years[0]) == 5:
+                fg_years = np.array([False] * len(cp_articles))
+                _g = lambda x: self.today[:4] if x[:4] == '----' else x[:4]
+                article_year = cp_articles.article_date.map(_g)
+                for year in years:
+                    if year[0] == '=':
+                        fg_years |= article_year == year[1:]
+                    else:
+                        fg_years |= article_year < year[1:]
+            else:
+                fg_years = np.array([False] * len(cp_articles))
+                _g = lambda x: self.today[:7] if x[:4] == '----' else x[:7]
+                article_year = cp_articles.article_date.map(_g)
+                for year in years:
+                    fg_years |= article_year == year
+
         else:
             fg_years = fg.copy()
 
@@ -118,6 +123,10 @@ class ContentsTable:
         else:
             fg_key_words_exc = fg.copy()
 
+#        print('comp ',np.count_nonzero(fg_companies))
+#        print('yrs ',np.count_nonzero(fg_years))
+#        print('inc',np.count_nonzero(fg_key_words_inc))
+#        print('exp',np.count_nonzero(fg_key_words_exc))
 
         return cp_articles[fg_companies&fg_years&fg_key_words_inc&fg_key_words_exc]
 

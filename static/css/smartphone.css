@@ -50,9 +50,9 @@ input[type="month"]::-webkit-calendar-picker-indicator {
 
 }
 
-#menu-sp input:active,
-#menu-sp button:active,
-#menu-sp select:active {
+#menu-sp input:focus,
+#menu-sp button:focus,
+#menu-sp select:focus {
   border: var(--selectcolor);
   box-shadow: 0px 0px 3px 1px var(--selectcolor) inset;
 

@@ -32,7 +32,6 @@ class ContentsTable:
         # method = "get"の場合のdataFrame
         self.df_articles_init = None
 
-
         self._get_years_list()
         self._get_update_date()
         self._get_data()
@@ -78,7 +77,7 @@ class ContentsTable:
 
 
     def df_articles_selected(self, companies: list, years: list, key_words: tuple):
-        cp_articles = self.df_articles.copy()
+        cp_articles = self.df_articles_init.copy()
         fg = np.array([True] * len(cp_articles))
 
         if companies and companies[0] != 'all':
@@ -127,8 +126,7 @@ class ContentsTable:
 #        print('yrs ',np.count_nonzero(fg_years))
 #        print('inc',np.count_nonzero(fg_key_words_inc))
 #        print('exp',np.count_nonzero(fg_key_words_exc))
-
-        return cp_articles[fg_companies&fg_years&fg_key_words_inc&fg_key_words_exc]
+        self.cp_articles_selected = cp_articles[fg_companies&fg_years&fg_key_words_inc&fg_key_words_exc]
 
 
     def _get_initial_table(self):

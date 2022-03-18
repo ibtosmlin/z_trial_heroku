@@ -10,6 +10,9 @@
 <!--jQuery-->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-multiselect-widget/3.0.1/i18n/jquery.multiselect.filter.ja.min.js"></script>
+
+
 
 <!--mystyle-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
@@ -28,6 +31,9 @@
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/checkbox.js') }}"></script>
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/checkbox2.js') }}"></script>
 
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/smartphone.css') }}">
+
+
 </head>
 
 <body>
@@ -42,13 +48,45 @@
 <main>
     <article id="menu">
         <div id="menu-sp">
+            <span class="icons">search</span><span>検索</span>
+            <form method="POST" id="menu_child">
+                <input type="hidden" name="media-type" value="menu-sp">
+                <ul class="">
+                    <li class = "sihead">年月選択</li>
+                    <li><span class="icons">calendar_month</span>
+                    <input type="month" name="select-years" value="2012-02">
+                    </li>
+                    <li class = "sihead">会社選択</li>
+                        <li><span class="icons">business</span>
+                            <select name="select-companies">
+                        <option value="all">全て選択</option>
+                        {% for ci in companies %}
+                            <option value={{ ci[0] }}>{{ ci[1] }}</option>
+                        {% endfor %}
+                        </select>
+                    </li>
+                    <li class="sihead">キーワード</li>
+                    <li>
+                        <span class="icons">add_circle</span>
+                        <input type="text" name="keywords-inc" placeholder="含むキーワード[ex.提携 異動]"
+                        {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
+                    </li>
+                    <li>
+                        <span class="icons">remove_circle</span>
+                        <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
+                        {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
+                    </li>
+                </form>
         </div>
         <div id="menu-pc">
             <form method="POST" id="menu_child">
+                <input type="hidden" name="media-type" value="menu-pc">
                 <ul class="ks-cboxtags">
+                    <li><button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span><span>検索</span>
+                </button></li>
                     <li class="sihead">リリース年　
                         <input type="checkbox" name="select-years-all" id="sya"
-                            {% if si_years_all %} checked = "checked" {% endif %}>
+                            {% if si_years_all %} checked="checked" {% endif %}>
                         <label for="sya">全て選択</label>
                     </li>
                     <li class="checks-wrapper" id="cbyear">
@@ -82,11 +120,10 @@
                     </li>
                     <li>
                         <span class="icons">remove_circle</span>
-                        <input type="text" class="input-text js-input-text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
+                        <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
                         {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
                     </li>
                 </ul>
-                <button type="submit" class="button-submit ready"><span class='icons48'>youtube_searched_for</span></button>
             </form>
         </div>
     </article>

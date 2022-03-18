@@ -128,40 +128,38 @@ ul.ks-cboxtags li input[type="text"]:hover::placeholder {
 }
 
 
-.button-submit.show {
+
+.btn-submit.show {
+  animation-name: fade-in;
+  animation-duration: .8s;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.btn-submit {
   display: flex;
-  background-color:transparent;
-  color:var(--basecolor);
-  opacity: 1;
-  border: 1px solid var(--basecolor);
-  box-shadow: 0px 2px 7px 0px var(--basecolor);
-  transition: scale 2s 1s ease;
-}
-
-.button-submit.show:hover {
-  transform: scale(1.2);
-}
-
-.button-submit{
-  display: none;
-
+  background-color: transparent;
   border: none;
+  position: relative;
+  padding: 0.25em 1em;
+  border-top: solid 2px var(--basecolor);
+  border-bottom: solid 2px var(--basecolor);
+  text-decoration: none;
+  color: var(--basecolor);
   cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
+  font-size: 18px;
+}
 
-  position:fixed;
-  top:calc(var(--headerheight) + 10vh);
-  right: calc(var(5%)+10vw);
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  width: 80px;
-  height: 80px;
-  border-radius: 50vh;
-  background-color:var(--textcolor);
-  color:var(--textcolor);
-  opacity: 0;
-  transition: opacity 2s 1s ease;
+.btn-submit{
+  opacity: 1;
 }

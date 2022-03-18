@@ -53,6 +53,7 @@
 }
 
 #menu-pc{
+  margin-top: 10px;
   margin-left: 2%;
   margin-right: 2%;
 }
@@ -60,8 +61,6 @@
 #menu-pc li{
   margin-top: 10px;
   margin-bottom: 10px;
-/*  display: flex;
-  flex-grow: 1;*/
 }
 
 .sihead{

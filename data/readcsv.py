@@ -12,8 +12,10 @@ csv_companies = os.path.join(libpath, 'data_setup_companies.csv')
 
 
 def search_string_to_list(tgt: str)-> list:
+    print(tgt)
     tgts = re.split('\s+', tgt)
-    tgts = [tgt for tgt in tgts if len(tgt)!=0]
+    print(len(tgt))
+    tgts = [tgt for tgt in tgts if len(tgts)!=0]
     return tgts
 
 
@@ -78,8 +80,7 @@ class ContentsTable:
         self.df_articles = df_articles
 
 
-    def df_articles_selected(self, companies: list, years: list, key_words: list):
-        key_words_list = search_string_to_list(key_words)
+    def df_articles_selected(self, companies: list, years: list, key_words: tuple):
         cp_articles = self.df_articles.copy()
         fg = np.array([True] * len(cp_articles))
 
@@ -101,22 +102,27 @@ class ContentsTable:
         else:
             fg_years = fg.copy()
 
-        if key_words_list:
-            regex = re.compile('|'.join(key_words_list))
+        key_words_inc = search_string_to_list(key_words[0])
+        key_words_exc = search_string_to_list(key_words[1])
+        if key_words_inc != [""]:
+            regex = re.compile('|'.join(key_words_inc))
             _h = lambda x: False if len(regex.findall(x)) == 0 else True
-            fg_key_words = cp_articles.article_title.map(_h)
+            fg_key_words_inc = cp_articles.article_title.map(_h)
         else:
-            fg_key_words = fg.copy()
+            fg_key_words_inc = fg.copy()
 
-        return cp_articles[fg_companies&fg_years&fg_key_words]
+        if key_words_exc != [""]:
+            regex = re.compile('|'.join(key_words_exc))
+            _h = lambda x: False if len(regex.findall(x)) else True
+            fg_key_words_exc = cp_articles.article_title.map(_h)
+        else:
+            fg_key_words_exc = fg.copy()
+
+
+        return cp_articles[fg_companies&fg_years&fg_key_words_inc&fg_key_words_exc]
 
 
     def _get_initial_table(self):
-        """
-        10日以内のデータを出力する
-        "----"のデータは非表示
-        """
-        inner = 10
         cp_articles = self.df_articles.copy()
 
         # 現時点での日時
@@ -124,11 +130,9 @@ class ContentsTable:
 
         def _f(x):
             if x == '----':
-                # x = kijun
                 return False
             else:
                 x = datetime.datetime.strptime(x, '%Y-%m-%d')
-#            return (kijun - x).days <= inner
             return True
 
         fg = cp_articles.article_date.map(_f)

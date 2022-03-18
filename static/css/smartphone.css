@@ -1,0 +1,7 @@
+#menu-sp{
+  margin: 20px;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator {
+  display: none;
+}

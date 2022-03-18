@@ -6,7 +6,7 @@ $(function() {
 
   let slct_box_count = $(slct_box_id+" :input").length
   let slct_box_checked = slct_box_id+" :checked"
-  var $button_submit = $(".button-submit")
+  var $button_submit = $(".btn-submit")
 
 
   // 1. 「全選択」する

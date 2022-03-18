@@ -38,52 +38,51 @@ def index():
     if request.method == 'GET':
         page = request.args.get(get_page_parameter(), type=int, default=1)
         tbl_all = CT.df_articles_init
-        tbl = tbl_all[(page-1)*per_page: page*per_page]
-        total = len(tbl_all)
-        pagination = Pagination(page=page, total=total, per_page=per_page, css_framework='foundation')
+        si_comp = [c0 for c0, _c1 in companies]
+        si_comp_all = True
+        si_years = [y0 for y0, _y1 in years]
+        si_years_all = True
+        si_kwrds = ("", "")
+    else:
+        media_type = request.form.get('media-type')
+        if media_type == 'menu-pc':
+            si_years_all = request.form.get('select-years-all')
+            si_years = request.form.getlist('select-years')
+            si_comp_all = request.form.get('select-companies-all')
+            si_comp = request.form.getlist('select-companies')
+            kyrd_inc = request.form.get('keywords-inc')
+            kyrd_exc = request.form.get('keywords-exc')
+            si_kwrds = (kyrd_inc, kyrd_exc)
+            page = request.args.get(get_page_parameter(), type=int, default=1)
+            tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
+        else:
+            pass
 
 
+    total = len(tbl_all)
+    tbl = tbl_all[(page-1)*per_page: page*per_page]
 
-        return render_template('./index.html',
-                update_time=CT.update_date,
-                n = len(tbl),
-                years = years,
-                companies = companies,
-                tbl_company_name = list(tbl.company_name),
-                tbl_company_url = list(tbl.company_url),
-                tbl_article_date = list(tbl.article_date),
-                tbl_article_type = list(tbl.article_type),
-                tbl_article_title = list(tbl.article_title),
-                tbl_article_url = list(tbl.article_url),
-                pagination = pagination,
-                si_comp = [c0 for c0, _c1 in companies],
-                si_comp_all = True,
-                si_years = [y0 for y0, _y1 in years],
-                si_years_all = True,
-                si_kwrds = (None, None)
-                )
+    pagination = Pagination(page=page, total=total,
+                            per_page=per_page, css_framework='foundation')
 
-
-"""
-    elif request.method == 'POST':
-    tbl = CT.select_table([], CT.years[0:2], '')
-        days = request.form.getlist('select-days')
-        comps = request.form.getlist('select-company')
-        kwrds = request.form.get('keywords')
-        kwrds = search_string_to_list(kwrds)
-        return render_template('./index.html',
-                update_time=CT.update_time,
-                header=header_list,
-                header_dict=CT.header_dict,
-                companies=CT.company_list,
-                days=days_list,
-                tabledata=CT.select_table(comps, days, d_today, kwrds),
-                companies_selected = comps,
-                days_selected = days,
-                kwrds = " ".join(kwrds)
-                )
-"""
-
+    return render_template('./index.html',
+            update_time=CT.update_date,
+            n = len(tbl),
+            years = years,
+            companies = companies,
+            tbl_company_name = list(tbl.company_name),
+            tbl_company_url = list(tbl.company_url),
+            tbl_article_date = list(tbl.article_date),
+            tbl_article_type = list(tbl.article_type),
+            tbl_article_title = list(tbl.article_title),
+            tbl_article_url = list(tbl.article_url),
+            pagination = pagination,
+            si_comp = si_comp,
+            si_comp_all = si_comp_all,
+            si_years = si_years,
+            si_years_all = si_years_all,
+            si_kwrds = si_kwrds
+            )
 
 
 if __name__ == "__main__":

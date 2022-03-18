@@ -154,7 +154,6 @@ ul.ks-cboxtags li input[type="text"]:hover::placeholder {
   padding: 0.25em 1em;
   border-top: solid 2px var(--basecolor);
   border-bottom: solid 2px var(--basecolor);
-  text-decoration: none;
   color: var(--basecolor);
   cursor: pointer;
   font-size: 18px;

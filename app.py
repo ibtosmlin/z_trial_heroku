@@ -28,17 +28,22 @@ for y in list(CT.years):
     years.append((y, yy))
 
 
+    si_years_all = True
+    si_years = [y0 for y0, _y1 in years]
+    si_comp_all = True
+    si_comp = [c0 for c0, _c1 in companies]
+    kyrd_inc = ""
+    kyrd_exc = ""
+    si_kwrds = ("", "")
+    tbl_all = CT.df_articles_init
+
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    if request.method == 'GET':
-        page = request.args.get(get_page_parameter(), type=int, default=1)
-        tbl_all = CT.df_articles_init
-        si_comp = [c0 for c0, _c1 in companies]
-        si_comp_all = True
-        si_years = [y0 for y0, _y1 in years]
-        si_years_all = True
-        si_kwrds = ("", "")
-    else:
+    global si_years_all, si_years, si_comp_all, si_comp
+    global kyrd_inc, kyrd_exc, si_kwrds, tbl_all
+
+    if request.method == 'POST':
         media_type = request.form.get('media-type')
         if media_type == 'menu-pc':
             si_years_all = request.form.get('select-years-all')
@@ -48,24 +53,25 @@ def index():
             kyrd_inc = request.form.get('keywords-inc')
             kyrd_exc = request.form.get('keywords-exc')
             si_kwrds = (kyrd_inc, kyrd_exc)
-            page = request.args.get(get_page_parameter(), type=int, default=1)
-            tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
+
         else:
+            si_years_all = True
             si_years = request.form.getlist('select-years')
+            si_comp_all = True
             si_comp = request.form.getlist('select-companies')
             kyrd_inc = request.form.get('keywords-inc')
             kyrd_exc = request.form.get('keywords-exc')
             si_kwrds = (kyrd_inc, kyrd_exc)
-            page = request.args.get(get_page_parameter(), type=int, default=1)
-            tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
-            si_years_all = None
-            si_comp_all = None
 
-    total = len(tbl_all)
+        tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
     tbl = tbl_all[(page-1)*per_page: page*per_page]
-
+    total = len(tbl_all)
     pagination = Pagination(page=page, total=total,
-                            per_page=per_page, css_framework='foundation')
+                            per_page=per_page,
+                            display_msg='<b>{start} - {end} / {total}</b>',
+                            css_framework='foundation')
 
     return render_template('./index.html',
             update_time=CT.update_date,
@@ -83,7 +89,8 @@ def index():
             si_comp_all = si_comp_all,
             si_years = si_years,
             si_years_all = si_years_all,
-            si_kwrds = si_kwrds
+            si_kwrds = si_kwrds,
+
             )
 
 

@@ -127,7 +127,7 @@ class ContentsTable:
 #        print('inc',np.count_nonzero(fg_key_words_inc))
 #        print('exp',np.count_nonzero(fg_key_words_exc))
         self.cp_articles_selected = cp_articles[fg_companies&fg_years&fg_key_words_inc&fg_key_words_exc]
-
+        return self.cp_articles_selected
 
     def _get_initial_table(self):
         cp_articles = self.df_articles.copy()

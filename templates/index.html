@@ -46,7 +46,7 @@
 <main>
     <article id="menu">
         <div id="menu-sp">
-            <span class="icons">search</span><span>検索</span>
+            <div class="menu-header"><span class="icons36">search</span><span>検索</span></div>
             <form method="POST" class="menu_sp">
                 <input type="hidden" name="media-type" value="menu-sp">
                 <ul class="">
@@ -62,10 +62,11 @@
                         <div class="spinput-wrapper">
                         <span class="icons">business</span>
                         <select name="select-companies">
-                            <option value="all">全て選択</option>
+
+                            <option value="all" {% if si_comp_all %}selected {% endif %}>全て選択</option>
                             {% for ci in companies %}
                                 <option value={{ ci[0] }}
-                                {% if ci[0] == si_comp[0] %}selected {% endif %}>{{ ci[1] }}</option>
+                                {% if (not si_comp_all) and ci[0] == si_comp[0] %}selected {% endif %}>{{ ci[1] }}</option>
                             {% endfor %}
                         </select>
                         </div>
@@ -85,16 +86,15 @@
                             {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
                         </div>
                     </li>
-                <li><button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span>
+                <li class="btn-submit-wrapper"><button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span>
                 </button></li>
                 </form>
         </div>
         <div id="menu-pc">
+            <div class="menu-header"><span class="icons36">search</span><span>検索</span></div>
             <form method="POST" class="menu_pc">
                 <input type="hidden" name="media-type" value="menu-pc">
                 <ul class="ks-cboxtags">
-                    <li><button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span><span>検索</span>
-                </button></li>
                     <li class="sihead">リリース年　
                         <input type="checkbox" name="select-years-all" id="sya"
                             {% if si_years_all %} checked="checked" {% endif %}>
@@ -135,6 +135,8 @@
                         {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
                     </li>
                 </ul>
+                <li><button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span><span>検索</span>
+                </button></li>
             </form>
         </div>
     </article>

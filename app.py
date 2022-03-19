@@ -57,8 +57,8 @@ def index():
         else:
             si_years_all = True
             si_years = request.form.getlist('select-years')
-            si_comp_all = True
             si_comp = request.form.getlist('select-companies')
+            if si_comp[0] != 'all': si_comp_all = False
             kyrd_inc = request.form.get('keywords-inc')
             kyrd_exc = request.form.get('keywords-exc')
             si_kwrds = (kyrd_inc, kyrd_exc)

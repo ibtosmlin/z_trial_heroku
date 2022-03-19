@@ -43,7 +43,7 @@
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  height: calc(95vh - var(--headerheight));
+  max-height: calc(95vh - var(--headerheight));
   top: calc(-100vh + var(--headerheight));
   transition: all .6s ease;
 }
@@ -63,6 +63,11 @@
   margin-bottom: 10px;
 }
 
+.menu-header{
+  display: flex;
+  font-size: 32px;
+  align-items: center;
+}
 .sihead{
   margin-top: 10px;
   margin-bottom: 10px;

@@ -17,12 +17,28 @@
 }
 
 /*icon size*/
-
 html {
   font-family: 'Kosugi Maru', sans-serif;
   font-size: 62.5%;
   background-color: var(--bkcolor);
 }
+
+/*icon font size*/
+.icons{
+  font-family: 'Material Icons Outlined';
+  font-size: 24px;
+}
+
+.icons48{
+  font-family: 'Material Icons Outlined';
+  font-size: 48px;
+}
+
+.icons36{
+  font-family: 'Material Icons Outlined';
+  font-size: 36px;
+}
+
 
 body{
   position: static;
@@ -38,7 +54,6 @@ header{z-index: 999;}
 #topBtn{z-index: 300;}
 #resultbox{z-index: 200;}
 main{z-index: 100;}
-
 
 header {
   position: fixed;
@@ -73,9 +88,6 @@ header {
   }
 }
 
-/*@media screen and (min-width: 1000px) {
-}*/
-
 #maintitle, #updatetitle{
   color: inherit;
   display: -webkit-flex;
@@ -84,20 +96,6 @@ header {
   align-items: center;
 }
 
-.icons{
-  font-family: 'Material Icons Outlined';
-  font-size: 24px;
-}
-
-.icons48{
-  font-family: 'Material Icons Outlined';
-  font-size: 48px;
-}
-
-.icons36{
-  font-family: 'Material Icons Outlined';
-  font-size: 36px;
-}
 
 #maintitle{
   font-size: 1.6rem;
@@ -128,9 +126,18 @@ ul{
 }
 
 
+/*サーチアイコン*/
 #searchicon{
   font-family: 'Material Icons Outlined';
   font-size: 36px;
   color: var(--basecolor);
   cursor: pointer;
+}
+#search{
+  display: block;
+  opacity: 1;
+}
+#close{
+  display: none;
+  opacity: 0;
 }

@@ -149,17 +149,20 @@ ul.ks-cboxtags li input[type="text"]:hover::placeholder {
 
 .btn-submit {
   display: flex;
-  background-color: transparent;
-  border: none;
-  position: relative;
-  padding: 0.25em 1em;
-  border-top: solid 2px var(--basecolor);
-  border-bottom: solid 2px var(--basecolor);
-  color: var(--basecolor);
+  margin-top: 30px;
+  margin-bottom: 20px;
+  height: 50px;
+  width: 50px;
+  border-radius:50%;
+  align-items: center;
+  justify-content: center;
+  float: right;
   cursor: pointer;
-  font-size: 18px;
+  opacity: 1;
 }
 
-.btn-submit{
-  opacity: 1;
+@media screen and (min-width: 600px) {
+  .btn-submit{
+    transform:translateY(-100px);
+  }
 }

@@ -9,6 +9,7 @@ from data import readcsv
 app = Flask(__name__)
 
 CT = readcsv.ContentsTable()
+page = 1
 per_page = 50
 companies = []
 for c in CT.companies_ordered:
@@ -41,7 +42,7 @@ for y in list(CT.years):
 @app.route("/", methods=['GET', 'POST'])
 def index():
     global si_years_all, si_years, si_comp_all, si_comp
-    global kyrd_inc, kyrd_exc, si_kwrds, tbl_all
+    global kyrd_inc, kyrd_exc, si_kwrds, tbl_all, page
 
     if request.method == 'POST':
         media_type = request.form.get('media-type')
@@ -63,15 +64,21 @@ def index():
             kyrd_exc = request.form.get('keywords-exc')
             si_kwrds = (kyrd_inc, kyrd_exc)
 
-        tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
+    rpage = request.args.get(get_page_parameter(), type=int, default=1)
 
-    page = request.args.get(get_page_parameter(), type=int, default=1)
+    if rpage == page:
+        tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
+        page = 1
+    else:
+        page = rpage
+
     tbl = tbl_all[(page-1)*per_page: page*per_page]
     total = len(tbl_all)
     pagination = Pagination(page=page, total=total,
                             per_page=per_page,
                             display_msg='<b>{start} - {end} / {total}</b>',
                             css_framework='foundation')
+
 
     return render_template('./index.html',
             update_time=CT.update_date,

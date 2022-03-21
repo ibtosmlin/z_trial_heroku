@@ -1,9 +1,3 @@
-#searchicon{
-  font-family: 'Material Icons Outlined';
-  font-size: 36px;
-  color: var(--basecolor);
-  cursor: pointer;
-}
 
 #search{
   display: block;

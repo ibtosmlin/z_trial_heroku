@@ -17,6 +17,7 @@
 
 
 .card, .blankcard{
+    position: relative;
     width :300px;
     margin: 15px;
 }
@@ -76,4 +77,16 @@
 .issue{
     font-size: 1.6rem;
     font-weight: bold;
+}
+
+.badge-new{
+display: inline-block;
+color: #fff;
+padding: 0.2rem 0.3rem;
+border-radius: 1rem;
+font-size: 0.8rem;
+text-transform: uppercase;
+text-align: center;
+white-space: nowrap;
+background-color: #E93F33;
 }

@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title>生保News-ＤＢ</title>
-
-<meta name="viewport" content="width=device-width, initial-scale = 1.0">
-
-<!--iconfont-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-<!--mystyle-->
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
-<!--resultbox, card-->
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/paginate.css') }}">
-
-
-
-
+    <title>生保News-ＤＢ</title>
+    <!--iconfont-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!--mystyle-->
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
+    <!--resultbox, card-->
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/paginate.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
 </head>
 
 <body>
@@ -134,7 +128,11 @@
             </a>
             <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
                 <div class="article">
-                    <p class="sub">{{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
+                    <p class="sub">
+                        {% if tbl_is_new[i] %}
+                        <span class="badge-new">New</span>
+                        {% endif %}
+                        {{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
                     <p class="issue">{{ tbl_article_title[i] }}</p>
                 </div>
             </a>
@@ -144,6 +142,7 @@
     <article><a href="#" id="topBtn">TOP</a></article>
 </main>
 <footer></footer>
+
 
 <!--jQuery-->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

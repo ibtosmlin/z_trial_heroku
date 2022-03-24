@@ -70,7 +70,7 @@ class ContentsTable:
 
         df_articles = pd.read_csv(csv_infos, encoding='utf-8-sig',
                         usecols=['company_id', 'company_name', 'company_url',
-                                  'article_type', 'article_date', 'article_title', 'article_url'])
+                                  'article_type', 'article_date', 'article_title', 'article_url', 'is_new'])
         df_articles = pd.merge(df_articles, df_companies, on='company_id')
         df_articles.sort_values(['company_order', 'article_date'], ascending=[True, False], inplace=True)
         self.df_articles = df_articles

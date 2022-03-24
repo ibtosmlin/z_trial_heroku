@@ -91,6 +91,7 @@ def index():
             tbl_article_type = list(tbl.article_type),
             tbl_article_title = list(tbl.article_title),
             tbl_article_url = list(tbl.article_url),
+            tbl_is_new = list(tbl.is_new),
             pagination = pagination,
             si_comp = si_comp,
             si_comp_all = si_comp_all,

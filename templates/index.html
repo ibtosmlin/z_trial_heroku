@@ -10,6 +10,7 @@
     <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
     <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/paginate.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta name="description" content="">
 
 <!--jQuery-->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -19,6 +20,8 @@
 <!--followingbox-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
+<!--contactform-->
+<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/contactform.css') }}">
 <!--searchmenu-->
 <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
 <script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
@@ -39,12 +42,40 @@
         <div id="maintitle"><span class="icons">newspaper</span>生保News-ＤＢ</div>
         <div id="updatetitle"><span class="icons">update</span>{{ update_time }}</div>
     </div>
-    <div id="searchicon"><span id="search">search</span><span id="close">search_off</span></div>
+    <div id="headerright">
+        <div id="helpicon" class="icon-wrapper">
+            <div class="iconfont">help_outline</div>
+            <div class="icontext">説明をみる</div>
+        </div>
+        <div id="contacticon" class="icon-wrapper">
+            <div class="iconfont">contact_mail</div>
+            <div class="icontext">苦情を言う</div>
+        </div>
+        <div id="searchicon" class="icon-wrapper">
+            <div id="search" class="iconfont">search</div>
+            <div id="close" class="iconfont">search_off</div>
+            <div class="icontext">検索をする</div>
+        </div>
+    </div>
 </header>
 <main>
+    <article id="contactform">
+        <form id="contact">
+            <div class="container">
+                <div class="head">苦情フォーム</div>
+                <input type="text" name="name" placeholder="Name"/><br/>
+                <textarea type="text" name="message" placeholder="Message"></textarea><br/>
+                <div class="message"></div>
+                <button id="submit" type="submit">
+                    <div class="icons">send送信</div>
+                </button>
+            </div>
+        </form>
+
+    </article>
     <article id="menu">
         <div id="menu-sp">
-            <div class="menu-header"><span class="icons36">search</span><span>検索</span></div>
+            <div class="menu-header"><span>検索</span></div>
             <form method="POST" class="menu_sp">
                 <input type="hidden" name="media-type" value="menu-sp">
                 <ul class="">
@@ -89,7 +120,7 @@
                 </form>
         </div>
         <div id="menu-pc">
-            <div class="menu-header"><span class="icons36">search</span><span>検索</span></div>
+            <div class="menu-header"><span>検索</span></div>
             <form method="POST" class="menu_pc">
                 <input type="hidden" name="media-type" value="menu-pc">
                 <ul class="ks-cboxtags">
@@ -149,8 +180,9 @@
             <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
                 <div class="article">
                     <p class="sub">
+
                         {% if tbl_is_new[i] %}
-                        <span class="badge-new">New</span>
+                        <span class="badge-new"></span>
                         {% endif %}
                         {{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
                     <p class="issue">{{ tbl_article_title[i] }}</p>

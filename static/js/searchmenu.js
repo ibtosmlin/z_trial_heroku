@@ -26,3 +26,23 @@ $(function () {
     }
   })
 });
+
+
+$(function () {
+  var $Cfstatus = true;
+  var $Ci = $('#contacticon');
+  var $Cf = $('#contactform');
+
+  $Ci.click(function(){
+    if($Cfstatus) {
+      // si: close Menu: 表示; rbox: 非表示
+      $Cf.addClass("cftrue")
+      $Cfstatus = false;
+  }
+    else {
+      // si: serch Menu: 非表示; rbox: 表示
+      $Cf.removeClass("cftrue")
+      $Cfstatus = true;
+    }
+  })
+});

@@ -34,7 +34,7 @@
 }
 
 #menu.sitrue{
-  top: calc(var(--headerheight));
+  top: calc(var(--headerheight)+100px);
 }
 
 #menu-pc{

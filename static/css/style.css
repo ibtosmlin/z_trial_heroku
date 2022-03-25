@@ -11,6 +11,7 @@
   --textcolortrans: rgba(69,87,101, 0.9);      /*鉄御薄雲鼠の少し透過*/
   --bkcolortrans: rgba(212,220,218, 0.6);      /*薄雲鼠の半分透過*/
   --selectcolor: rgba(240,131,0, 1);      /*蜜柑*/
+  --badgecolor: rgba(211,56,28, 1);      /*緋色*/
 
   --headerheight: 50px;
 
@@ -49,6 +50,7 @@ body{
 }
 
 header{z-index: 999;}
+#contactform{z-index: 500;}
 #menu{z-index: 400;}
 #pgn_wrapper{z-index: 300;}
 #topBtn{z-index: 300;}
@@ -75,6 +77,12 @@ header {
 
 #headertitle{
   color: inherit;
+}
+
+#headerright{
+  color: inherit;
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -127,12 +135,6 @@ ul{
 
 
 /*サーチアイコン*/
-#searchicon{
-  font-family: 'Material Icons Outlined';
-  font-size: 36px;
-  color: var(--basecolor);
-  cursor: pointer;
-}
 #search{
   display: block;
   opacity: 1;
@@ -140,4 +142,26 @@ ul{
 #close{
   display: none;
   opacity: 0;
+}
+
+.icon-wrapper{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  color: var(--basecolor);
+  cursor: pointer;
+}
+
+.iconfont{
+  margin-left:auto;
+  margin-right: auto;
+  font-family: 'Material Icons Outlined';
+  font-size: 32px;
+}
+
+.icontext{
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 4px;
+  margin-left:auto;
+  margin-right: auto;
 }

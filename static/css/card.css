@@ -79,14 +79,15 @@
     font-weight: bold;
 }
 
-.badge-new{
+.badge-new::before{
 display: inline-block;
-color: #fff;
+color: var(--basecolor);
 padding: 0.2rem 0.3rem;
-border-radius: 1rem;
+border-radius: 50%;
 font-size: 0.8rem;
-text-transform: uppercase;
+font-weight: bold;
 text-align: center;
 white-space: nowrap;
-background-color: #E93F33;
+background-color: var(--badgecolor);
+content: "New!";
 }

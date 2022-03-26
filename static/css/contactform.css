@@ -7,7 +7,6 @@
   max-height: calc(95vh - var(--headerheight));
   top: calc(-100vh + var(--headerheight));
   transition: all .6s ease;
-  height: 100vh;
 }
 
 #help.hptrue, #contactform.cftrue{
@@ -25,7 +24,6 @@
   -moz-border-radius:6px;
   border-radius:6px;
   background-color: var(--basecolor);
-  height:80vh;
   border: 1px solid var(--maincolor);
 }
 
@@ -37,13 +35,12 @@
   color:var(--basecolor);
   font-family: inherit;
   font-size: 18px;
-  height: 10%;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 0px solid var(--maincolor);
 }
-
 
 .container textarea {
   font-size: 15px;
@@ -61,11 +58,10 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top:5%;
-  margin-bottom:5%;
+  margin:2% 0;
   width: 80%;
   max-width: 600px;
-  height: 60%;
+  height: 40vh;
 }
 
 .container button {
@@ -86,6 +82,7 @@
   font-family: inherit;
   font-size: 15px;
   height: 10%;
+  margin-bottom: 20px;
 }
 
 .container button:hover, .container .button:hover {
@@ -97,7 +94,6 @@
   background: radial-gradient(var(--lightcolor), var(--maincolor));
   text-align: left;
 }
-
 
 #help .container div{
   font-family: inherit;
@@ -113,13 +109,6 @@
   margin: 1rem 2rem;
 }
 
-#help table{
-  display: inline-block;
-  margin: 1rem 2rem;
-}
-
-#help table td{
-  font-family: 'Sawarabi Mincho', serif;
-  font-size: 1.6rem;
-  padding-left: 2rem;
+#help span:last-of-type{
+  margin-bottom: 3rem;
 }

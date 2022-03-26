@@ -47,6 +47,7 @@ $(function () {
   })
 });
 
+
 $(function () {
   var $Hpstatus = true;
   var $Hi = $('#helpicon');

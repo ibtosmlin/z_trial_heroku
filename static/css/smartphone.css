@@ -50,3 +50,10 @@ button,
   opacity: 0.5;
   font-size: 18px;
 }
+
+
+
+@media screen and (max-width: 599px) {
+  #menu-sp{
+    display: block;
+  }

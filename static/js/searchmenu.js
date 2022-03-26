@@ -46,3 +46,22 @@ $(function () {
     }
   })
 });
+
+$(function () {
+  var $Hpstatus = true;
+  var $Hi = $('#helpicon');
+  var $Hp = $('#help');
+
+  $Hi.click(function(){
+    if($Hpstatus) {
+      // si: close Menu: 表示; rbox: 非表示
+      $Hp.addClass("hptrue")
+      $Hpstatus = false;
+  }
+    else {
+      // si: serch Menu: 非表示; rbox: 表示
+      $Hp.removeClass("hptrue")
+      $Hpstatus = true;
+    }
+  })
+});

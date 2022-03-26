@@ -4,8 +4,8 @@
 :root{
   --maincolor: rgba(22, 94, 131, 1);    /*藍色*/
   --lightcolor: rgba(137, 195 ,235, 1); /*勿忘草色*/
-  --basecolor: rgba(225,225,225, 1);
-  --basecolortrans: rgba(225,225,225, 0.8);
+  --basecolor: rgba(255,255,255, 1);
+  --basecolortrans: rgba(255,255,255, 0.8);
   --textcolor: rgb(69,87,101);      /*鉄御薄雲鼠*/
   --bkcolor: rgb(212,220,218);      /*薄雲鼠*/
   --textcolortrans: rgba(69,87,101, 0.9);      /*鉄御薄雲鼠の少し透過*/
@@ -50,6 +50,7 @@ body{
 }
 
 header{z-index: 999;}
+#help{z-index: 600;}
 #contactform{z-index: 500;}
 #menu{z-index: 400;}
 #pgn_wrapper{z-index: 300;}

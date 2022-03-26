@@ -1,4 +1,4 @@
-#contactform{
+#help, #contactform{
   display: inline-block;
   position:fixed;
   color: var(--basecolor);
@@ -10,59 +10,45 @@
   height: 100vh;
 }
 
-#contactform.cftrue{
-  top: calc(100px + var(--headerheight));
+#help.hptrue, #contactform.cftrue{
+  top: calc(var(--headerheight));
 }
-
 
 .container {
   font-family: inherit;
   display:block;
   width: 90%;
   max-width:600px;
-  height: 50%;
-  min-height:600px;
-  margin:0 auto;
+  margin:5px auto;
   text-align:center;
   -webkit-border-radius:6px;
   -moz-border-radius:6px;
-  border: solid 1px var(--maincolor);
   border-radius:6px;
   background-color: var(--basecolor);
+  height:80vh;
+  border: 1px solid var(--maincolor);
 }
 
 .head {
   -webkit-border-radius:6px 6px 0px 0px;
   -moz-border-radius:6px 6px 0px 0px;
-  border-radius:6px 6px 0px 0px;
+  border-radius:5px 5px 0px 0px;
   background-color:var(--maincolor);
   color:var(--basecolor);
   font-family: inherit;
   font-size: 18px;
-  height: 50px;
+  height: 10%;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  border: 0px solid var(--maincolor);
 }
 
-
-.container input {
-  margin-bottom:10px;
-}
 
 .container textarea {
-  height:400px;
-  margin-bottom:10px;
-}
-.container input:first-of-type
-{
-  margin-top:35px;
-}
-
-.container input, .container textarea {
   font-size: 15px;
   padding: 15px 10px 10px;
-  font-family: inherit;
+  font-family: initial;
   border: 1px solid var(--maincolor);
   background: var(--basecolor);
   color: var(--maincolor);
@@ -75,25 +61,14 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin-top:5%;
+  margin-bottom:5%;
   width: 80%;
   max-width: 600px;
-}
-::-webkit-input-placeholder {
-   color: var(--textcolortrans);
-}
-:-moz-placeholder {
-  color: var(--textcolortrans);
-}
-::-moz-placeholder {
-  color: var(--textcolortrans);
-}
-:-ms-input-placeholder {
-  color: var(--textcolortrans);
+  height: 60%;
 }
 
 .container button {
-  margin-top:15px;
-  margin-bottom:25px;
   background-color:transparent;
   padding: 12px 45px;
   -ms-border-radius: 5px;
@@ -104,12 +79,13 @@
   transition: .5s;
   display: inline-flex;
   cursor: pointer;
-  width:30%;
+  width: 80%;
   color:var(--textcolor);
   align-items: center;
   justify-content: center;
   font-family: inherit;
   font-size: 15px;
+  height: 10%;
 }
 
 .container button:hover, .container .button:hover {
@@ -117,17 +93,6 @@
   color:var(--basecolor);
 }
 
-.container label.error {
-    font-family:'Source Sans Pro',arial,sans-serif;
-    font-size:1em;
-    display:block;
-    padding-top:10px;
-    padding-bottom:10px;
-    background-color:#d89c9c;
-    width: 80%;
-    margin:auto;
-    color: #FAFAFA;
-    -webkit-border-radius:6px;
-    -moz-border-radius:6px;
-    border-radius:6px;
+#help .container{
+  background: radial-gradient(var(--lightcolor), var(--maincolor));
 }

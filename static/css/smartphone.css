@@ -54,6 +54,7 @@ button,
 
 
 @media screen and (max-width: 599px) {
-  #menu-sp{
-    display: block;
+  .icontext{
+    display: none;
   }
+}

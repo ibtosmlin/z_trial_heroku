@@ -10,7 +10,7 @@
     <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
     <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/paginate.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale = 1.0">
-    <meta name="description" content="">
+    <meta name="description" content="全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています">
 
 <!--jQuery-->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -45,33 +45,42 @@
     <div id="headerright">
         <div id="helpicon" class="icon-wrapper">
             <div class="iconfont">help_outline</div>
-            <div class="icontext">説明をみる</div>
+            <div class="icontext">About</div>
         </div>
         <div id="contacticon" class="icon-wrapper">
             <div class="iconfont">contact_mail</div>
-            <div class="icontext">苦情を言う</div>
+            <div class="icontext">Contact</div>
         </div>
         <div id="searchicon" class="icon-wrapper">
             <div id="search" class="iconfont">search</div>
             <div id="close" class="iconfont">search_off</div>
-            <div class="icontext">検索をする</div>
+            <div class="icontext">Search</div>
         </div>
     </div>
 </header>
 <main>
     <article id="help">
         <div class="container">
+            <div>― 生保News-DB ―</div>
+            <span>全生命保険会社のホームページから、
+                ニュースリリースなどのリンクを集約しています</span>
+            <span>更新は週一回程度、更新日はヘッダーに記載しています</span>
+            <span>ご要望・不具合がありましたら、
+                連絡フォームでお知らせいただけると助かります</span>
+            <div>― 更新履歴 ―</div>
+            <table>
+                <tr>
+                    <td>2022年04月01日</td><td>サービス開始</td>
+                </tr>
+            </table>
         </div>
     </article>
     <article id="contactform">
         <form id="contact">
             <div class="container">
-                <div class="head">苦情フォーム</div>
-                <textarea type="text" name="message" placeholder="Message"></textarea><br/>
-                <div class="message"></div>
-                <button id="submit" type="submit">
-                    <span>送信</span>
-                </button>
+                <div class="head">連絡フォーム</div>
+                <textarea type="text" name="message" placeholder="ご要望・不具合がありましたら教えてください."></textarea><br/>
+                <button id="submit" type="submit">送信</button>
             </div>
         </form>
     </article>

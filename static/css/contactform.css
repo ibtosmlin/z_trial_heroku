@@ -95,4 +95,31 @@
 
 #help .container{
   background: radial-gradient(var(--lightcolor), var(--maincolor));
+  text-align: left;
+}
+
+
+#help .container div{
+  font-family: inherit;
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+#help span{
+  display: inline-block;
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 1.6rem;
+  margin: 1rem 2rem;
+}
+
+#help table{
+  display: inline-block;
+  margin: 1rem 2rem;
+}
+
+#help table td{
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 1.6rem;
+  padding-left: 2rem;
 }

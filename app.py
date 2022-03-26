@@ -45,8 +45,8 @@ def index():
     global kyrd_inc, kyrd_exc, si_kwrds, tbl_all, page
 
     if request.method == 'POST':
-        media_type = request.form.get('media-type')
-        if media_type == 'menu-pc':
+        post_type = request.form.get('post-type')
+        if post_type == 'menu-pc':
             si_years_all = request.form.get('select-years-all')
             si_years = request.form.getlist('select-years')
             si_comp_all = request.form.get('select-companies-all')
@@ -55,7 +55,7 @@ def index():
             kyrd_exc = request.form.get('keywords-exc')
             si_kwrds = (kyrd_inc, kyrd_exc)
 
-        else:
+        elif post_type == 'menu-sp':
             si_years_all = True
             si_years = request.form.getlist('select-years')
             si_comp = request.form.getlist('select-companies')
@@ -63,6 +63,9 @@ def index():
             kyrd_inc = request.form.get('keywords-inc')
             kyrd_exc = request.form.get('keywords-exc')
             si_kwrds = (kyrd_inc, kyrd_exc)
+
+        else:
+            pass
 
     rpage = request.args.get(get_page_parameter(), type=int, default=1)
 

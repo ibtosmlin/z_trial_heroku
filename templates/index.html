@@ -73,20 +73,36 @@
         </div>
     </article>
     <article id="contactform">
-        <form id="contact">
+        <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse" method="post"
+            target="hidden_iframe"
+            onsubmit="submitted=true;">
+            <input type="hidden" name="post-type" value="x">
             <div class="container">
                 <div class="head">連絡フォーム</div>
-                <textarea type="text" name="message" placeholder="ご要望・不具合がありましたら教えてください."></textarea><br/>
+                <textarea type="text"
+                    name="entry.681933608"
+                    placeholder="ご要望・不具合がありましたら教えてください."
+                    required></textarea>
                 <button id="submit" type="submit">送信</button>
             </div>
         </form>
     </article>
+    <script type="text/javascript">
+        let submitted = false;
+    </script>
+    <iframe
+        name="hidden_iframe"
+        id="hidden_iframe"
+        style="display: none"
+        onload="if(submitted) {window.location='./';}">
+    </iframe>
+
 
     <article id="menu">
         <div id="menu-sp">
             <div class="menu-header"><span>検索</span></div>
             <form method="POST" class="menu_sp">
-                <input type="hidden" name="media-type" value="menu-sp">
+                <input type="hidden" name="post-type" value="menu-sp">
                 <ul class="">
                     <li class = "sihead">年月選択</li>
                     <li>
@@ -131,7 +147,7 @@
         <div id="menu-pc">
             <div class="menu-header"><span>検索</span></div>
             <form method="POST" class="menu_pc">
-                <input type="hidden" name="media-type" value="menu-pc">
+                <input type="hidden" name="post-type" value="menu-pc">
                 <ul class="ks-cboxtags">
                     <li class="sihead">リリース年　
                         <input type="checkbox" name="select-years-all" id="sya"

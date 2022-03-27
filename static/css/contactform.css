@@ -1,5 +1,5 @@
 #help, #contactform{
-  display: none;
+  display: block;
   position:fixed;
   color: var(--basecolor);
   background: transparent;
@@ -10,7 +10,6 @@
 }
 
 #help.hptrue, #contactform.cftrue{
-  display: inline-block;
   top: calc(var(--headerheight));
 }
 

@@ -1,0 +1,414 @@
+$maincolor: rgba(22, 94, 131, 1);   /*! 藍色 */
+$midcolor: rgba(137, 195 ,235, 1); /*! 勿忘草色*/
+$subcolor: rgba(255, 255, 255, 1);
+$badgecolor: rgba(211,56,28, 1);    /*! 緋色*/
+
+$gothicmaru: 'Kosugi Maru', sans-serif;
+$gothic: 'Sawarabi Gothic', sans-serif;
+$mincho: 'Sawarabi Mincho', serif;
+
+html {
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background: $subcolor;
+  padding: 0;
+  margin: 0;
+}
+
+main{
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: $maincolor;
+  color: $subcolor;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+/*! カード ***********************************************/
+#cards{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+%card-shared{
+  position: relative;
+  width :300px;
+  margin: 15px;
+}
+
+.card{
+  @extend %card-shared;
+  display: block;
+  background: transparent;
+}
+
+.blank-card{
+    @extend %card-shared;
+    height: 0;
+}
+
+
+
+.card a{
+  text-decoration: none;
+}
+
+%card-contents-shared{
+  padding: 5px 10px;
+}
+
+
+.company{
+  color: $maincolor;
+  background-color: $midcolor;
+  font-family: $gothicmaru;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+  @extend %card-contents-shared;
+
+  &:hover{
+    background-color: $maincolor;
+    color : $subcolor;
+  }
+  }
+
+.article{
+  color: $maincolor;
+  background-color: $subcolor;
+  font-family: $mincho;
+  @extend %card-contents-shared;
+  /*  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;}*/
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  &:hover{
+    color: $subcolor;
+    background-color: $maincolor;
+  }
+}
+
+%article-shared{
+  display: block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+  .sub p{
+    @extend %article-shared;
+    font-size: 1.4rem;
+  }
+
+  .issue p{
+    @extend %article-shared;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+
+
+.badge-new{
+  &:before{
+    display: inline-block;
+    color: $subcolor;
+    padding: 0.2rem 0.3rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $badgecolor;
+    content: "New";
+  }
+}
+
+/*! link to toppage ***********************************************/
+#topBtn {
+  position:fixed;
+  bottom:10px;
+  right:10px;
+  display:block; /*aタグをblock要素に変更*/
+  color: $maincolor;
+  border: 2px solid  $maincolor;
+  background-color: $subcolor;
+  text-decoration:none;
+  font-family:$gothicmaru;
+  font-weight:bold;
+  font-size:11px;
+  width:40px;
+  height:40px;
+  text-align:center;
+  line-height:15px;
+  border-radius:20px;
+  padding-top:18px;
+  box-sizing:border-box;
+
+  &:before {
+    content:'\25B2';
+    color: $maincolor;
+    position:absolute;
+    top:6px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-size:13px;
+  }
+}
+
+/*! pagination ***********************************************/
+#pagination_wrapper{
+  font-family: $gothicmaru;
+  display: flex;
+  right: 0.5px;
+  margin: 0.5rem;
+  align-content: center;
+  color: $maincolor;
+}
+
+%pagination-shared{
+  font-size: 1.5rem;
+}
+.pagination-page-info{
+  @extend %pagination-shared;
+  margin-right: 20px;
+  padding: 5px;
+  background: transparent;
+  border-radius: 10px;
+}
+
+.pagination{
+  @extend %pagination-shared;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.pagination{
+  li{
+    box-sizing: border-box;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border: solid 1px;
+    border-radius: 0%;
+    border-color: $maincolor;
+    text-align: center;
+    padding: 5px 0;
+    margin: 0 3px;
+    transition: all 0.2s ease 0s;
+    display: block;
+
+    a{
+      text-decoration: none;
+      color: $maincolor;
+    }
+
+    &:first-child{
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+    &:last-child{
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+
+  &.current{
+    border: solid 1.5px;
+    border-color: $maincolor;
+    background: $maincolor;
+
+    a{
+      font-weight: bold;
+      color: $subcolor
+    }
+  }
+  &.unavailable {
+    border: dotted 0.3px;
+    opacity: 0.5;
+
+    a {
+      font-weight: normal;
+    }
+  }
+  &:not([class]):hover{
+    font-weight: bold;
+    transform: scale(1.1, 1.1);
+  }
+  .arrow:hover{
+    font-weight: bold;
+    transform: scale(1.1, 1.1);
+  }
+
+}
+}
+
+
+@media screen and (max-width: 600px) {
+  .pagination .unavailable {
+    display: none;
+  }
+  .pagination li:not([class]) {
+    display: none;
+  }
+}
+
+
+
+/*! humberger ***********************************************/
+%humberger-shared{
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+  .hamburger-trigger{
+    @extend %humberger-shared;
+    position: relative;
+    width: 50px;
+    height: 22px;
+    background: none;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+  }
+  span{
+    @extend %humberger-shared;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    border-radius: 2px;
+  }
+
+}
+
+.hamburger-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.hamburger-trigger span:nth-of-type(2) {
+  top: 10px;
+}
+.hamburger-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+#menu07 span:nth-of-type(1) {
+  animation: menu07-bar01 .75s forwards;
+}
+@keyframes menu07-bar01 {
+  0% {
+    transform: translateY(20px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+#menu07 span:nth-of-type(2) {
+  transition: all .25s .25s;
+  opacity: 1;
+}
+#menu07 span:nth-of-type(3) {
+  animation: menu07-bar03 .75s forwards;
+}
+@keyframes menu07-bar03 {
+  0% {
+    transform: translateY(-20px) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+#menu07.active span:nth-of-type(1) {
+  animation: active-menu07-bar01 .75s forwards;
+}
+@keyframes active-menu07-bar01 {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(20px) rotate(0);
+  }
+  100% {
+    transform: translateY(20px) rotate(45deg);
+  }
+}
+#menu07.active span:nth-of-type(2) {
+  opacity: 0;
+}
+#menu07.active span:nth-of-type(3) {
+  animation: active-menu07-bar03 .75s forwards;
+}
+@keyframes active-menu07-bar03 {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0);
+  }
+  100% {
+    transform: translateY(-20px) rotate(-45deg);
+  }
+}
+
+/*! navigation*******************************************/
+@media screen and (min-width: 601px) {
+  .nav.device-sp {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav.device-pc {
+    display: none;
+  }
+}
+
+/*! about*******************************************/
+#about{
+  padding: 0 1rem;
+  &.displaynone{
+    display: none;
+  }
+}
+
+/*! contact*******************************************/
+#contact{
+  padding: 0 1rem;
+  &.displaynone{
+    display: none;
+  }
+}
+
+/*! search*******************************************/
+#search{
+  padding: 0 1rem;
+  &.displaynone{
+    display: none;
+  }
+}

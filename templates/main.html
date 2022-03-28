@@ -1,86 +1,153 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title>生命保険会社 News Release Database</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています">
-
-<!--
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
--->
-<link rel= "stylesheet" href= "../static/css/mainstyle.css">
-
+    <title>生命保険会社 News Release Database</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています">
+    <meta charset="utf-8-BOM"></meta>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&display=swap'>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/mainstyle.css') }}">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="{{ url_for('static',filename='./js/main.js') }}"></script>
 </head>
 <body>
 <header>
-<nav>
-    <!--to main about contact search-->
-    <div class="nav device-sp">
-        <div class="item">
-            <button class="menu-trigger" id="menu07">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-    </div>
-    <div class="nav device-pc">
-        <nav class="slidemenu">
-
-            <!-- Item 1 -->
-            <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
-            <label for="slide-item-1"><span>Home</span></label>
-
-            <!-- Item 2 -->
-            <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
-            <label for="slide-item-2"><span>About</span></label>
-
-            <!-- Item 3 -->
-            <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
-            <label for="slide-item-3"><span>Contact</span></label>
-
-            <!-- Item 4 -->
-            <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
-            <label for="slide-item-4"><span>Search</span></label>
-
-            <div class="clear"></div>
-
-            <!-- Bar -->
-            <div class="slider">
-              <div class="bar"></div>
-            </div>
-
-          </nav>
-    </div>
-</nav>
-</header>
-<main>
-    <article id="main">
+    <div id="title">
         <div>生命保険会社</div>
         <div>News Release Database</div>
-    </article>
-
-    <article id="about">
-        <div>－ 生命保険会社 News Release Database －</div>
-        <p>全生命保険会社のホームページから、
-            ニュースリリースなどのリンクを集約しています</p>
-        <p>更新は週一回程度、更新日はヘッダーに記載しています</p>
-        <p>ご要望・不具合がありましたら、
-            連絡フォームでお知らせいただけると助かります</p>
-
+    </div>
+    <!--to main about contact search-->
+    <nav>
+        <div class="nav device-sp">
+            <button class="hamburger-trigger" id="menu07">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav device-pc">
+                <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
+                <label for="slide-item-1"><span>Home</span></label>
+                <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
+                <label for="slide-item-2"><span>About</span></label>
+                <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
+                <label for="slide-item-3"><span>Contact</span></label>
+                <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
+                <label for="slide-item-4"><span>Search</span></label>
+                <div class="clear"></div>
+                <!-- Bar -->
+                <div class="slider">
+                <div class="bar"></div>
+                </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <article id="about" class="displaynone">
+        <p>当サイトは、全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています</p>
+        <p>更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
+        <p>ご要望・不具合がありましたら、連絡フォームでお知らせいただけると助かります</p>
         <p><span class="badge-new"></span>2022-04-01  サービスを開始しました</p>
     </article>
 
-    <article id="contact">
+    <article id="contact" class="displaynone">
+        <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse"
+            method="post" target="hidden_iframe" onsubmit="submitted=true;">
+            <input type="hidden" name="post-type" value="contact">
+            <div class="container">
+                <div class="head">連絡フォーム</div>
+                <textarea type="text"
+                    name="entry.681933608"
+                    placeholder="ご要望・不具合がありましたらお教えください."
+                    required></textarea>
+                <button id="submit" type="submit">送信</button>
+            </div>
+        </form>
+        <script type="text/javascript">
+            let submitted = false;
+        </script>
+        <iframe name="hidden_iframe"
+            id="hidden_iframe"
+            style="display: none"
+            onload="if(submitted) {window.location='./';}">
+        </iframe>
     </article>
 
-    <article id="search">
+    <article id="search" class="displaynone">
+        <div id="menu-sp">
+            <div class="menu-header"><span>検索</span></div>
+            <form method="POST" class="menu_sp">
+                <input type="hidden" name="post-type" value="menu-sp">
+                <ul class="">
+                    <li class = "sihead">年月選択</li>
+                    <li>
+                        <div class="spinput-wrapper">
+                            <span class="icons">calendar_month</span>
+                            <input type="month" name="select-years" value={{ si_years[0] }} max={{update_time[:7]}}>
+                        </div>
+                    </li>
+                    <li class = "sihead">会社選択</li>
+                    <li>
+                        <div class="spinput-wrapper">
+                        <span class="icons">business</span>
+                        <select name="select-companies">
+
+                            <option value="all" {% if si_comp_all %}selected {% endif %}>全て選択</option>
+                            {% for ci in companies %}
+                                <option value={{ ci[0] }}
+                                {% if (not si_comp_all) and ci[0] == si_comp[0] %}selected {% endif %}>{{ ci[1] }}</option>
+                            {% endfor %}
+                        </select>
+                        </div>
+                    </li>
+                    <li class="sihead">キーワード</li>
+                    <li>
+                        <div class="spinput-wrapper">
+                            <span class="icons">add_circle</span>
+                            <input type="text" name="keywords-inc" placeholder="含むキーワード[ex.提携 異動]"
+                            {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="spinput-wrapper">
+                            <span class="icons">remove_circle</span>
+                            <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
+                            {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
+                        </div>
+                    </li>
+            <li class="btn-submit-wrapper">
+                <button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span>
+                </button>
+            </li>
+            </form>
+        </div>
     </article>
 
-    <article id="cards">
+    <article id="cardlist">
+        <div id="pagination_wrapper">
+            {{ pagination.info }}{{ pagination.links }}
+        </div>
+        <div id="cards">
+            {% for i in range(n) %}
+            <div class="card">
+                <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
+                    <div class="company">{{ tbl_company_name[i] }}</div>
+                </a>
+                <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
+                    <div class="article">
+                        <p class="sub">
+                            {% if tbl_is_new[i] %}
+                            <span class="badge-new"></span>
+                            {% endif %}
+                            {{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
+                        <p class="issue">{{ tbl_article_title[i] }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
     </article>
-
-
+    <article><a href="#" id="topBtn">TOP</a></article>
 </main>
 
 </body>

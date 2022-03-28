@@ -83,7 +83,7 @@ def index():
                             css_framework='foundation')
 
 
-    return render_template('./index.html',
+    return render_template('./main.html',
             update_time=CT.update_date,
             n = len(tbl),
             years = years,

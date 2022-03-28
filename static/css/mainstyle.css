@@ -85,7 +85,7 @@ header {
   color: #165e83;
   background-color: #89c3eb;
   font-family: "Kosugi Maru", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
           box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
@@ -110,18 +110,18 @@ header {
   background-color: #165e83;
 }
 
-.sub p, .issue p {
+.sub, .issue {
   display: block;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.sub p {
+.sub {
   font-size: 1.4rem;
 }
 
-.issue p {
-  font-size: 1.6rem;
+.issue {
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
@@ -180,7 +180,7 @@ header {
   display: -ms-flexbox;
   display: flex;
   right: 0.5px;
-  margin: 0.5rem;
+  margin: 0.5rem 0.5rem auto 1rem;
   -ms-flex-line-pack: center;
       align-content: center;
   color: #165e83;
@@ -195,6 +195,11 @@ header {
   padding: 5px;
   background: transparent;
   border-radius: 10px;
+}
+
+.pagination-page-info b {
+  display: block;
+  margin-top: .5rem;
 }
 
 .pagination {
@@ -215,7 +220,7 @@ header {
   border-radius: 0%;
   border-color: #165e83;
   text-align: center;
-  padding: 5px 0;
+  padding: 0 0;
   margin: 0 3px;
   -webkit-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
@@ -223,7 +228,10 @@ header {
 }
 
 .pagination li a {
+  display: block;
   text-decoration: none;
+  margin-top: 0.9rem;
+  font-size: 1.5rem;
   color: #165e83;
 }
 
@@ -232,13 +240,21 @@ header {
   border-bottom-left-radius: 50%;
 }
 
+.pagination li:first-child a {
+  margin-top: 0.5rem;
+}
+
 .pagination li:last-child {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
 }
 
+.pagination li:last-child a {
+  margin-top: 0.5rem;
+}
+
 .pagination li.current {
-  border: solid 1.5px;
+  border: solid 1px;
   border-color: #165e83;
   background: #165e83;
 }
@@ -254,7 +270,7 @@ header {
 }
 
 .pagination li.unavailable a {
-  font-weight: normal;
+  margin-top: 0.5rem;
 }
 
 .pagination li:not([class]):hover {
@@ -479,5 +495,9 @@ header {
 
 #search.displaynone {
   display: none;
+}
+
+#title {
+  font-size: 2rem;
 }
 /*# sourceMappingURL=mainstyle.css.map */

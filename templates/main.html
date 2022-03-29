@@ -13,21 +13,25 @@
 <body>
 <header>
     <div id="title">
-        <div>Life Insurance Companies</div>
-        <div>News Release Database</div>
-        <div>update time↻{{ update_time[5:] }}</div>
+        <div class="device-sp">
+            <div>LIND</div>
+            <div>↻{{ update_time[5:] }}</div>
+        </div>
+        <div class="device-pc">
+            <div>Life Insurance News Release Database</div>
+            <div>update time↻{{ update_time[5:] }}</div>
+        </div>
     </div>
-
     <!--to main about contact search-->
     <nav>
-        <div class="nav device-sp">
+        <div class="device-sp">
             <button class="hamburger-trigger" id="menu07">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
-        <div class="nav device-pc">
+        <div class="device-pc">
                 <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
                 <label for="slide-item-1"><span>Home</span></label>
                 <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>

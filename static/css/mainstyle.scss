@@ -389,17 +389,6 @@ header {
 }
 
 /*! navigation*******************************************/
-@media screen and (min-width: 601px) {
-  .nav.device-sp {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .nav.device-pc {
-    display: none;
-  }
-}
 
 /*! about*******************************************/
 #about{
@@ -426,6 +415,19 @@ header {
 }
 
 
+/*! title*******************************************/
 #title{
   font-size: 2rem;
+}
+
+@media screen and (min-width: 601px) {
+  .device-sp {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .device-pc {
+    display: none;
+  }
 }

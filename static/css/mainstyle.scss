@@ -3,8 +3,8 @@ $midcolor: rgba(137, 195 ,235, 1); /*! 勿忘草色*/
 $subcolor: rgba(255, 255, 255, 1);
 $badgecolor: rgba(211,56,28, 1);    /*! 緋色*/
 
+$gothic: '', 'Oswald', sans-serif;
 $gothicmaru: 'Kosugi Maru', sans-serif;
-$gothic: 'Sawarabi Gothic', sans-serif;
 $mincho: 'Sawarabi Mincho', serif;
 
 html {
@@ -22,7 +22,7 @@ body{
 main{
   display: block;
   padding: 0;
-  margin: 0;
+  margin: 0 20px;
 }
 
 ul{
@@ -89,7 +89,8 @@ header {
   font-family: $gothicmaru;
   font-size: 1.8rem;
   font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   @extend %card-contents-shared;
 
   &:hover{
@@ -104,13 +105,14 @@ header {
   font-family: $mincho;
   @extend %card-contents-shared;
   /*  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;}*/
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
   &:hover{
     color: $subcolor;
     background-color: $maincolor;
   }
 }
-
 %article-shared{
   display: block;
   padding-left: 5px;
@@ -163,6 +165,10 @@ header {
   border-radius:20px;
   padding-top:18px;
   box-sizing:border-box;
+  box-shadow:  7px 7px 14px #666666,
+             -7px -7px 14px #ffffff;
+
+
 
   &:before {
     content:'\25B2';
@@ -180,10 +186,10 @@ header {
 #pagination_wrapper{
   font-family: $gothicmaru;
   display: flex;
-  right: 0.5px;
-  margin: 0.5rem 0.5rem auto 1rem;
+  margin: 0.5rem 20px 0.5rem auto;
   align-content: center;
   color: $maincolor;
+  justify-content: flex-end;
 }
 
 %pagination-shared{
@@ -417,9 +423,12 @@ header {
 
 /*! title*******************************************/
 #title{
-  font-size: 2rem;
+  font-family:$gothic;
+  font-size: 2.4rem;
 }
 
+
+/*! media*******************************************/
 @media screen and (min-width: 601px) {
   .device-sp {
     display: none;

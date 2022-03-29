@@ -17,7 +17,7 @@ body {
 main {
   display: block;
   padding: 0;
-  margin: 0;
+  margin: 0 20px;
 }
 
 ul {
@@ -87,8 +87,8 @@ header {
   font-family: "Kosugi Maru", sans-serif;
   font-size: 1.8rem;
   font-weight: bold;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
-          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .company:hover {
@@ -101,8 +101,8 @@ header {
   background-color: white;
   font-family: "Sawarabi Mincho", serif;
   /*  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;}*/
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .article:hover {
@@ -160,6 +160,8 @@ header {
   padding-top: 18px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-box-shadow: 7px 7px 14px #666666, -7px -7px 14px #ffffff;
+          box-shadow: 7px 7px 14px #666666, -7px -7px 14px #ffffff;
 }
 
 #topBtn:before {
@@ -179,11 +181,13 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  right: 0.5px;
-  margin: 0.5rem 0.5rem auto 1rem;
+  margin: 0.5rem 20px 0.5rem auto;
   -ms-flex-line-pack: center;
       align-content: center;
   color: #165e83;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .pagination-page-info, .pagination {
@@ -487,9 +491,11 @@ header {
 
 /*! title*******************************************/
 #title {
-  font-size: 2rem;
+  font-family: "", "Oswald", sans-serif;
+  font-size: 2.4rem;
 }
 
+/*! media*******************************************/
 @media screen and (min-width: 601px) {
   .device-sp {
     display: none;

@@ -311,6 +311,7 @@ header {
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
+  margin-top: .5rem;
 }
 
 #hmb span {
@@ -335,19 +336,19 @@ header {
 }
 
 #hmb span:nth-of-type(1) {
-  -webkit-animation: hmb-bar01 .75s forwards;
-          animation: hmb-bar01 .75s forwards;
+  -webkit-animation: hmb-bar01 0.45s forwards;
+          animation: hmb-bar01 0.45s forwards;
 }
 
 #hmb span:nth-of-type(2) {
-  -webkit-transition: all .25s .25s;
-  transition: all .25s .25s;
+  -webkit-transition: all 0.25s 0.15s;
+  transition: all 0.25s 0.15s;
   opacity: 1;
 }
 
 #hmb span:nth-of-type(3) {
-  -webkit-animation: hmb-bar03 .75s forwards;
-          animation: hmb-bar03 .75s forwards;
+  -webkit-animation: hmb-bar03 0.45s forwards;
+          animation: hmb-bar03 0.45s forwards;
 }
 
 @-webkit-keyframes hmb-bar01 {
@@ -411,8 +412,8 @@ header {
 }
 
 #hmb.active span:nth-of-type(1) {
-  -webkit-animation: active-hmb-bar01 .75s forwards;
-          animation: active-hmb-bar01 .75s forwards;
+  -webkit-animation: active-hmb-bar01 0.45s forwards;
+          animation: active-hmb-bar01 0.45s forwards;
 }
 
 #hmb.active span:nth-of-type(2) {
@@ -420,8 +421,8 @@ header {
 }
 
 #hmb.active span:nth-of-type(3) {
-  -webkit-animation: active-hmb-bar03 .75s forwards;
-          animation: active-hmb-bar03 .75s forwards;
+  -webkit-animation: active-hmb-bar03 0.45s forwards;
+          animation: active-hmb-bar03 0.45s forwards;
 }
 
 @-webkit-keyframes active-hmb-bar01 {
@@ -485,10 +486,17 @@ header {
 }
 
 /*! navigation*******************************************/
-#nav.device-sp {
+.nav {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  color: #165e83;
+}
+
+.nav.device-sp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 1.2rem;
 }
 
 #hmb-menu {
@@ -535,15 +543,13 @@ header {
 #title {
   color: #165e83;
   background-color: white;
-  font-family: "", "Oswald", sans-serif;
-  font-weight: 300;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
   font-size: 1.8rem;
 }
 
 @media screen and (min-width: 601px) {
   #title {
-    font-family: "", "Oswald", sans-serif;
-    font-weight: 600;
     font-size: 2.4rem;
   }
 }

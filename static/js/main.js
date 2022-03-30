@@ -41,7 +41,7 @@ $(function(){
   $('#hmb-menu').hide();
   $('#hmb').on('click', function() {
     $(this).toggleClass('active');
-    $("#hmb-menu").slideToggle();
+    $("#hmb-menu").slideToggle(600);
     return false;
   });
 });

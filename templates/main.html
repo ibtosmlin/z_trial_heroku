@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています">
     <meta charset="utf-8-BOM"></meta>
-    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=Oswald:wght@300;600&display=swap'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=Oswald:wght@300;600&Ubuntu:wght@400;500&display=swap'>
     <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/mainstyle.css') }}">
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer src="{{ url_for('static',filename='./js/main.js') }}"></script>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <!--to main about contact search-->
-    <div id="nav" class="device-sp">
+    <div class="device-sp nav">
         <div id="hmb-menu">
             <input type="radio" name="hmbItem" id="hmb-item-1" class="slide-toggle" checked/>
             <label for="slide-item-1"><span>Home</span></label>
@@ -36,7 +36,7 @@
             <span></span><span></span><span></span>
         </div>
     </div>
-    <div id="nav" class="device-pc">
+    <div class="device-pc nav">
         <div id="nav-menu">
             <!--
             <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>

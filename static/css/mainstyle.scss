@@ -20,6 +20,7 @@ body{
 }
 
 main{
+  position: relative;
   display: block;
   padding: 0;
   margin: 0 20px;
@@ -34,17 +35,10 @@ ul{
 header {
   margin: 0;
   box-sizing: border-box;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: $maincolor;
-  color: $subcolor;
-  display: -webkit-flex;
+  padding: 10px;
   display: flex;
-  -webkit-justify-content: space-between;
   justify-content: space-between;
-  align-items: center;
 }
-
 
 
 /*! カード ***********************************************/
@@ -79,20 +73,22 @@ header {
 }
 
 %card-contents-shared{
-  padding: 5px 10px;
+  padding: 10px 10px;
 }
 
+%shadow-shared{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+              rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 
 .company{
   color: $maincolor;
   background-color: $midcolor;
   font-family: $gothicmaru;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   @extend %card-contents-shared;
-
+  @extend %shadow-shared;
   &:hover{
     background-color: $maincolor;
     color : $subcolor;
@@ -104,9 +100,7 @@ header {
   background-color: $subcolor;
   font-family: $mincho;
   @extend %card-contents-shared;
-  /*  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;}*/
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  @extend %shadow-shared;
 
   &:hover{
     color: $subcolor;
@@ -115,18 +109,17 @@ header {
 }
 %article-shared{
   display: block;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0 1rem;
 }
 
 .sub{
   @extend %article-shared;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .issue{
   @extend %article-shared;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
@@ -152,7 +145,7 @@ header {
   right:10px;
   display:block; /*aタグをblock要素に変更*/
   color: $maincolor;
-  border: 2px solid  $maincolor;
+  border: 1px solid  $maincolor;
   background-color: $subcolor;
   text-decoration:none;
   font-family:$gothicmaru;
@@ -165,8 +158,7 @@ header {
   border-radius:20px;
   padding-top:18px;
   box-sizing:border-box;
-  box-shadow:  7px 7px 14px #666666,
-             -7px -7px 14px #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 
 
@@ -228,6 +220,7 @@ header {
     margin: 0 3px;
     transition: all 0.2s ease 0s;
     display: block;
+    @extend %shadow-shared;
 
     a{
       display: block;
@@ -294,107 +287,88 @@ header {
 }
 
 /*! humberger ***********************************************/
-%humberger-shared{
+$hmb-size: 14px ;
+$hmb-size-h: ( $hmb-size / 2 );
+
+%hmb-shared{
   display: inline-block;
   transition: all .4s;
   box-sizing: border-box;
-  .hamburger-trigger{
-    @extend %humberger-shared;
-    position: relative;
-    width: 50px;
-    height: 22px;
-    background: none;
-    border: none;
-    appearance: none;
-    cursor: pointer;
-  }
+}
+#hmb{
+  @extend %hmb-shared;
+  position: relative;
+  width: $hmb-size * 2;
+  height: 2px + $hmb-size ;
+  background: none;
+  border: none;
+  appearance: none;
+  cursor: pointer;
   span{
-    @extend %humberger-shared;
+    @extend %hmb-shared;
     position: absolute;
     left: 0;
     width: 100%;
-    height: 2px;
-    background-color: red;
-    border-radius: 2px;
+    height: 1.5px;
+    background-color: $maincolor;
+    border-radius: 1px;
   }
-
+  span:nth-of-type(1) {top: 0;}
+  span:nth-of-type(2) {top: $hmb-size-h;}
+  span:nth-of-type(3) {bottom: 0;}
 }
 
-.hamburger-trigger span:nth-of-type(1) {
-  top: 0;
-}
-.hamburger-trigger span:nth-of-type(2) {
-  top: 10px;
-}
-.hamburger-trigger span:nth-of-type(3) {
-  bottom: 0;
+#hmb{
+  span:nth-of-type(1) {animation: hmb-bar01 .75s forwards;}
+  span:nth-of-type(2) {transition: all .25s .25s; opacity: 1;}
+  span:nth-of-type(3) {animation: hmb-bar03 .75s forwards;}
 }
 
-#menu07 span:nth-of-type(1) {
-  animation: menu07-bar01 .75s forwards;
+@keyframes hmb-bar01 {
+  0%    {transform: translateY($hmb-size-h) rotate(45deg);}
+  50%   {transform: translateY($hmb-size-h) rotate(0);}
+  100%  {transform: translateY(0) rotate(0);}
 }
-@keyframes menu07-bar01 {
-  0% {
-    transform: translateY(20px) rotate(45deg);
-  }
-  50% {
-    transform: translateY(20px) rotate(0);
-  }
-  100% {
-    transform: translateY(0) rotate(0);
-  }
+@keyframes hmb-bar03 {
+  0%    {transform: translateY(-$hmb-size-h) rotate(-45deg);}
+  50%   {transform: translateY(-$hmb-size-h) rotate(0);}
+  100%  {transform: translateY(0) rotate(0);}
 }
-#menu07 span:nth-of-type(2) {
-  transition: all .25s .25s;
-  opacity: 1;
+
+#hmb.active {
+  span:nth-of-type(1) {animation: active-hmb-bar01 .75s forwards;}
+  span:nth-of-type(2) {opacity: 0;}
+ span:nth-of-type(3) {animation: active-hmb-bar03 .75s forwards;}
 }
-#menu07 span:nth-of-type(3) {
-  animation: menu07-bar03 .75s forwards;
+
+@keyframes active-hmb-bar01 {
+  0%    {transform: translateY(0) rotate(0);}
+  50%   {transform: translateY($hmb-size-h) rotate(0);}
+  100%  {transform: translateY($hmb-size-h) rotate(45deg);}
 }
-@keyframes menu07-bar03 {
-  0% {
-    transform: translateY(-20px) rotate(-45deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(0);
-  }
-  100% {
-    transform: translateY(0) rotate(0);
-  }
-}
-#menu07.active span:nth-of-type(1) {
-  animation: active-menu07-bar01 .75s forwards;
-}
-@keyframes active-menu07-bar01 {
-  0% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(20px) rotate(0);
-  }
-  100% {
-    transform: translateY(20px) rotate(45deg);
-  }
-}
-#menu07.active span:nth-of-type(2) {
-  opacity: 0;
-}
-#menu07.active span:nth-of-type(3) {
-  animation: active-menu07-bar03 .75s forwards;
-}
-@keyframes active-menu07-bar03 {
-  0% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-20px) rotate(0);
-  }
-  100% {
-    transform: translateY(-20px) rotate(-45deg);
-  }
+@keyframes active-hmb-bar03 {
+  0%    {transform: translateY(0) rotate(0);}
+  50%   {transform: translateY(-$hmb-size-h) rotate(0);}
+  100%  {transform: translateY(-$hmb-size-h) rotate(-45deg);}
 }
 
 /*! navigation*******************************************/
+#nav{
+  &.device-sp{
+    display: flex;
+  }
+}
+
+#hmb-menu{
+  display: block;
+  text-align: center;
+  span {
+  display: block;
+  }
+  input[type=radio]{
+    display: none;
+    }
+}
 
 /*! about*******************************************/
 #about{
@@ -423,20 +397,32 @@ header {
 
 /*! title*******************************************/
 #title{
+  color: $maincolor;
+  background-color: $subcolor;
   font-family:$gothic;
-  font-size: 2.4rem;
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+
+
+@media screen and (min-width: 601px) {
+  #title{
+    font-family:$gothic;
+    font-weight: 600;
+    font-size: 2.4rem;
+  }
 }
 
 
 /*! media*******************************************/
-@media screen and (min-width: 601px) {
-  .device-sp {
+@media screen and (max-width: 600px) {
+  .device-pc {
     display: none;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .device-pc {
+@media screen and (min-width: 601px) {
+  .device-sp {
     display: none;
   }
 }

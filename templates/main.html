@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています">
     <meta charset="utf-8-BOM"></meta>
-    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=Oswald:wght@300&display=swap'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=Oswald:wght@300;600&display=swap'>
     <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/mainstyle.css') }}">
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer src="{{ url_for('static',filename='./js/main.js') }}"></script>
@@ -15,38 +15,42 @@
     <div id="title">
         <div class="device-sp">
             <div>Life Insurance News Release</div>
-            <div>↻{{ update_time[5:] }}</div>
+            <div>↻{{ update_time }}</div>
         </div>
         <div class="device-pc">
             <div>Life Insurance News Release</div>
-            <div>update time↻{{ update_time[5:] }}</div>
+            <div>update ↻ {{ update_time }}</div>
         </div>
     </div>
     <!--to main about contact search-->
-    <nav>
-        <div class="device-sp">
-            <button class="hamburger-trigger" id="menu07">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <div id="nav" class="device-sp">
+        <div id="hmb-menu">
+            <input type="radio" name="hmbItem" id="hmb-item-1" class="slide-toggle" checked/>
+            <label for="slide-item-1"><span>Home</span></label>
+            <input type="radio" name="hmbItem" id="hmb-item-2" class="slide-toggle"/>
+            <label for="slide-item-2"><span>About</span></label>
+            <input type="radio" name="hmbItem" id="hmb-item-3" class="slide-toggle"/>
+            <label for="slide-item-3"><span>Search</span></label>
         </div>
-        <div class="device-pc">
-                <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
-                <label for="slide-item-1"><span>Home</span></label>
-                <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
-                <label for="slide-item-2"><span>About</span></label>
-                <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
-                <label for="slide-item-3"><span>Contact</span></label>
-                <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
-                <label for="slide-item-4"><span>Search</span></label>
-                <div class="clear"></div>
-                <!-- Bar -->
-                <div class="slider">
-                <div class="bar"></div>
-                </div>
+        <div id="hmb">
+            <span></span><span></span><span></span>
         </div>
-    </nav>
+    </div>
+    <div id="nav" class="device-pc">
+        <div id="nav-menu">
+            <!--
+            <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
+            <label for="slide-item-1"><span>Home</span></label>
+            <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
+            <label for="slide-item-2"><span>About</span></label>
+            <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
+            <label for="slide-item-3"><span>Search</span></label>
+            <div class="clear"></div>
+            <!-- Bar --><!--
+            <div class="slider">
+            <div class="bar"></div>-->
+        </div>
+    </div>
 </header>
 <main>
     <article id="about" class="displaynone">
@@ -54,9 +58,7 @@
         <p>更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
         <p>ご要望・不具合がありましたら、連絡フォームでお知らせいただけると助かります</p>
         <p><span class="badge-new"></span>2022-04-01  サービスを開始しました</p>
-    </article>
 
-    <article id="contact" class="displaynone">
         <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse"
             method="post" target="hidden_iframe" onsubmit="submitted=true;">
             <input type="hidden" name="post-type" value="contact">

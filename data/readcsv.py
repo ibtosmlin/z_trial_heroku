@@ -16,6 +16,8 @@ def search_string_to_list(tgt: str)-> list:
     tgts = [tgt for tgt in tgts if len(tgts)!=0]
     return tgts
 
+def short_name(comp_str: str) -> str:
+    return comp_str.replace('株式会社', '').replace('相互会社', '').replace('生命保険', '生命')
 
 class ContentsTable:
     def __init__(self) -> None:
@@ -63,7 +65,10 @@ class ContentsTable:
         会社名のリスト
         """
         df_companies = pd.read_csv(csv_companies,encoding='utf-8-sig',usecols=['company_id', 'company_name'])
-        self.companies_ordered = list(df_companies.company_name)
+        self.companies_ordered = []
+        for c in list(df_companies.company_name):
+            self.companies_ordered.append((c, short_name(c)))
+
         df_companies.reset_index(inplace=True)
         df_companies.rename(columns={'index': 'company_order'}, inplace=True)
         df_companies.drop(columns='company_name', inplace=True)
@@ -73,6 +78,7 @@ class ContentsTable:
                                   'article_type', 'article_date', 'article_title', 'article_url', 'is_new'])
         df_articles = pd.merge(df_articles, df_companies, on='company_id')
         df_articles.sort_values(['company_order', 'article_date'], ascending=[True, False], inplace=True)
+        df_articles['company_name_s'] = df_articles.company_name.map(short_name)
         self.df_articles = df_articles
 
 
@@ -145,7 +151,6 @@ class ContentsTable:
         fg = cp_articles.article_date.map(_f)
         cp_articles.sort_values(["article_date", "company_order"], ascending=[False, True], inplace=True)
         self.df_articles_init = cp_articles[fg]
-
 
 
 if __name__ == '__main__':

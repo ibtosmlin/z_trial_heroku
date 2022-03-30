@@ -11,10 +11,6 @@ app = Flask(__name__)
 CT = readcsv.ContentsTable()
 page = 1
 per_page = 50
-companies = []
-for c in CT.companies_ordered:
-    sc = c.replace('株式会社', '').replace('相互会社', '').replace('生命保険', '生命')
-    companies.append((c, sc))
 
 # for si-pc
 years = []
@@ -32,12 +28,11 @@ for y in list(CT.years):
     si_years_all = True
     si_years = [y0 for y0, _y1 in years]
     si_comp_all = True
-    si_comp = [c0 for c0, _c1 in companies]
+    si_comp = [c0 for c0, _c1 in CT.companies_ordered]
     kyrd_inc = ""
     kyrd_exc = ""
     si_kwrds = ("", "")
     tbl_all = CT.df_articles_init
-
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -82,13 +77,12 @@ def index():
                             display_msg='<b>{start} - {end} / {total}</b>',
                             css_framework='foundation')
 
-
     return render_template('./main.html',
             update_time=CT.update_date,
             n = len(tbl),
             years = years,
-            companies = companies,
-            tbl_company_name = list(tbl.company_name),
+            companies = CT.companies_ordered,
+            tbl_company_name = list(tbl.company_name_s),
             tbl_company_url = list(tbl.company_url),
             tbl_article_date = list(tbl.article_date),
             tbl_article_type = list(tbl.article_type),

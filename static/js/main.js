@@ -1,3 +1,4 @@
+// topBtn
 $(function () {
   var topBtn = $('#topBtn');
   topBtn.hide();
@@ -16,7 +17,7 @@ $(function () {
   });
 });
 
-
+// cardsの端数処理
 $(function () {
   var $rbox = $("#cards");
   var $card = $(".card");
@@ -32,7 +33,15 @@ $(function () {
   for (i = 0; i < need; i++) {
   emptyCells.push($('<section>', { class: 'blank-card' }));//必要分の空のを配列に追加
   }
-
   $rbox.append(emptyCells);//list-itemの最後に空の要素を追加する。
+});
 
+// hmbのクリック
+$(function(){
+  $('#hmb-menu').hide();
+  $('#hmb').on('click', function() {
+    $(this).toggleClass('active');
+    $("#hmb-menu").slideToggle();
+    return false;
+  });
 });

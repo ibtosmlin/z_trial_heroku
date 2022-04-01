@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています">
     <meta charset="utf-8-BOM"></meta>
-    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=Oswald:wght@300;600&Ubuntu:wght@400;500&display=swap'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=League+Gothic:wdth@75..100&display=swap'>
     <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/mainstyle.css') }}">
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer src="{{ url_for('static',filename='./js/main.js') }}"></script>
@@ -14,12 +14,12 @@
 <header>
     <div id="title">
         <div class="device-sp">
-            <div>Life Insurance News Release</div>
-            <div>↻{{ update_time }}</div>
+            <div class="title-main">Life Insurance News Release</div>
+            <div class="title-sub">↻{{ update_time }}</div>
         </div>
         <div class="device-pc">
-            <div>Life Insurance News Release</div>
-            <div>update ↻ {{ update_time }}</div>
+            <div class="title-main">Life Insurance News Release</div>
+            <div class="title-sub">update at {{ update_time }}</div>
         </div>
     </div>
     <!--to main about contact search-->
@@ -38,17 +38,17 @@
     </div>
     <div class="device-pc nav">
         <div id="nav-menu">
-            <!--
             <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
             <label for="slide-item-1"><span>Home</span></label>
             <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
             <label for="slide-item-2"><span>About</span></label>
             <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
             <label for="slide-item-3"><span>Search</span></label>
+            <!-- Bar -->
             <div class="clear"></div>
-            <!-- Bar --><!--
             <div class="slider">
-            <div class="bar"></div>-->
+                <div class="bar"></div>
+            </div>
         </div>
     </div>
 </header>

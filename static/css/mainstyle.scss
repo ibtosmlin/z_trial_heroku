@@ -3,7 +3,7 @@ $midcolor: rgba(137, 195 ,235, 1); /*! 勿忘草色*/
 $subcolor: rgba(255, 255, 255, 1);
 $badgecolor: rgba(211,56,28, 1);    /*! 緋色*/
 
-$gothic: 'Ubuntu', sans-serif;
+$gothic: 'League Gothic', sans-serif;
 $gothicmaru: 'Kosugi Maru', sans-serif;
 $mincho: 'Sawarabi Mincho', serif;
 
@@ -357,11 +357,21 @@ $hmb-speed: .6s;
 /*! navigation*******************************************/
 .nav{
   font-family: $gothic;
-  font-weight: 400;
   color: $maincolor;
-  &.device-sp{
-    display: flex;
-    font-size: 1.2rem;
+  display: flex;
+  font-size: 1.8rem;
+  font-variation-settings: 'wdth' 100;
+}
+
+input[type=radio]{
+  display: none;
+  }
+
+
+@media screen and (min-width: 601px) {
+  .nav{
+    font-size: 3.2rem;
+    font-variation-settings: 'wdth' 100;
   }
 }
 
@@ -371,9 +381,6 @@ $hmb-speed: .6s;
   span {
   display: block;
   }
-  input[type=radio]{
-    display: none;
-    }
 }
 
 /*! about*******************************************/
@@ -406,16 +413,87 @@ $hmb-speed: .6s;
   color: $maincolor;
   background-color: $subcolor;
   font-family:$gothic;
-  font-weight: 500;
-  font-size: 1.8rem;
+  .title-main{
+    font-size: 3.2rem;
+    font-variation-settings: 'wdth' 75;
+  }
+  .title-sub{
+    font-size: 1.8rem;
+    font-variation-settings: 'wdth' 100;
+  }
 }
 
 
 @media screen and (min-width: 601px) {
   #title{
-    font-size: 2.4rem;
+    .title-main{
+      font-size: 3.6rem;
+      font-variation-settings: 'wdth' 100;
+    }
+    .title-sub{
+      font-size: 2.4rem;
+      font-variation-settings: 'wdth' 100;
+    }
   }
 }
+
+/*!*/
+#nav-menu{
+  width:20vh;
+  label{
+    width: (100% / 3);
+    text-align: center;
+    display: block;
+    float: left;
+    color: $midcolor;
+    cursor: pointer;
+  }
+  label:hover{
+    opacity: 1;
+    }
+}
+
+.clear{
+  clear:both;
+}
+
+/*Bar Style*/
+
+.slider{
+  width: 100%;
+  height: 3px;
+  display: block;
+  background: transparent;
+  margin-top: 10px;
+  border-bottom: 1px solid $midcolor;
+}
+
+.slider .bar{
+  width: (100% / 3) ;
+  height: 3px;
+  background: $maincolor;
+  border-radius: 3px;
+}
+
+/*Animations*/
+#nav-menu label, .bar {
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+/*Toggle*/
+
+#nav-menu .slide-toggle:checked + label{
+  color: $maincolor;
+}
+
+#nav-menu{
+  #slide-item-1:checked ~ .slider .bar{ margin-left: 0; }
+  #slide-item-2:checked ~ .slider .bar{ margin-left: ( 100% / 3 ) ; }
+  #slide-item-3:checked ~ .slider .bar{ margin-left: ( 100% / 3 ) * 2; }
+  }
+
 
 
 /*! media*******************************************/
@@ -429,6 +507,4 @@ $hmb-speed: .6s;
   .device-sp {
     display: none;
   }
-
-
 }

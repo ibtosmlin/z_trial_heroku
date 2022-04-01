@@ -29,6 +29,7 @@ ul {
 
 header {
   margin: 0;
+  height: 100px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 10px;
@@ -492,11 +493,11 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-variation-settings: 'wdth' 100;
 }
 
-input[type=radio] {
+.nav input[type=radio] {
   display: none;
 }
 
@@ -512,8 +513,16 @@ input[type=radio] {
   text-align: center;
 }
 
-#hmb-menu span {
+#hmb-menu label {
+  width: 33.33333%;
+  text-align: center;
   display: block;
+  color: #89c3eb;
+  cursor: pointer;
+}
+
+#hmb-menu .slide-toggle:checked + label {
+  color: #165e83;
 }
 
 /*! about*******************************************/

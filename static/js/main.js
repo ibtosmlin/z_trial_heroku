@@ -45,3 +45,31 @@ $(function(){
     return false;
   });
 });
+
+
+
+$('input[name="hmbItem"]').click(function() {
+  var r = $('input[name="hmbItem"]:checked').val();
+  if(r=='Home'){
+    $('input[value="Home"]').prop('checked', true);
+  }
+  if(r=='About'){
+    $('input[value="About"]').prop('checked', true);
+  }
+  if(r=='Search'){
+    $('input[value="Search"]').prop('checked', true);
+  }
+})
+
+$('input[name="slideItem"]').click(function() {
+  var r = $('input[name="slideItem"]:checked').val();
+  if(r=='Home'){
+    $('input[value="Home"]').prop('checked', true);
+  }
+  if(r=='About'){
+    $('input[value="About"]').prop('checked', true);
+  }
+  if(r=='Search'){
+    $('input[value="Search"]').prop('checked', true);
+  }
+})

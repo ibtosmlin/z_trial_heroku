@@ -54,11 +54,12 @@
 </header>
 <main>
     <article id="about" class="displaynone">
-        <p>当サイトは、全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています</p>
-        <p>更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
-        <p>ご要望・不具合がありましたら、連絡フォームでお知らせいただけると助かります</p>
-        <p><span class="badge-new"></span>2022-04-01  サービスを開始しました</p>
-
+        <div class="message">
+            <p><span class="badge-new"></span>2022-04-01  サービスを開始しました</p>
+            <p>当サイトは、各生命保険会社のホームページから、ニュースリリースのリンクを集めています</p>
+            <p>更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
+            <p>ご要望や不具合等がありましたら、連絡フォームでお知らせいただけると助かります</p>
+            <p></p>
         <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse"
             method="post" target="hidden_iframe" onsubmit="submitted=true;">
             <input type="hidden" name="post-type" value="contact">
@@ -66,7 +67,7 @@
                 <div class="head">連絡フォーム</div>
                 <textarea type="text"
                     name="entry.681933608"
-                    placeholder="ご要望・不具合がありましたらお教えください."
+                    placeholder="ご要望・不具合を入力してください."
                     required></textarea>
                 <button id="submit" type="submit">送信</button>
             </div>
@@ -79,6 +80,7 @@
             style="display: none"
             onload="if(submitted) {window.location='./';}">
         </iframe>
+        </div>
     </article>
 
     <article id="search" class="displaynone">
@@ -90,14 +92,12 @@
                     <li class = "sihead">年月選択</li>
                     <li>
                         <div class="spinput-wrapper">
-                            <span class="icons">calendar_month</span>
                             <input type="month" name="select-years" value={{ si_years[0] }} max={{update_time[:7]}}>
                         </div>
                     </li>
                     <li class = "sihead">会社選択</li>
                     <li>
                         <div class="spinput-wrapper">
-                        <span class="icons">business</span>
                         <select name="select-companies">
 
                             <option value="all" {% if si_comp_all %}selected {% endif %}>全て選択</option>
@@ -111,21 +111,18 @@
                     <li class="sihead">キーワード</li>
                     <li>
                         <div class="spinput-wrapper">
-                            <span class="icons">add_circle</span>
                             <input type="text" name="keywords-inc" placeholder="含むキーワード[ex.提携 異動]"
                             {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
                         </div>
                     </li>
                     <li>
                         <div class="spinput-wrapper">
-                            <span class="icons">remove_circle</span>
                             <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
                             {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
                         </div>
                     </li>
             <li class="btn-submit-wrapper">
-                <button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span>
-                </button>
+                <button type="submit" class="btn-submit">検索</button>
             </li>
             </form>
         </div>

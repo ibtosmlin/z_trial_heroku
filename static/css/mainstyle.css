@@ -41,7 +41,15 @@ header {
           justify-content: space-between;
 }
 
-/*! カード ***********************************************/
+/*! cardlist*******************************************/
+#cardlist {
+  padding: 0 1rem;
+}
+
+#cardlist.displaynone {
+  display: none;
+}
+
 #cards {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -537,10 +545,106 @@ header {
 /*! about*******************************************/
 #about {
   padding: 0 1rem;
+  font-family: "Kosugi Maru", sans-serif;
+  font-size: 1.6rem;
+  color: #165e83;
 }
 
 #about.displaynone {
   display: none;
+}
+
+.message {
+  font-family: inherit;
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 5px auto;
+}
+
+.container {
+  font-family: inherit;
+  display: block;
+  width: 80%;
+  max-width: 600px;
+  margin: 5px auto;
+  text-align: center;
+  border: 1px solid #165e83;
+  border-radius: 6px;
+}
+
+.container textarea {
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 15px 10px 10px;
+  border: 1px solid #165e83;
+  border-radius: 5px;
+  background: transparent;
+  color: #165e83;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 2% 0;
+  width: 80%;
+  max-width: 600px;
+  height: 40vh;
+}
+
+.container textarea:focus {
+  border: 1px solid #89c3eb;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 3px 1px #89c3eb inset;
+          box-shadow: 0px 0px 3px 1px #89c3eb inset;
+}
+
+button {
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #165e83;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+  width: 40%;
+  color: #165e83;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: inherit;
+  font-size: 1.5rem;
+  height: 10%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background: #165e83;
+  color: white;
+}
+
+.head {
+  border-radius: 5px 5px 0px 0px;
+  background-color: #165e83;
+  color: white;
+  font-family: inherit;
+  font-size: 1.8rem;
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 0px solid #165e83;
 }
 
 /*! search*******************************************/
@@ -552,13 +656,57 @@ header {
   display: none;
 }
 
-/*! cardlist*******************************************/
-#cardlist {
-  padding: 0 1rem;
+#menu-sp {
+  font-family: inherit;
+  display: block;
+  width: 80%;
+  max-width: 600px;
+  margin: 5px auto;
+  text-align: center;
 }
 
-#cardlist.displaynone {
-  display: none;
+#menu-sp input, #menu-sp select {
+  /* デフォルトスタイルをリセット */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-family: inherit;
+  margin: 5px 0;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 1px solid #165e83;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1.8rem;
+  color: #165e83;
+  margin-left: 5px;
+  background-color: white;
+  height: 35px;
+  width: 80%;
+  max-width: 400px;
+}
+
+#menu-sp input:focus, #menu-sp select:focus {
+  border: #89c3eb;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 3px 1px #89c3eb inset;
+          box-shadow: 0px 0px 3px 1px #89c3eb inset;
+}
+
+#menu-sp input::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+
+#menu-sp input:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+#menu-sp input::-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+#menu-sp input::placeholder {
+  opacity: 0.5;
 }
 
 /*! title*******************************************/
@@ -663,5 +811,44 @@ header {
   .device-sp {
     display: none;
   }
+}
+
+.sihead {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.6rem;
+  color: #165e83;
+}
+
+.sihead:before, .sihead:after {
+  content: "";
+  height: 1px;
+  /* 線の太さを変えたいときはここを変える */
+  background: #165e83;
+  /* 線の色を変えたいときはここを変える */
+  margin: 0 .4em;
+  /* 文字と線の余白用 なくても良い */
+}
+
+.sihead:before {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.sihead:after {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 /*# sourceMappingURL=mainstyle.css.map */

@@ -290,13 +290,14 @@ header {
 /*! humberger ***********************************************/
 $hmb-size: 14px ;
 $hmb-size-h: ( $hmb-size / 2 );
-$hmb-speed: .6s;
+$hmb-speed: .4s;
 
 %hmb-shared{
   display: inline-block;
-  transition: all .4s;
+  transition: all $hmb-speed;
   box-sizing: border-box;
 }
+
 #hmb{
   @extend %hmb-shared;
   position: relative;
@@ -312,9 +313,9 @@ $hmb-speed: .6s;
     position: absolute;
     left: 0;
     width: 100%;
-    height: 1.5px;
+    height: 3px;
     background-color: $maincolor;
-    border-radius: 1px;
+    border-radius: 1.5px;
   }
   span:nth-of-type(1) {top: 0;}
   span:nth-of-type(2) {top: $hmb-size-h;}
@@ -386,6 +387,10 @@ $hmb-speed: .6s;
     display: block;
     color: $midcolor;
     cursor: pointer;
+    span::before{
+      content:".";
+      color: transparent;
+    }
   }
 }
 
@@ -393,17 +398,14 @@ $hmb-speed: .6s;
   color: $maincolor;
 }
 
+#hmb-menu .slide-toggle:checked + label span::before{
+  background-color: $maincolor;
+}
+
+
 
 /*! about*******************************************/
 #about{
-  padding: 0 1rem;
-  &.displaynone{
-    display: none;
-  }
-}
-
-/*! contact*******************************************/
-#contact{
   padding: 0 1rem;
   &.displaynone{
     display: none;
@@ -418,6 +420,13 @@ $hmb-speed: .6s;
   }
 }
 
+/*! cardlist*******************************************/
+#cardlist{
+  padding: 0 1rem;
+  &.displaynone{
+    display: none;
+  }
+}
 
 /*! title*******************************************/
 #title{
@@ -450,7 +459,7 @@ $hmb-speed: .6s;
 
 /*!*/
 #nav-menu{
-  width:20vh;
+  min-width: 300px;
   label{
     width: (100% / 3);
     text-align: center;
@@ -460,7 +469,7 @@ $hmb-speed: .6s;
     cursor: pointer;
   }
   label:hover{
-    opacity: 1;
+    color:$maincolor;
     }
 }
 
@@ -488,9 +497,9 @@ $hmb-speed: .6s;
 
 /*Animations*/
 #nav-menu label, .bar {
-  transition: all 500ms ease-in-out;
-  -webkit-transition: all 500ms ease-in-out;
-  -moz-transition: all 500ms ease-in-out;
+  transition: all 400ms ease-in-out;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
 }
 
 /*Toggle*/

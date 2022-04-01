@@ -41,22 +41,30 @@ $(function(){
   $('#hmb-menu').hide();
   $('#hmb').on('click', function() {
     $(this).toggleClass('active');
-    $("#hmb-menu").slideToggle(600);
+    $("#hmb-menu").slideToggle(400);
     return false;
   });
 });
 
-
-
 $('input[name="hmbItem"]').click(function() {
+  $('#hmb-menu').hide();
   var r = $('input[name="hmbItem"]:checked').val();
   if(r=='Home'){
+    $('#about').addClass("displaynone")
+    $('#search').addClass("displaynone")
+    $('#cardlist').removeClass("displaynone")
     $('input[value="Home"]').prop('checked', true);
   }
   if(r=='About'){
+    $('#search').addClass("displaynone")
+    $('#cardlist').addClass("displaynone")
+    $('#about').removeClass("displaynone")
     $('input[value="About"]').prop('checked', true);
   }
   if(r=='Search'){
+    $('#about').addClass("displaynone")
+    $('#cardlist').addClass("displaynone")
+    $('#search').removeClass("displaynone")
     $('input[value="Search"]').prop('checked', true);
   }
 })
@@ -64,12 +72,21 @@ $('input[name="hmbItem"]').click(function() {
 $('input[name="slideItem"]').click(function() {
   var r = $('input[name="slideItem"]:checked').val();
   if(r=='Home'){
-    $('input[value="Home"]').prop('checked', true);
+    $('#about').addClass("displaynone")
+    $('#search').addClass("displaynone")
+    $('#cardlist').removeClass("displaynone")
+  $('input[value="Home"]').prop('checked', true);
   }
   if(r=='About'){
+    $('#search').addClass("displaynone")
+    $('#cardlist').addClass("displaynone")
+    $('#about').removeClass("displaynone")
     $('input[value="About"]').prop('checked', true);
   }
   if(r=='Search'){
+    $('#about').addClass("displaynone")
+    $('#cardlist').addClass("displaynone")
+    $('#search').removeClass("displaynone")
     $('input[value="Search"]').prop('checked', true);
   }
 })

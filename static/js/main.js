@@ -48,7 +48,7 @@ $(function(){
 
 $('input[name="hmbItem"]').click(function() {
   $('#hmb-menu').hide();
-  $(this).toggleClass('active');
+  $('#hmb').toggleClass('active');
   var r = $('input[name="hmbItem"]:checked').val();
   if(r=='Home'){
     $('#about').addClass("displaynone")

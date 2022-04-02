@@ -56,10 +56,10 @@
     <article id="about" class="displaynone">
         <div class="message">
             <p><span class="badge-new"></span>2022-04-01  サービスを開始しました</p>
-            <p>当サイトは、各生命保険会社のホームページから、ニュースリリースのリンクを集めています</p>
-            <p>更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
-            <p>ご要望や不具合等がありましたら、連絡フォームでお知らせいただけると助かります</p>
-            <p></p>
+            <p>・当サイトは、各生命保険会社のホームページから、ニュースリリースのリンクを集めています</p>
+            <p>・更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
+            <p>・ご要望や不具合等がありましたら、連絡フォームでお知らせいただけると助かります</p>
+            <p> </p>
         <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse"
             method="post" target="hidden_iframe" onsubmit="submitted=true;">
             <input type="hidden" name="post-type" value="contact">
@@ -85,21 +85,20 @@
 
     <article id="search" class="displaynone">
         <div id="menu-sp">
-            <div class="menu-header"><span>検索</span></div>
+            <div class="head">検索フォーム</div>
             <form method="POST" class="menu_sp">
                 <input type="hidden" name="post-type" value="menu-sp">
-                <ul class="">
-                    <li class = "sihead">年月選択</li>
+                <ul class="siform">
+                    <li class="sihead">⮊年月選択</li>
                     <li>
                         <div class="spinput-wrapper">
                             <input type="month" name="select-years" value={{ si_years[0] }} max={{update_time[:7]}}>
                         </div>
                     </li>
-                    <li class = "sihead">会社選択</li>
+                    <li class="sihead">⮊会社選択</li>
                     <li>
                         <div class="spinput-wrapper">
                         <select name="select-companies">
-
                             <option value="all" {% if si_comp_all %}selected {% endif %}>全て選択</option>
                             {% for ci in companies %}
                                 <option value={{ ci[0] }}
@@ -108,16 +107,16 @@
                         </select>
                         </div>
                     </li>
-                    <li class="sihead">キーワード</li>
+                    <li class="sihead">⮊キーワード</li>
                     <li>
                         <div class="spinput-wrapper">
-                            <input type="text" name="keywords-inc" placeholder="含むキーワード[ex.提携 異動]"
+                            <input type="text" name="keywords-inc" placeholder="⊕含む[ex.提携 異動]"
                             {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
                         </div>
                     </li>
                     <li>
                         <div class="spinput-wrapper">
-                            <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
+                            <input type="text" name="keywords-exc" placeholder="⊖除く[ex.コロナ]"
                             {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
                         </div>
                     </li>

@@ -77,7 +77,7 @@ def index():
                             display_msg='<b>{start} - {end} / {total}</b>',
                             css_framework='foundation')
 
-    return render_template('./main.html',
+    return render_template('./index.html',
             update_time=CT.update_date,
             n = len(tbl),
             years = years,

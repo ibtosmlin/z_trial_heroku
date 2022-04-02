@@ -1,122 +1,105 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>生保News-ＤＢ</title>
-    <!--iconfont-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <!--mystyle-->
-    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
-    <!--resultbox, card-->
-    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/card.css') }}">
-    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/paginate.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <title>生命保険会社 ニュースリリース データベース Life Insurance News Release</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="全生命保険会社のホームページから、ニュースリリースなどのリンクを集約しています">
-
-<!--jQuery-->
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<!--jQuery-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-
-<!--followingbox-->
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/followingbutton.css') }}">
-<script type="text/javascript" src= "{{ url_for('static',filename='./js/followingbutton.js') }}"></script>
-<!--contactform-->
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/contactform.css') }}">
-<!--searchmenu-->
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/searchmenu.css') }}">
-<script type="text/javascript" src= "{{ url_for('static',filename='./js/searchmenu.js') }}"></script>
-<!--searchmenu checkbox-->
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/checkbox.css') }}">
-<script type="text/javascript" src= "{{ url_for('static',filename='./js/checkbox.js') }}"></script>
-<script type="text/javascript" src= "{{ url_for('static',filename='./js/checkbox2.js') }}"></script>
-<!--searchmenu-smartophon-->
-<link rel= "stylesheet" href= "{{ url_for('static',filename='./css/smartphone.css') }}">
-<script type="text/javascript" src= "{{ url_for('static',filename='./js/resultbox.js') }}"></script>
-
+    <meta charset="utf-8-BOM"></meta>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Sawarabi+Gothic&family=Sawarabi+Mincho&family=League+Gothic:wdth@75..100&display=swap'>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='./css/style.css') }}">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="{{ url_for('static',filename='./js/script.js') }}"></script>
 </head>
-
 <body>
-
 <header>
-    <div id="headertitle">
-        <div id="maintitle"><span class="icons">newspaper</span>生保News-ＤＢ</div>
-        <div id="updatetitle"><span class="icons">update</span>{{ update_time }}</div>
+    <div id="title">
+        <div class="device-sp">
+            <div class="title-main">Life Insurance News Release</div>
+            <div class="title-sub">↻{{ update_time }}</div>
+        </div>
+        <div class="device-pc">
+            <div class="title-main">Life Insurance News Release</div>
+            <div class="title-sub">update at {{ update_time }}</div>
+        </div>
     </div>
-    <div id="headerright">
-        <div id="helpicon" class="icon-wrapper">
-            <div class="iconfont">help_outline</div>
-            <div class="icontext">About</div>
+    <!--to main about contact search-->
+    <div class="device-sp nav">
+        <div id="hmb-menu">
+            <input type="radio" name="hmbItem" value="Home" id="hmb-item-1" class="slide-toggle" checked/>
+            <label for="hmb-item-1"><span>Home</span></label>
+            <input type="radio" name="hmbItem" value="About" id="hmb-item-2" class="slide-toggle"/>
+            <label for="hmb-item-2"><span>About</span></label>
+            <input type="radio" name="hmbItem" value="Search" id="hmb-item-3" class="slide-toggle"/>
+            <label for="hmb-item-3"><span>Search</span></label>
         </div>
-        <div id="contacticon" class="icon-wrapper">
-            <div class="iconfont">contact_mail</div>
-            <div class="icontext">Contact</div>
+        <div id="hmb">
+            <span></span><span></span><span></span>
         </div>
-        <div id="searchicon" class="icon-wrapper">
-            <div id="search" class="iconfont">search</div>
-            <div id="close" class="iconfont">search_off</div>
-            <div class="icontext">Search</div>
+    </div>
+    <div class="device-pc nav">
+        <div id="nav-menu">
+            <input type="radio" name="slideItem" value="Home" id="slide-item-1" class="slide-toggle" checked/>
+            <label for="slide-item-1"><span>Home</span></label>
+            <input type="radio" name="slideItem" value="About" id="slide-item-2" class="slide-toggle"/>
+            <label for="slide-item-2"><span>About</span></label>
+            <input type="radio" name="slideItem" value="Search" id="slide-item-3" class="slide-toggle"/>
+            <label for="slide-item-3"><span>Search</span></label>
+            <!-- Bar -->
+            <div class="clear"></div>
+            <div class="slider">
+                <div class="bar"></div>
+            </div>
         </div>
     </div>
 </header>
 <main>
-    <article id="help">
-        <div class="container">
-            <div>― 生保News-DB ―</div>
-            <span>全生命保険会社のホームページから、
-                ニュースリリースなどのリンクを集約しています</span>
-            <span>更新は週一回程度、更新日はヘッダーに記載しています</span>
-            <span>ご要望・不具合がありましたら、
-                連絡フォームでお知らせいただけると助かります</span>
-
-            <span><span class="badge-new"></span>2022-04-01  サービスを開始しました</span>
-
-        </div>
-    </article>
-    <article id="contactform">
-        <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse" method="post"
-            target="hidden_iframe"
-            onsubmit="submitted=true;">
-            <input type="hidden" name="post-type" value="x">
+    <article id="about" class="displaynone">
+        <div class="message">
+            <div class="head">当サイトについて</div>
+            <span class="badge-new"></span>2022-04-01  サービスを開始しました
+            <p>・当サイトは、各生命保険会社のホームページから、ニュースリリースのリンクを集めています</p>
+            <p>・更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
+            <p>・ご要望や不具合等がありましたら、連絡フォームでお知らせいただけると助かります</p>
+            <p> </p>
+        <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse"
+            method="post" target="hidden_iframe" onsubmit="submitted=true;">
+            <input type="hidden" name="post-type" value="contact">
             <div class="container">
                 <div class="head">連絡フォーム</div>
                 <textarea type="text"
                     name="entry.681933608"
-                    placeholder="ご要望・不具合がありましたら教えてください."
+                    placeholder="ご要望・不具合を入力してください."
                     required></textarea>
                 <button id="submit" type="submit">送信</button>
             </div>
         </form>
+        <script type="text/javascript">
+            let submitted = false;
+        </script>
+        <iframe name="hidden_iframe"
+            id="hidden_iframe"
+            style="display: none"
+            onload="if(submitted) {window.location='./';}">
+        </iframe>
+        </div>
     </article>
-    <script type="text/javascript">
-        let submitted = false;
-    </script>
-    <iframe
-        name="hidden_iframe"
-        id="hidden_iframe"
-        style="display: none"
-        onload="if(submitted) {window.location='./';}">
-    </iframe>
 
-
-    <article id="menu">
+    <article id="search" class="displaynone">
         <div id="menu-sp">
-            <div class="menu-header"><span>検索</span></div>
+            <div class="head">検索フォーム</div>
             <form method="POST" class="menu_sp">
                 <input type="hidden" name="post-type" value="menu-sp">
-                <ul class="">
-                    <li class = "sihead">年月選択</li>
+                <ul class="siform">
+                    <li class="sihead">⮊年月選択</li>
                     <li>
                         <div class="spinput-wrapper">
-                            <span class="icons">calendar_month</span>
                             <input type="month" name="select-years" value={{ si_years[0] }} max={{update_time[:7]}}>
                         </div>
                     </li>
-                    <li class = "sihead">会社選択</li>
+                    <li class="sihead">⮊会社選択</li>
                     <li>
                         <div class="spinput-wrapper">
-                        <span class="icons">business</span>
                         <select name="select-companies">
-
                             <option value="all" {% if si_comp_all %}selected {% endif %}>全て選択</option>
                             {% for ci in companies %}
                                 <option value={{ ci[0] }}
@@ -125,102 +108,51 @@
                         </select>
                         </div>
                     </li>
-                    <li class="sihead">キーワード</li>
+                    <li class="sihead">⮊キーワード</li>
                     <li>
                         <div class="spinput-wrapper">
-                            <span class="icons">add_circle</span>
-                            <input type="text" name="keywords-inc" placeholder="含むキーワード[ex.提携 異動]"
+                            <input type="text" name="keywords-inc" placeholder="⊕含む[ex.提携 異動]"
                             {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
                         </div>
                     </li>
                     <li>
                         <div class="spinput-wrapper">
-                            <span class="icons">remove_circle</span>
-                            <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
+                            <input type="text" name="keywords-exc" placeholder="⊖除く[ex.コロナ]"
                             {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
                         </div>
                     </li>
-                <li class="btn-submit-wrapper"><button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span>
-                </button></li>
-                </form>
-        </div>
-        <div id="menu-pc">
-            <div class="menu-header"><span>検索</span></div>
-            <form method="POST" class="menu_pc">
-                <input type="hidden" name="post-type" value="menu-pc">
-                <ul class="ks-cboxtags">
-                    <li class="sihead">リリース年　
-                        <input type="checkbox" name="select-years-all" id="sya"
-                            {% if si_years_all %} checked="checked" {% endif %}>
-                        <label for="sya">全て選択</label>
-                    </li>
-                    <li class="checks-wrapper" id="cbyear">
-                        {% for u in years %}
-                            <div class="check-wrapper">
-                            <input type="checkbox" name="select-years" id="{{ u[0] }}" value={{ u[0] }}
-                            {% if u[0] in si_years %} checked = "checked" {% endif %}/>
-                            <label for="{{ u[0] }}">{{ u[1] }}</label>
-                            </div>
-                        {% endfor %}
-                    </li>
-                    <li class="sihead">会社選択　　
-                        <input type="checkbox" name="select-companies-all" id="sca"
-                        {% if si_comp_all %} checked = "checked" {% endif %}>
-                        <label for="sca">全て選択</label>
-                    </li>
-                    <li class="checks-wrapper" id="cbcomp">
-                        {% for ci in companies %}
-                            <div class="check-wrapper">
-                            <input type="checkbox" name="select-companies" id="{{ ci[0] }}" value={{ ci[0] }}
-                            {% if ci[0] in si_comp %} checked = "checked" {% endif %}/>
-                            <label for="{{ ci[0] }}">{{ ci[1] }}</label>
-                            </div>
-                        {% endfor %}
-                    </li>
-                    <li class="sihead">キーワード</li>
-                    <li>
-                        <span class="icons">add_circle</span>
-                        <input type="text" name="keywords-inc" placeholder="含むキーワード[ex.提携 異動]"
-                        {% if si_kwrds[0] %} value="{{ si_kwrds[0] }}" {% endif %}>
-                    </li>
-                    <li>
-                        <span class="icons">remove_circle</span>
-                        <input type="text" name="keywords-exc" placeholder="除くキーワード[ex.コロナ]"
-                        {% if si_kwrds[1] %} value="{{ si_kwrds[1] }}" {% endif %}>
-                    </li>
-                    <li class="btn-submit-wrapper"><button type="submit" class="btn-submit"><span class='icons'>youtube_searched_for</span>
-                </button></li>
-            </ul>
-        </form>
+            <li class="btn-submit-wrapper">
+                <button type="submit" class="btn-submit">検索</button>
+            </li>
+            </form>
         </div>
     </article>
 
-    <article id="pgn_wrapper"><article>{{ pagination.info }}</article><article>{{ pagination.links }}</article></article>
-    <article id="resultbox">
-        {% for i in range(n) %}
-        <article class="card">
-            <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
-                <div class="company">{{ tbl_company_name[i] }}</div>
-            </a>
-            <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
-                <div class="article">
-                    <p class="sub">
-
-                        {% if tbl_is_new[i] %}
-                        <span class="badge-new"></span>
-                        {% endif %}
-                        {{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
-                    <p class="issue">{{ tbl_article_title[i] }}</p>
-                </div>
-            </a>
-        </article>
-        {% endfor %}
+    <article id="cardlist">
+        <div id="pagination_wrapper">
+            {{ pagination.info }}{{ pagination.links }}
+        </div>
+        <div id="cards">
+            {% for i in range(n) %}
+            <div class="card">
+                <a href={{ tbl_company_url[i] }} target="_blank" rel="noopener norefeprrer">
+                    <div class="company">{{ tbl_company_name[i] }}</div>
+                </a>
+                <a href={{ tbl_article_url[i] }} target="_blank" rel="noopener noreferrer">
+                    <div class="article">
+                        <p class="sub">
+                            {% if tbl_is_new[i] %}
+                            <span class="badge-new"></span>
+                            {% endif %}
+                            {{ tbl_article_date[i] }}  {{ tbl_article_type[i] }}</p>
+                        <p class="issue">{{ tbl_article_title[i] }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
     </article>
     <article><a href="#" id="topBtn">TOP</a></article>
 </main>
-<footer></footer>
-
 
 </body>
-
-</html>

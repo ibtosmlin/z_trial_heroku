@@ -1,166 +1,891 @@
-
-:root{
-  --maincolor: rgba(22, 94, 131, 1);    /*藍色*/
-  --lightcolor: rgba(137, 195 ,235, 1); /*勿忘草色*/
-  --basecolor: rgba(255,255,255, 1);
-  --basecolortrans: rgba(255,255,255, 0.8);
-  --textcolor: rgb(69,87,101);      /*鉄御薄雲鼠*/
-  --bkcolor: rgb(212,220,218);      /*薄雲鼠*/
-  --textcolortrans: rgba(69,87,101, 0.9);      /*鉄御薄雲鼠の少し透過*/
-  --bkcolortrans: rgba(212,220,218, 0.6);      /*薄雲鼠の半分透過*/
-  --selectcolor: rgba(240,131,0, 1);      /*蜜柑*/
-  --badgecolor: rgba(211,56,28, 1);      /*緋色*/
-
-  --headerheight: 50px;
-
-}
-
-/*icon size*/
+@charset "UTF-8";
+/*! 藍色 */
+/*! 勿忘草色*/
+/*! 緋色*/
 html {
-  font-family: 'Kosugi Maru', sans-serif;
   font-size: 62.5%;
-  background-color: var(--bkcolor);
-}
-
-/*icon font size*/
-.icons{
-  font-family: 'Material Icons Outlined';
-  font-size: 24px;
-}
-
-.icons48{
-  font-family: 'Material Icons Outlined';
-  font-size: 48px;
-}
-
-.icons36{
-  font-family: 'Material Icons Outlined';
-  font-size: 36px;
-}
-
-
-body{
-  position: static;
-  top : 0;
-  left: 0;
   padding: 0;
   margin: 0;
 }
 
-header{z-index: 999;}
-#help{z-index: 600;}
-#contactform{z-index: 500;}
-#menu{z-index: 400;}
-#pgn_wrapper{z-index: 300;}
-#topBtn{z-index: 300;}
-#resultbox{z-index: 200;}
-main{z-index: 100;}
-
-header {
-  position: fixed;
-  top : 0;
-  left: 0;
-  height: var(--headerheight);
-  width : 100%;
-  box-sizing: border-box;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: var(--maincolor);
-  color: var(--basecolor);
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#headertitle{
-  color: inherit;
-}
-
-#headerright{
-  color: inherit;
-  display: flex;
-  align-items: center;
-}
-
-@media screen and (min-width: 600px) {
-  #headertitle{
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: left;
-    justify-content:left;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-}
-
-#maintitle, #updatetitle{
-  color: inherit;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-
-#maintitle{
-  font-size: 1.6rem;
-}
-
-#updatetitle{
-  font-size: 1.4rem;
-}
-
-@media screen and (min-width: 600px) {
-  #updatetitle{
-    font-size: 1.6rem;
-  }
-}
-
-
-main{
+body {
+  background: white;
   padding: 0;
   margin: 0;
-  width: 100vw;
-  margin-top: var(--headerheight);
 }
 
-ul{
+main {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: 0 20px;
+}
+
+ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
+header {
+  margin: 0;
+  height: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 
-/*サーチアイコン*/
-#search{
+/*! cardlist*******************************************/
+#cardlist {
+  padding: 0 1rem;
+}
+
+#cardlist.displaynone {
+  display: none;
+}
+
+#cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.card, .blank-card {
+  position: relative;
+  width: 300px;
+  margin: 15px;
+}
+
+.card {
   display: block;
+  background: transparent;
+}
+
+.blank-card {
+  height: 0;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+.company, .article {
+  padding: 10px 10px;
+}
+
+.company, .article, .pagination li {
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.company {
+  color: #165e83;
+  background-color: #89c3eb;
+  font-family: "Kosugi Maru", sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.company:hover {
+  background-color: #165e83;
+  color: white;
+}
+
+.article {
+  color: #165e83;
+  background-color: white;
+  font-family: "Sawarabi Mincho", serif;
+}
+
+.article:hover {
+  color: white;
+  background-color: #165e83;
+}
+
+.sub, .issue {
+  display: block;
+  padding: 0 1rem;
+}
+
+.sub {
+  font-size: 1.2rem;
+}
+
+.issue {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.badge-new:before {
+  display: inline-block;
+  color: white;
+  padding: 0.2rem 0.3rem;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #d3381c;
+  content: "New";
+}
+
+/*! link to toppage ***********************************************/
+#topBtn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: block;
+  /*aタグをblock要素に変更*/
+  color: #165e83;
+  border: 1px solid #165e83;
+  background-color: white;
+  text-decoration: none;
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 15px;
+  border-radius: 20px;
+  padding-top: 18px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+          box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+#topBtn:before {
+  content: '\25B2';
+  color: #165e83;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+}
+
+/*! pagination ***********************************************/
+#pagination_wrapper {
+  font-family: "Kosugi Maru", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem 20px 0.5rem auto;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  color: #165e83;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.pagination-page-info, .pagination {
+  font-size: 1.5rem;
+}
+
+.pagination-page-info {
+  margin-right: 20px;
+  padding: 5px;
+  background: transparent;
+  border-radius: 10px;
+}
+
+.pagination-page-info b {
+  display: block;
+  margin-top: .5rem;
+}
+
+.pagination {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pagination li {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border: solid 1px;
+  border-radius: 0%;
+  border-color: #165e83;
+  text-align: center;
+  padding: 0 0;
+  margin: 0 3px;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+  display: block;
+}
+
+.pagination li a {
+  display: block;
+  text-decoration: none;
+  margin-top: 0.9rem;
+  font-size: 1.5rem;
+  color: #165e83;
+}
+
+.pagination li:first-child {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.pagination li:first-child a {
+  margin-top: 0.5rem;
+}
+
+.pagination li:last-child {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.pagination li:last-child a {
+  margin-top: 0.5rem;
+}
+
+.pagination li.current {
+  border: solid 1px;
+  border-color: #165e83;
+  background: #165e83;
+}
+
+.pagination li.current a {
+  font-weight: bold;
+  color: white;
+}
+
+.pagination li.unavailable {
+  border: dotted 0.3px;
+  opacity: 0.5;
+}
+
+.pagination li.unavailable a {
+  margin-top: 0.5rem;
+}
+
+.pagination li:not([class]):hover {
+  font-weight: bold;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+
+.pagination li .arrow:hover {
+  font-weight: bold;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+
+@media screen and (max-width: 600px) {
+  .pagination .unavailable {
+    display: none;
+  }
+  .pagination li:not([class]) {
+    display: none;
+  }
+}
+
+/*! humberger ***********************************************/
+#hmb, #hmb span {
+  display: inline-block;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#hmb {
+  position: relative;
+  width: 28px;
+  height: 16px;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  margin-top: .5rem;
+}
+
+#hmb span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #165e83;
+  border-radius: 1.5px;
+}
+
+#hmb span:nth-of-type(1) {
+  top: 0;
+}
+
+#hmb span:nth-of-type(2) {
+  top: 7px;
+}
+
+#hmb span:nth-of-type(3) {
+  bottom: 0;
+}
+
+#hmb span:nth-of-type(1) {
+  -webkit-animation: hmb-bar01 0.3s forwards;
+          animation: hmb-bar01 0.3s forwards;
+}
+
+#hmb span:nth-of-type(2) {
+  -webkit-transition: all 0.25s 0.1s;
+  transition: all 0.25s 0.1s;
   opacity: 1;
 }
-#close{
-  display: none;
+
+#hmb span:nth-of-type(3) {
+  -webkit-animation: hmb-bar03 0.3s forwards;
+          animation: hmb-bar03 0.3s forwards;
+}
+
+@-webkit-keyframes hmb-bar01 {
+  0% {
+    -webkit-transform: translateY(7px) rotate(45deg);
+            transform: translateY(7px) rotate(45deg);
+  }
+  50% {
+    -webkit-transform: translateY(7px) rotate(0);
+            transform: translateY(7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes hmb-bar01 {
+  0% {
+    -webkit-transform: translateY(7px) rotate(45deg);
+            transform: translateY(7px) rotate(45deg);
+  }
+  50% {
+    -webkit-transform: translateY(7px) rotate(0);
+            transform: translateY(7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+}
+
+@-webkit-keyframes hmb-bar03 {
+  0% {
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+            transform: translateY(-7px) rotate(-45deg);
+  }
+  50% {
+    -webkit-transform: translateY(-7px) rotate(0);
+            transform: translateY(-7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes hmb-bar03 {
+  0% {
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+            transform: translateY(-7px) rotate(-45deg);
+  }
+  50% {
+    -webkit-transform: translateY(-7px) rotate(0);
+            transform: translateY(-7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+}
+
+#hmb.active span:nth-of-type(1) {
+  -webkit-animation: active-hmb-bar01 0.3s forwards;
+          animation: active-hmb-bar01 0.3s forwards;
+}
+
+#hmb.active span:nth-of-type(2) {
   opacity: 0;
 }
 
-.icon-wrapper{
+#hmb.active span:nth-of-type(3) {
+  -webkit-animation: active-hmb-bar03 0.3s forwards;
+          animation: active-hmb-bar03 0.3s forwards;
+}
+
+@-webkit-keyframes active-hmb-bar01 {
+  0% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+  50% {
+    -webkit-transform: translateY(7px) rotate(0);
+            transform: translateY(7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(7px) rotate(45deg);
+            transform: translateY(7px) rotate(45deg);
+  }
+}
+
+@keyframes active-hmb-bar01 {
+  0% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+  50% {
+    -webkit-transform: translateY(7px) rotate(0);
+            transform: translateY(7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(7px) rotate(45deg);
+            transform: translateY(7px) rotate(45deg);
+  }
+}
+
+@-webkit-keyframes active-hmb-bar03 {
+  0% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+  50% {
+    -webkit-transform: translateY(-7px) rotate(0);
+            transform: translateY(-7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+            transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@keyframes active-hmb-bar03 {
+  0% {
+    -webkit-transform: translateY(0) rotate(0);
+            transform: translateY(0) rotate(0);
+  }
+  50% {
+    -webkit-transform: translateY(-7px) rotate(0);
+            transform: translateY(-7px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+            transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/*! navigation*******************************************/
+.nav {
+  font-family: "League Gothic", sans-serif;
+  color: #165e83;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-  color: var(--basecolor);
+  font-size: 2.4rem;
+  font-variation-settings: 'wdth' 100;
+}
+
+.nav input[type=radio] {
+  display: none;
+}
+
+@media screen and (min-width: 601px) {
+  .nav {
+    font-size: 3.2rem;
+    font-variation-settings: 'wdth' 100;
+  }
+}
+
+#hmb-menu {
+  display: block;
+  text-align: center;
+}
+
+#hmb-menu label {
+  width: 33.33333%;
+  text-align: center;
+  display: block;
+  color: #89c3eb;
   cursor: pointer;
 }
 
-.iconfont{
-  margin-left:auto;
-  margin-right: auto;
-  font-family: 'Material Icons Outlined';
-  font-size: 32px;
+#hmb-menu label span::before {
+  content: ".";
+  color: transparent;
 }
 
-.icontext{
-  font-family: 'Kosugi Maru', sans-serif;
-  font-size: 4px;
-  margin-left:auto;
+#hmb-menu .slide-toggle:checked + label {
+  color: #165e83;
+}
+
+#hmb-menu .slide-toggle:checked + label span::before {
+  background-color: #165e83;
+}
+
+/*! about*******************************************/
+#about {
+  padding: 0 1rem;
+  font-family: "Kosugi Maru", sans-serif;
+  font-size: 1.8rem;
+  color: #165e83;
+}
+
+#about.displaynone {
+  display: none;
+}
+
+.message {
+  font-family: inherit;
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 5px auto;
+}
+
+.message span {
+  margin-left: 2em;
+}
+
+.message p {
+  margin: 1rem 5%;
+  text-indent: -1em;
+  padding-left: 1em;
+}
+
+.container {
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 5px auto;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.container textarea {
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 15px 10px 10px;
+  border: 1px solid #165e83;
+  border-radius: 5px;
+  background: transparent;
+  color: #165e83;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 2% 0;
+  width: 80%;
+  max-width: 600px;
+  height: 40vh;
+}
+
+.container textarea:focus {
+  border: 1px solid #89c3eb;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 3px 1px #89c3eb inset;
+          box-shadow: 0px 0px 3px 1px #89c3eb inset;
+}
+
+button {
+  background-color: #165e83;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #165e83;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: inherit;
+  font-size: 1.5rem;
+  width: 20%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  /*キラッと光る基点とするためrelativeを指定*/
+  position: relative;
+  /*ボタンの形状*/
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  outline: none;
+  overflow: hidden;
+}
+
+/*キラッと光る*/
+button::before {
+  content: '';
+  /*絶対配置でキラッと光るの位置を決める*/
+  position: absolute;
+  top: 0;
+  left: -75%;
+  /*キラッと光る形状*/
+  width: 50%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  -webkit-transform: skewX(-25deg);
+          transform: skewX(-25deg);
+}
+
+/*hoverした際の移動のアニメーション*/
+button:hover::before {
+  -webkit-animation: shine 0.7s;
+          animation: shine 0.7s;
+}
+
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/*! search*******************************************/
+#search {
+  padding: 0 1rem;
+}
+
+#search.displaynone {
+  display: none;
+}
+
+#menu-sp {
+  font-family: "Kosugi Maru", sans-serif;
+  display: block;
+  width: 80%;
+  max-width: 600px;
+  margin: 5px auto;
+  text-align: center;
+}
+
+#menu-sp input, #menu-sp select {
+  /* デフォルトスタイルをリセット */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-family: "Kosugi Maru", sans-serif;
+  margin: 5px 0;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 1px solid #165e83;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1.8rem;
+  color: #165e83;
+  margin-left: 5px;
+  background-color: white;
+  height: 35px;
+  width: 80%;
+  max-width: 400px;
+}
+
+#menu-sp input:focus, #menu-sp select:focus {
+  border: #89c3eb;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 3px 1px #89c3eb inset;
+          box-shadow: 0px 0px 3px 1px #89c3eb inset;
+}
+
+#menu-sp input::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+
+#menu-sp input:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+#menu-sp input::-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+#menu-sp input::placeholder {
+  opacity: 0.5;
+}
+
+/*! title*******************************************/
+#title {
+  color: #165e83;
+  background-color: white;
+  font-family: "League Gothic", sans-serif;
+}
+
+#title .title-main {
+  font-size: 3.2rem;
+  font-variation-settings: 'wdth' 75;
+}
+
+#title .title-sub {
+  font-size: 1.8rem;
+  font-variation-settings: 'wdth' 100;
+}
+
+@media screen and (min-width: 601px) {
+  #title .title-main {
+    font-size: 3.6rem;
+    font-variation-settings: 'wdth' 100;
+  }
+  #title .title-sub {
+    font-size: 2.4rem;
+    font-variation-settings: 'wdth' 100;
+  }
+}
+
+/*!*/
+#nav-menu {
+  min-width: 300px;
+}
+
+#nav-menu label {
+  width: 33.33333%;
+  text-align: center;
+  display: block;
+  float: left;
+  color: #89c3eb;
+  cursor: pointer;
+}
+
+#nav-menu label:hover {
+  color: #165e83;
+}
+
+.clear {
+  clear: both;
+}
+
+/*Bar Style*/
+.slider {
+  width: 100%;
+  height: 3px;
+  display: block;
+  background: transparent;
+  margin-top: 10px;
+  border-bottom: 1px solid #89c3eb;
+}
+
+.slider .bar {
+  width: 33.33333%;
+  height: 3px;
+  background: #165e83;
+  border-radius: 3px;
+}
+
+/*Animations*/
+#nav-menu label, .bar {
+  transition: all 400ms ease-in-out;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+}
+
+/*Toggle*/
+#nav-menu .slide-toggle:checked + label {
+  color: #165e83;
+}
+
+#nav-menu #slide-item-1:checked ~ .slider .bar {
+  margin-left: 0;
+}
+
+#nav-menu #slide-item-2:checked ~ .slider .bar {
+  margin-left: 33.33333%;
+}
+
+#nav-menu #slide-item-3:checked ~ .slider .bar {
+  margin-left: 66.66667%;
+}
+
+/*! media*******************************************/
+@media screen and (max-width: 600px) {
+  .device-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .device-sp {
+    display: none;
+  }
+}
+
+.siform {
+  display: block;
+  width: 90%;
+  margin-left: auto;
   margin-right: auto;
 }
+
+.sihead {
+  color: #165e83;
+  font-size: 2.0rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10%;
+  text-align: left;
+}
+
+.head {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 2.4rem;
+  color: #165e83;
+}
+
+.head:before, .head:after {
+  content: "";
+  height: 1px;
+  /* 線の太さを変えたいときはここを変える */
+  background: #165e83;
+  /* 線の色を変えたいときはここを変える */
+  margin: 0 2rem;
+  /* 文字と線の余白用 なくても良い */
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+/*# sourceMappingURL=style.css.map */

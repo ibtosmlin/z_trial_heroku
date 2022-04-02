@@ -9,6 +9,7 @@ libpath = os.path.dirname(__file__)
 csv_infos = os.path.join(libpath, 'data_infos.csv')
 csv_update_date = os.path.join(libpath, 'data_infos_update_date.csv')
 csv_companies = os.path.join(libpath, 'data_setup_companies.csv')
+txt_new = os.path.join(libpath, 'new.txt')
 
 
 def search_string_to_list(tgt: str)-> list:
@@ -38,6 +39,7 @@ class ContentsTable:
         self._get_update_date()
         self._get_data()
         self._get_initial_table()
+        self._get_new()
 
         return
 
@@ -59,6 +61,13 @@ class ContentsTable:
         with open(csv_update_date, encoding='utf-8-sig', newline='') as f:
             self.update_date = f.readline().replace('"', '').replace('\n', '')
 
+    def _get_new(self)->None:
+        """:key
+        最新情報の取得
+        """
+        with open(txt_new, encoding='utf-8-sig', newline='') as f:
+            self.news = f.read().splitlines()
+        self.news = [n for n in self.news if n]
 
     def _get_data(self):
         """

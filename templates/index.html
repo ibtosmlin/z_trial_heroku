@@ -56,7 +56,11 @@
     <article id="about" class="displaynone">
         <div class="message">
             <div class="head">当サイトについて</div>
-            <span class="badge-new"></span>2022-04-01  サービスを開始しました
+            {% for new in news %}
+            <div class="new">
+                <span class="badge-new"></span>{{ new }}
+            </div>
+            {% endfor %}
             <p>・当サイトは、各生命保険会社のホームページから、ニュースリリースのリンクを集めています</p>
             <p>・更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
             <p>・ご要望や不具合等がありましたら、連絡フォームでお知らせいただけると助かります</p>

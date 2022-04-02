@@ -79,6 +79,7 @@ def index():
 
     return render_template('./index.html',
             update_time=CT.update_date,
+            news = CT.news,
             n = len(tbl),
             years = years,
             companies = CT.companies_ordered,

@@ -422,9 +422,9 @@ $hmb-speed: .4s;
 .message{
   font-family: inherit;
   display:block;
-  width: 90%;
-  max-width:600px;
-  margin:5px auto;
+  width: 100%;
+  margin:0px auto;
+  max-width:500px;
   .new{
     margin-left: 2em ;
   }
@@ -470,30 +470,31 @@ $hmb-speed: .4s;
 
 }
 
+#contact{
+  display: block;
+}
+
 button {
   background-color:$maincolor;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid $maincolor;
   transition: .5s;
-  display: inline-flex;
+  display: block;
   cursor: pointer;
   color:$subcolor;
   align-items: center;
   justify-content: center;
   font-family: inherit;
   font-size: 1.5rem;
-  width: 20%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 
 
 button{
   /*キラッと光る基点とするためrelativeを指定*/
-position: relative;
+  position: relative;
   /*ボタンの形状*/
-display:inline-block;
   padding: 10px 20px;
   text-decoration: none;
   outline: none;
@@ -510,7 +511,7 @@ left: -75%;
   /*キラッと光る形状*/
   width: 50%;
 height: 100%;
-background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.7) 100%);
 transform: skewX(-25deg);
 }
 
@@ -537,8 +538,8 @@ animation: shine 0.7s;
 #menu-sp {
   font-family: $gothicmaru;
   display:block;
-  width: 80%;
-  max-width:600px;
+  width: 100%;
+  max-width:500px;
   margin:5px auto;
   text-align:center;
   input, select {
@@ -699,7 +700,7 @@ animation: shine 0.7s;
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   color: $maincolor;
 }
 
@@ -707,6 +708,12 @@ animation: shine 0.7s;
   content: "";
   height: 1px; /* 線の太さを変えたいときはここを変える */
   background: $maincolor; /* 線の色を変えたいときはここを変える */
-  margin:0 2rem; /* 文字と線の余白用 なくても良い */
   flex-grow: 1;
+}
+
+.head:before{
+  margin-right:2rem; /* 文字と線の余白用 なくても良い */
+}
+.head:after{
+  margin-left:2rem; /* 文字と線の余白用 なくても良い */
 }

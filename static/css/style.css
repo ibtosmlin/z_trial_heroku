@@ -557,9 +557,9 @@ header {
 .message {
   font-family: inherit;
   display: block;
-  width: 90%;
-  max-width: 600px;
-  margin: 5px auto;
+  width: 100%;
+  margin: 0px auto;
+  max-width: 500px;
 }
 
 .message .new {
@@ -606,6 +606,10 @@ header {
           box-shadow: 0px 0px 3px 1px #89c3eb inset;
 }
 
+#contact {
+  display: block;
+}
+
 button {
   background-color: #165e83;
   padding: 15px;
@@ -613,9 +617,7 @@ button {
   border: 1px solid #165e83;
   -webkit-transition: .5s;
   transition: .5s;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: block;
   cursor: pointer;
   color: white;
   -webkit-box-align: center;
@@ -626,16 +628,13 @@ button {
           justify-content: center;
   font-family: inherit;
   font-size: 1.5rem;
-  width: 20%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 
 button {
   /*キラッと光る基点とするためrelativeを指定*/
   position: relative;
   /*ボタンの形状*/
-  display: inline-block;
   padding: 10px 20px;
   text-decoration: none;
   outline: none;
@@ -652,8 +651,8 @@ button::before {
   /*キラッと光る形状*/
   width: 50%;
   height: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.3)));
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.7)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
   -webkit-transform: skewX(-25deg);
           transform: skewX(-25deg);
 }
@@ -688,8 +687,8 @@ button:hover::before {
 #menu-sp {
   font-family: "Kosugi Maru", sans-serif;
   display: block;
-  width: 80%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 500px;
   margin: 5px auto;
   text-align: center;
 }
@@ -872,7 +871,7 @@ button:hover::before {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   color: #165e83;
 }
 
@@ -882,10 +881,18 @@ button:hover::before {
   /* 線の太さを変えたいときはここを変える */
   background: #165e83;
   /* 線の色を変えたいときはここを変える */
-  margin: 0 2rem;
-  /* 文字と線の余白用 なくても良い */
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.head:before {
+  margin-right: 2rem;
+  /* 文字と線の余白用 なくても良い */
+}
+
+.head:after {
+  margin-left: 2rem;
+  /* 文字と線の余白用 なくても良い */
 }
 /*# sourceMappingURL=style.css.map */

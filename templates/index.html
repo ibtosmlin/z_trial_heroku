@@ -58,13 +58,13 @@
             <div class="head">サイトについて</div>
             {% for new in news %}
             <div class="new">
-                <span class="badge-new"></span>{{ new }}
+            <span class="badge-new"></span>
+                {{ new }}
             </div>
             {% endfor %}
-            <p>・当サイトは、各生命保険会社のホームページから、ニュースリリースのリンクを集めています</p>
-            <p>・更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
-            <p>・ご要望や不具合等がありましたら、連絡フォームでお知らせいただけると助かります</p>
-            <p> </p>
+            <p>►当サイトは、各生命保険会社のホームページから、ニュースリリースのリンクを集めています</p>
+            <p>►更新は週一回程度、最新の更新日はヘッダーに記載しています</p>
+            <p>►ご要望や不具合等がありましたら、連絡フォームでお知らせいただけると助かります</p>
         <form id="contact" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdfsznbhybpZEH852oM4UpzL2YzfgXo3NGL07r5ur1t05zTUw/formResponse"
             method="post" target="hidden_iframe" onsubmit="submitted=true;">
             <input type="hidden" name="post-type" value="contact">
@@ -94,13 +94,13 @@
             <form method="POST" class="menu_sp">
                 <input type="hidden" name="post-type" value="menu-sp">
                 <ul class="siform">
-                    <li class="sihead">⮊年月選択</li>
+                    <li class="sihead">►年月選択</li>
                     <li>
                         <div class="spinput-wrapper">
                             <input type="month" name="select-years" value={{ si_years[0] }} max={{update_time[:7]}}>
                         </div>
                     </li>
-                    <li class="sihead">⮊会社選択</li>
+                    <li class="sihead">►会社選択</li>
                     <li>
                         <div class="spinput-wrapper">
                         <select name="select-companies">
@@ -112,7 +112,7 @@
                         </select>
                         </div>
                     </li>
-                    <li class="sihead">⮊キーワード</li>
+                    <li class="sihead">►キーワード</li>
                     <li>
                         <div class="spinput-wrapper">
                             <input type="text" name="keywords-inc" placeholder="⊕含む[ex.提携 異動]"

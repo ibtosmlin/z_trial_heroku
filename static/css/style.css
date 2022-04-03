@@ -562,8 +562,8 @@ header {
   max-width: 500px;
 }
 
-.message .new {
-  margin-left: 2em;
+.message .new span {
+  margin-left: 1em;
 }
 
 .message p {

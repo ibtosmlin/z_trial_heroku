@@ -569,7 +569,7 @@ header {
 .message p {
   margin: 1rem 5%;
   text-indent: -1em;
-  padding-left: 1em;
+  padding-left: 0.7em;
 }
 
 .container {

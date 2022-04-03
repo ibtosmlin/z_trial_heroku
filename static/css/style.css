@@ -767,6 +767,7 @@ button:hover::before {
 
 /*!*/
 #nav-menu {
+  display: none;
   min-width: 300px;
 }
 

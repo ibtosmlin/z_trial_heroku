@@ -66,6 +66,9 @@ header {
   @extend %card-shared;
   display: block;
   background: transparent;
+  a{
+    text-decoration: none;
+  }
 }
 
 .blank-card{
@@ -74,10 +77,6 @@ header {
 }
 
 
-
-.card a{
-  text-decoration: none;
-}
 
 %card-contents-shared{
   padding: 10px 10px;
@@ -114,6 +113,7 @@ header {
     background-color: $maincolor;
   }
 }
+
 %article-shared{
   display: block;
   padding: 0 1rem;
@@ -146,11 +146,12 @@ header {
 }
 
 /*! link to toppage ***********************************************/
+
 #topBtn {
   position:fixed;
   bottom:10px;
   right:10px;
-  display:block; /*aタグをblock要素に変更*/
+  display:none;
   color: $maincolor;
   border: 1px solid  $maincolor;
   background-color: $subcolor;
@@ -166,9 +167,6 @@ header {
   padding-top:18px;
   box-sizing:border-box;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-
-
-
   &:before {
     content:'\25B2';
     color: $maincolor;
@@ -385,7 +383,7 @@ $hmb-speed: .4s;
 }
 
 #hmb-menu{
-  display: block;
+  display: none;
   text-align: center;
   label{
     width: (100% / 3);
@@ -460,15 +458,12 @@ $hmb-speed: .4s;
     width: 80%;
     max-width: 600px;
     height: 40vh;
+    &:focus{
+      border: 1px solid $midcolor;
+      outline:0;
+      box-shadow: 0px 0px 3px 1px $midcolor inset;
+    }
   }
-
-  textarea:focus{
-    border: 1px solid $midcolor;
-    outline:0;
-    box-shadow: 0px 0px 3px 1px $midcolor inset;
-  }
-
-
 }
 
 #contact{
@@ -500,32 +495,32 @@ button{
   text-decoration: none;
   outline: none;
   overflow: hidden;
-}
 
-/*キラッと光る*/
-button::before {
-content: '';
-  /*絶対配置でキラッと光るの位置を決める*/
-position: absolute;
-top: 0;
-left: -75%;
-  /*キラッと光る形状*/
-  width: 50%;
-height: 100%;
-background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.7) 100%);
-transform: skewX(-25deg);
-}
+  /*キラッと光る*/
+  &::before {
+    content: '';
+      /*絶対配置でキラッと光るの位置を決める*/
+    position: absolute;
+    top: 0;
+    left: -75%;
+      /*キラッと光る形状*/
+      width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.7) 100%);
+    transform: skewX(-25deg);
+  }
+  /*hoverした際の移動のアニメーション*/
+  &:hover::before {
+    animation: shine 0.7s;
+  }
 
-/*hoverした際の移動のアニメーション*/
-button:hover::before {
-animation: shine 0.7s;
 }
 
 @keyframes shine {
-100% {
-  left: 125%;
-}
-}
+  100% {
+    left: 125%;
+  }
+  }
 
 
 /*! search*******************************************/

@@ -51,42 +51,29 @@ $(function (){
     $('#hmb-menu').hide();
     $('#hmb').toggleClass('active');
     var r = $('input[name="hmbItem"]:checked').val();
-    if(r=='Home'){
-      $('#about, #search').addClass("displaynone")
-      $('#cardlist').removeClass("displaynone")
-      $('input[value="Home"]').prop('checked', true);
-    }
-    if(r=='About'){
-      $('#search, #cardlist').addClass("displaynone")
-      $('#about').removeClass("displaynone")
-      $('input[value="About"]').prop('checked', true);
-    }
-    if(r=='Search'){
-      $('#cardlist, #about').addClass("displaynone")
-      $('#search').removeClass("displaynone")
-      $('input[value="Search"]').prop('checked', true);
-    }
+    menuswitch(r);
   })
 
   $('input[name="slideItem"]').click(function() {
     var r = $('input[name="slideItem"]:checked').val();
-    if(r=='Home'){
-      $('#about').addClass("displaynone")
-      $('#search').addClass("displaynone")
-      $('#cardlist').removeClass("displaynone")
-    $('input[value="Home"]').prop('checked', true);
-    }
-    if(r=='About'){
-      $('#search').addClass("displaynone")
-      $('#cardlist').addClass("displaynone")
-      $('#about').removeClass("displaynone")
-      $('input[value="About"]').prop('checked', true);
-    }
-    if(r=='Search'){
-      $('#about').addClass("displaynone")
-      $('#cardlist').addClass("displaynone")
-      $('#search').removeClass("displaynone")
-      $('input[value="Search"]').prop('checked', true);
-    }
+    menuswitch(r);
   })
 })
+
+function menuswitch(r){
+if(r=='Home'){
+  $('#about, #search').addClass("displaynone")
+  $('#cardlist').removeClass("displaynone")
+  $('input[value="Home"]').prop('checked', true);
+}
+if(r=='About'){
+  $('#search, #cardlist').addClass("displaynone")
+  $('#about').removeClass("displaynone")
+  $('input[value="About"]').prop('checked', true);
+}
+if(r=='Search'){
+  $('#cardlist, #about').addClass("displaynone")
+  $('#search').removeClass("displaynone")
+  $('input[value="Search"]').prop('checked', true);
+}
+}

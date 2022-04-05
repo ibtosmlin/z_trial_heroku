@@ -20,7 +20,7 @@ heroku update
 ```
 1. heroku 空アプリ作成
 1. DeployタブでGithub連携
-
+1. heroku settings build python/heroku
 
 # レスポンシブ対応
 最小幅は320px

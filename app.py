@@ -9,63 +9,41 @@ from data import readcsv
 app = Flask(__name__)
 
 CT = readcsv.ContentsTable()
+print(CT.df_articles)
 page = 1
-per_page = 50
-
-# for si-pc
-years = []
-for y in list(CT.years):
-    yf = y[0]
-    yy = int(y[1:])
-    if yf == '<':
-        yy -= 1
-        yy = f'{yy}年以前'
-    else:
-        yy = f'{yy}年'
-    years.append((y, yy))
-
-
-    si_years_all = True
-    si_years = [y0 for y0, _y1 in years]
-    si_comp_all = True
-    si_comp = [c0 for c0, _c1 in CT.companies_ordered]
-    kyrd_inc = ""
-    kyrd_exc = ""
-    si_kwrds = ("", "")
-    tbl_all = CT.df_articles_init
+per_page_init = 50
+per_page = ((CT.newcount + 10 - 1) // 10 ) * 10 
+si_ym = ""
+si_comp_all = True
+si_comp = [c0 for c0, _c1 in CT.companies_ordered]
+kyrd_inc = ""
+kyrd_exc = ""
+si_kwrds = ("", "")
+tbl_all = CT.df_articles
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    global si_years_all, si_years, si_comp_all, si_comp
+    global si_ym, si_comp_all, si_comp, per_page
     global kyrd_inc, kyrd_exc, si_kwrds, tbl_all, page
 
     if request.method == 'POST':
         post_type = request.form.get('post-type')
-        if post_type == 'menu-pc':
-            si_years_all = request.form.get('select-years-all')
-            si_years = request.form.getlist('select-years')
-            si_comp_all = request.form.get('select-companies-all')
-            si_comp = request.form.getlist('select-companies')
-            kyrd_inc = request.form.get('keywords-inc')
-            kyrd_exc = request.form.get('keywords-exc')
-            si_kwrds = (kyrd_inc, kyrd_exc)
 
-        elif post_type == 'menu-sp':
-            si_years_all = True
-            si_years = request.form.getlist('select-years')
+        if post_type == 'menu-sp':
+            si_ym = request.form.getlist('select-years')[0]
             si_comp = request.form.getlist('select-companies')
             if si_comp[0] != 'all': si_comp_all = False
             kyrd_inc = request.form.get('keywords-inc')
             kyrd_exc = request.form.get('keywords-exc')
             si_kwrds = (kyrd_inc, kyrd_exc)
-
+            per_page = per_page_init
         else:
             pass
 
     rpage = request.args.get(get_page_parameter(), type=int, default=1)
 
     if rpage == page:
-        tbl_all = CT.df_articles_selected(si_comp, si_years, si_kwrds)
+        tbl_all = CT.df_articles_selected(si_comp, si_ym, si_kwrds)
         page = 1
     else:
         page = rpage
@@ -81,7 +59,6 @@ def index():
             update_time=CT.update_date,
             news = CT.news,
             n = len(tbl),
-            years = years,
             companies = CT.companies_ordered,
             tbl_company_name = list(tbl.company_name_s),
             tbl_company_url = list(tbl.company_url),
@@ -91,12 +68,10 @@ def index():
             tbl_article_url = list(tbl.article_url),
             tbl_is_new = list(tbl.is_new),
             pagination = pagination,
+            si_ym = si_ym,
             si_comp = si_comp,
             si_comp_all = si_comp_all,
-            si_years = si_years,
-            si_years_all = si_years_all,
             si_kwrds = si_kwrds,
-
             )
 
 

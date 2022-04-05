@@ -23,7 +23,7 @@ def short_name(comp_str: str) -> str:
 class ContentsTable:
     def __init__(self) -> None:
         # 現時点での日時
-        self.today = None
+        self.today = datetime.date.today().strftime('%Y-%m-%d')
         # 現時から起算した過去5年のリスト
         self.years = None
         # データの更新日時
@@ -32,26 +32,17 @@ class ContentsTable:
         self.companies_ordered = None
         # 記事のdataFrame
         self.df_articles = None
-        # method = "get"の場合のdataFrame
-        self.df_articles_init = None
+        # method = "post"の場合のdataFrame
+        self.cp_articles_selected = None
+        # new-badgeの個数
+        self.newcount = 0
 
-        self._get_years_list()
+
         self._get_update_date()
         self._get_data()
-        self._get_initial_table()
         self._get_new()
 
         return
-
-
-    def _get_years_list(self)->None:
-        # 現時点での日時
-        self.today = str(datetime.date.today())
-        year = int(self.today[:4])
-        self.years = []
-        for i in range(4):
-            self.years.append("="+str(year - i))
-        self.years.append("<"+str(year - i))
 
 
     def _get_update_date(self)->None:
@@ -63,15 +54,29 @@ class ContentsTable:
 
     def _get_new(self)->None:
         """:key
-        最新情報の取得
+        最新コメントの取得
         """
         with open(txt_new, encoding='utf-8-sig', newline='') as f:
             self.news = f.read().splitlines()
         self.news = [n for n in self.news if n]
 
+    def _sort_data(self, df):
+        dfc = df.copy()
+        x = dfc.article_date[dfc.is_new & (dfc.article_date != "----")]
+        mx = max(x)
+        mn = min(x)
+        mn = datetime.datetime.strptime(mn, "%Y-%m-%d") - datetime.timedelta(days=1)
+        mn = mn.strftime('%Y-%m-%d')
+        dfc["dumd"] = dfc.article_date
+        dfc.loc[(dfc.article_date == "----") & dfc.is_new, "dumd"] = mx
+        dfc.loc[(dfc.article_date == "----") & ~(dfc.is_new),"dumd"] = mn
+        dfc.sort_values(["dumd", "company_order"], ascending=[False, True], inplace=True)
+        return dfc.drop("dumd", axis=1)
+
+
     def _get_data(self):
         """
-        会社名のリスト
+        会社名のリストをマージして、ソート
         """
         df_companies = pd.read_csv(csv_companies,encoding='utf-8-sig',usecols=['company_id', 'company_name'])
         self.companies_ordered = []
@@ -86,13 +91,13 @@ class ContentsTable:
                         usecols=['company_id', 'company_name', 'company_url',
                                   'article_type', 'article_date', 'article_title', 'article_url', 'is_new'])
         df_articles = pd.merge(df_articles, df_companies, on='company_id')
-        df_articles.sort_values(['company_order', 'article_date'], ascending=[True, False], inplace=True)
         df_articles['company_name_s'] = df_articles.company_name.map(short_name)
-        self.df_articles = df_articles
+        self.df_articles = self._sort_data(df_articles)
+        self.newcount = np.count_nonzero(self.df_articles.is_new)
 
 
-    def df_articles_selected(self, companies: list, years: list, key_words: tuple):
-        cp_articles = self.df_articles_init.copy()
+    def df_articles_selected(self, companies: list, ym: str, key_words: tuple):
+        cp_articles = self.df_articles.copy()
         fg = np.array([True] * len(cp_articles))
 
         if companies and companies[0] != 'all':
@@ -101,25 +106,14 @@ class ContentsTable:
         else:
             fg_companies = fg.copy()
 
-        if years and len(years[0]) != 0:   #  "=yyyy" or "<yyyy"
-            if len(years[0]) == 5:
-                fg_years = np.array([False] * len(cp_articles))
-                _g = lambda x: self.today[:4] if x[:4] == '----' else x[:4]
-                article_year = cp_articles.article_date.map(_g)
-                for year in years:
-                    if year[0] == '=':
-                        fg_years |= article_year == year[1:]
-                    else:
-                        fg_years |= article_year < year[1:]
-            else:
-                fg_years = np.array([False] * len(cp_articles))
-                _g = lambda x: self.today[:7] if x[:4] == '----' else x[:7]
-                article_year = cp_articles.article_date.map(_g)
-                for year in years:
-                    fg_years |= article_year == year
-
+        if ym != "":   #  "yyyy-MM"
+            fg_ym = np.array([False] * len(cp_articles))
+            print(self.today, type(self.today))
+            _g = lambda x: self.today[:7] if x[:4] == '----' else x[:7]
+            article_year = cp_articles.article_date.map(_g)
+            fg_ym |= article_year == ym
         else:
-            fg_years = fg.copy()
+            fg_ym = fg.copy()
 
         key_words_inc = search_string_to_list(key_words[0])
         key_words_exc = search_string_to_list(key_words[1])
@@ -137,34 +131,12 @@ class ContentsTable:
         else:
             fg_key_words_exc = fg.copy()
 
-#        print('comp ',np.count_nonzero(fg_companies))
-#        print('yrs ',np.count_nonzero(fg_years))
-#        print('inc',np.count_nonzero(fg_key_words_inc))
-#        print('exp',np.count_nonzero(fg_key_words_exc))
-        self.cp_articles_selected = cp_articles[fg_companies&fg_years&fg_key_words_inc&fg_key_words_exc]
+        self.cp_articles_selected = self._sort_data(cp_articles[fg_companies&fg_ym&fg_key_words_inc&fg_key_words_exc])
         return self.cp_articles_selected
 
-    def _get_initial_table(self):
-        cp_articles = self.df_articles.copy()
-
-        # 現時点での日時
-        kijun = datetime.datetime.strptime(self.update_date + ':00', '%Y-%m-%d %H:%M:%S')
-
-        def _f(x):
-            if x == '----':
-                return False
-            else:
-                x = datetime.datetime.strptime(x, '%Y-%m-%d')
-            return True
-
-        fg = cp_articles.article_date.map(_f)
-        cp_articles.sort_values(["article_date", "company_order"], ascending=[False, True], inplace=True)
-        self.df_articles_init = cp_articles[fg]
 
 
 if __name__ == '__main__':
     CT = ContentsTable()
-#    print(CT.select_table(['日本生命保険相互会社'], ['=2021', "=2019"], '人事異動'))
-#    print(CT.select_table(['朝日生命保険相互会社'], ['=2022', "<2019"], '').article_date)
-#    print(CT.select_table(['朝日生命保険相互会社'], ["<2019"], '').article_date)
-    print(CT.df_articles_init.info())
+#    print(CT.select_table(['日本生命保険相互会社'], '2021-03', ('人事異動', None)))
+    print(CT.df_articles.info())

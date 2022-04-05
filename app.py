@@ -9,10 +9,9 @@ from data import readcsv
 app = Flask(__name__)
 
 CT = readcsv.ContentsTable()
-print(CT.df_articles)
 page = 1
 per_page_init = 50
-per_page = ((CT.newcount + 10 - 1) // 10 ) * 10 
+per_page = ((CT.newcount + 10 - 1) // 10 ) * 10
 si_ym = ""
 si_comp_all = True
 si_comp = [c0 for c0, _c1 in CT.companies_ordered]

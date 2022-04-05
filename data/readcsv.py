@@ -62,14 +62,15 @@ class ContentsTable:
 
     def _sort_data(self, df):
         dfc = df.copy()
-        x = dfc.article_date[dfc.is_new & (dfc.article_date != "----")]
-        mx = max(x)
-        mn = min(x)
-        mn = datetime.datetime.strptime(mn, "%Y-%m-%d") - datetime.timedelta(days=1)
-        mn = mn.strftime('%Y-%m-%d')
         dfc["dumd"] = dfc.article_date
-        dfc.loc[(dfc.article_date == "----") & dfc.is_new, "dumd"] = mx
-        dfc.loc[(dfc.article_date == "----") & ~(dfc.is_new),"dumd"] = mn
+        x = dfc.article_date[dfc.is_new & (dfc.article_date != "----")]
+        if len(x)>0:
+            mx = max(x)
+            mn = min(x)
+            mn = datetime.datetime.strptime(mn, "%Y-%m-%d") - datetime.timedelta(days=1)
+            mn = mn.strftime('%Y-%m-%d')
+            dfc.loc[(dfc.article_date == "----") & dfc.is_new, "dumd"] = mx
+            dfc.loc[(dfc.article_date == "----") & ~(dfc.is_new),"dumd"] = mn
         dfc.sort_values(["dumd", "company_order"], ascending=[False, True], inplace=True)
         return dfc.drop("dumd", axis=1)
 
@@ -108,7 +109,6 @@ class ContentsTable:
 
         if ym != "":   #  "yyyy-MM"
             fg_ym = np.array([False] * len(cp_articles))
-            print(self.today, type(self.today))
             _g = lambda x: self.today[:7] if x[:4] == '----' else x[:7]
             article_year = cp_articles.article_date.map(_g)
             fg_ym |= article_year == ym

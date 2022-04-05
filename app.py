@@ -11,7 +11,9 @@ app = Flask(__name__)
 CT = readcsv.ContentsTable()
 page = 1
 per_page_init = 50
-per_page = ((CT.newcount + 10 - 1) // 10 ) * 10
+per_page_new = ((CT.newcount + 10 - 1) // 10 ) * 10
+per_page = max(per_page_init, per_page_new)
+
 si_ym = ""
 si_comp_all = True
 si_comp = [c0 for c0, _c1 in CT.companies_ordered]
@@ -38,7 +40,6 @@ def index():
             per_page = per_page_init
         else:
             pass
-
     rpage = request.args.get(get_page_parameter(), type=int, default=1)
 
     if rpage == page:
